@@ -20,9 +20,8 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     private bool isClicked = false; //クリック中フラグ
 
-    //[SerializeField]
-    //private TextMeshPro nameLabel = default;
-
+    [SerializeField]
+    private TextMeshPro nameLabel = default;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +33,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         //ニックネーム
-        //nameLabel.text = photonView.Owner.NickName;
+        nameLabel.text = photonView.Owner.NickName;
     }
 
     // Update is called once per frame
@@ -43,7 +42,6 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
-            
             // Vector2でマウス位置座標を取得する
             position = Input.mousePosition;
 
@@ -52,11 +50,11 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
             // ワールド座標に変換されたマウス座標を代入
             this.gameObject.transform.position = screenToWorldPointPosition;
-            
+
             //マウスがクリックされているかの判定
             if (Input.GetMouseButton(0))
             {
-                isClicked = true; 
+                isClicked = true;
             }
             else
             {

@@ -9,7 +9,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     {
         // PhotonServerSettingsに設定した内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
-        //PhotonNetwork.LocalPlayer.NickName = "Player";
+        PhotonNetwork.LocalPlayer.NickName = "guest" + UnityEngine.Random.Range(1000, 9999);
     }
 
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
