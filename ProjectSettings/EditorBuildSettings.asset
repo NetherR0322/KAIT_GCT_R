@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+
     path: Assets/KanegaeFolder/Scenes/TakoTitleScene.unity
     guid: c9e0cf406d012d646bf6ed8a91d4ced9
   - enabled: 1
@@ -23,4 +24,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KanegaeFolder/Scenes/GameOverScene.unity
     guid: 322d4163577b3df49a67fa0b5cf8c9c3
+
   m_configObjects: {}
