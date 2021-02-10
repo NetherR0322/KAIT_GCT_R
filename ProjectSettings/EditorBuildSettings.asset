@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TakanoFolder/Scenes/TestScene.unity
+    guid: 31e29299fa7b32a498564ab51a36b301
   m_configObjects: {}
