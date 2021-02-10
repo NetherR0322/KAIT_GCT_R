@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class haveAsiList : MonoBehaviour
 {
+    public static bool[] asiList=new bool [8];
     // Start is called before the first frame update
     void Start()
     {

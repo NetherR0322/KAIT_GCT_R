@@ -11,26 +11,46 @@ public class asiMover : MonoBehaviour
     //private bool isHave;//プレイヤーに足をつかまれている状態か
     public GameObject dPos;//IKが遠くに行き過ぎたときの初期位置(足先にからのGOをつけておく)
     public float touchDist;
-    public static string isHave;
+    private int id;
+    private int myHaveId=-1;
+    private GameObject cur;
+    cursor curScript;
+    private int curHaveId;
     // Start is called before the first frame update
     void Start()
     {
-        //ないよ
+        if (this.name == "L1") id = 0;
+        if (this.name == "L2") id = 1;
+        if (this.name == "L3") id = 2;
+        if (this.name == "L4") id = 3;
+        if (this.name == "R1") id = 4;
+        if (this.name == "R2") id = 5;
+        if (this.name == "R3") id = 6;
+        if (this.name == "R4") id = 7;
     }
 
     // Update is called once per frame
     void Update(){
-        //Debug.Log(this.name+":"+isHave);
+        //Debug.Log(id);
         Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
         float dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
-        if (dist<=touchDist&&Input.GetMouseButton(0)&&(isHave==this.name||isHave==""))//もし足をつかまれていたら
+        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || curHaveId == id))//もし足をつかまれていたら
         {
             this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
-            isHave = this.name;
-
+            haveAsiList.asiList[id] = true;
+            curScript = cur.GetComponent<cursor>();
+            curScript.rin_curHaveId = id;
         }
-        if (Input.GetMouseButtonUp(0)) isHave = "";
+        else {
+            this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
+        }
+        if (Input.GetMouseButtonUp(0)) { haveAsiList.asiList[id] = false;myHaveId = -1; }
    }
+    void OnTriggerStay2D(Collider2D col) {
+        cur = col.gameObject;
+        curScript = cur.GetComponent<cursor>();
+        curHaveId = curScript.rin_curHaveId;
+    }
     /*
     public void touchDown() {//足をクリック
         isHave = true;
