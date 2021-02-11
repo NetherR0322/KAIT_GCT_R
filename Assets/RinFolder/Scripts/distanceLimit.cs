@@ -34,7 +34,7 @@ public class distanceLimit : MonoBehaviour
             if(dist>maxDist)rb.constraints = RigidbodyConstraints2D.FreezePosition;//指定の距離よりも足が伸びていたらpositionをフリーズ
             if (i < 4) LAllDist += dist;//左足ならば左足の合計に加算
             if (i >= 4) RAllDist += dist;//右足ならば右足の合計に加算
-            //Debug.Log(i+":"+dist);
+            Debug.Log(i+":"+dist);
         }
         float mixDist=LAllDist - RAllDist;//左足の合計と右足の合計の差を求める(符号によって短いほうがわかる)
         if (mixDist > 0) forceMove.horizonalForce = -1;//総距離が短いほうに移動させるように代入

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cursor : MonoBehaviour
 {
-    public int rin_curHaveId;
+    public int rin_curHaveId=-1;
     //スクリプトをつける場所:カーソル
     // Start is called before the first frame update
     void Start()
