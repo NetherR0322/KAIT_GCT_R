@@ -1,9 +1,10 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using Photon.Pun;
 
 // MonoBehaviourではなくMonoBehaviourPunCallbacksを継承して、Photonのコールバックを受け取れるようにする
-public class SampleScene : MonoBehaviourPunCallbacks
+public class SampleScene : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static int id;
     private void Start()
@@ -28,5 +29,22 @@ public class SampleScene : MonoBehaviourPunCallbacks
         GameObject cursor=PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
         cursor.name = ""+id;
         id++;
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // 自身側が生成したオブジェクトの場合は
+            // クリック中フラグのデータを送信する
+            stream.SendNext(id);
+        }
+        else
+        {
+            // 他プレイヤー側が生成したオブジェクトの場合は
+            // 受信したデータからクリック中フラグを更新する
+            id = (int)stream.ReceiveNext();
+            Cursor.visible = false;
+        }
     }
 }
