@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class haveAsiList : MonoBehaviour
+public class debugText : MonoBehaviour
 {
-    public static bool[] asiList=new bool [8];
+    public static string text;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,6 @@ public class haveAsiList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //for (int i = 0; i < asiList.Length; i++) {
-            //Debug.Log(i+":"+asiList[i]);
-        //}
+        this.GetComponent<Text>().text = text;
     }
 }

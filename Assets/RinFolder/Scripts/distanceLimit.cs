@@ -11,10 +11,13 @@ public class distanceLimit : MonoBehaviour
     private float LAllDist;//左足の、体からの距離の総和
     private float RAllDist;//右足の、体からの距離の総和
     private float dist;//距離の一時保管場所
+    public Sprite haveSprite;
+    private Sprite defSprite;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        defSprite=target[0].GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -28,13 +31,25 @@ public class distanceLimit : MonoBehaviour
         RAllDist = 0.0f;//右足の距離の合計
         forceMove.horizonalForce = 0;//たこのx向きの力を0にする
         rb.constraints = RigidbodyConstraints2D.None;//positionのフリーズを解除
+        debugText.text = "";
         for (int i = 0; i < target.Length; i++)//足の本数(8本)分ループ
         {
+            if (haveAsiList.asiList[i] == true)
+            {
+                target[i].GetComponent<SpriteRenderer>().sprite = haveSprite;
+            }
+            else {
+                target[i].GetComponent<SpriteRenderer>().sprite = defSprite;
+            }
             dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
-            if(dist>maxDist)rb.constraints = RigidbodyConstraints2D.FreezePosition;//指定の距離よりも足が伸びていたらpositionをフリーズ
+            if (dist > maxDist)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePosition;//指定の距離よりも足が伸びていたらpositionをフリーズ
+                debugText.text += (i+":OverLength!!\n");
+            }
             if (i < 4) LAllDist += dist;//左足ならば左足の合計に加算
             if (i >= 4) RAllDist += dist;//右足ならば右足の合計に加算
-            Debug.Log(i+":"+dist);
+            //Debug.Log(i+":"+dist);
         }
         float mixDist=LAllDist - RAllDist;//左足の合計と右足の合計の差を求める(符号によって短いほうがわかる)
         if (mixDist > 0) forceMove.horizonalForce = -1;//総距離が短いほうに移動させるように代入
