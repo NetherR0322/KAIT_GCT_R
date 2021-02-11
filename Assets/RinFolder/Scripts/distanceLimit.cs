@@ -31,7 +31,6 @@ public class distanceLimit : MonoBehaviour
         RAllDist = 0.0f;//右足の距離の合計
         forceMove.horizonalForce = 0;//たこのx向きの力を0にする
         rb.constraints = RigidbodyConstraints2D.None;//positionのフリーズを解除
-        debugText.text = "";
         for (int i = 0; i < target.Length; i++)//足の本数(8本)分ループ
         {
             if (haveAsiList.asiList[i] == true)
@@ -45,7 +44,6 @@ public class distanceLimit : MonoBehaviour
             if (dist > maxDist)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePosition;//指定の距離よりも足が伸びていたらpositionをフリーズ
-                debugText.text += (i+":OverLength!!\n");
             }
             if (i < 4) LAllDist += dist;//左足ならば左足の合計に加算
             if (i >= 4) RAllDist += dist;//右足ならば右足の合計に加算

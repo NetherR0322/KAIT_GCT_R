@@ -5,6 +5,7 @@ using UnityEngine;
 // MonoBehaviourではなくMonoBehaviourPunCallbacksを継承して、Photonのコールバックを受け取れるようにする
 public class SampleScene : MonoBehaviourPunCallbacks
 {
+    public static int id;
     private void Start()
     {
         // PhotonServerSettingsに設定した内容を使ってマスターサーバーへ接続する
@@ -24,6 +25,8 @@ public class SampleScene : MonoBehaviourPunCallbacks
     {
         // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
         var v = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
+        GameObject cursor=PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
+        cursor.name = ""+id;
+        id++;
     }
 }

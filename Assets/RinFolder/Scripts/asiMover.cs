@@ -14,7 +14,6 @@ public class asiMover : MonoBehaviour
     private int id;
     private int myHaveId=-1;
     private GameObject cur;
-    cursor curScript;
     private int curHaveId;
     // Start is called before the first frame update
     void Start()
@@ -30,26 +29,29 @@ public class asiMover : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
-        //Debug.Log(id);
-        curScript = cur.GetComponent<cursor>();
+    void Update() {
+        //debugText.text = (haveAsiList.curHaveList[(int.Parse(cur.name))]).ToString("0");
+        //Debug.Log(haveAsiList.curHaveList[(int.Parse(cur.name))]);
+        //curScript = cur.GetComponent<GamePlayer>();
         Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
         float dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
-        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || curScript.curHaveId == id || curScript.curHaveId == -1))//もし足をつかまれていたら
+        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || haveAsiList.curHaveList[(int.Parse(cur.name))] == id || haveAsiList.curHaveList[(int.Parse(cur.name))] == -1))//もし足をつかまれていたら
         {
             this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
             haveAsiList.asiList[id] = true;
-            curScript.curHaveId = id;
+            //curScript.curHaveId = id;
+            haveAsiList.curHaveList[(int.Parse(cur.name))]=id;
         }
         if (Input.GetMouseButtonUp(0)) {
             this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
             haveAsiList.asiList[id] = false;
-            curScript.curHaveId = -1;
+            //curScript.curHaveId = -1;
+            haveAsiList.curHaveList[(int.Parse(cur.name))] = -1;
         }
    }
     void OnTriggerStay2D(Collider2D col) {
             cur = col.gameObject;
-            curScript = cur.GetComponent<cursor>();
+            //curScript = cur.GetComponent<GamePlayer>();
             //if(curScript.rin_curHaveId==-1) curScript.rin_curHaveId = id;
             //haveAsiList.asiList[id] = true;
             //curHaveId = curScript.rin_curHaveId;
