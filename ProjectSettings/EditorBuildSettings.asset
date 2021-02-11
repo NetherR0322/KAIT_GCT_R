@@ -5,24 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-
-    path: Assets/KanegaeFolder/Scenes/TakoTitleScene.unity
-    guid: c9e0cf406d012d646bf6ed8a91d4ced9
-  - enabled: 1
-    path: Assets/KanegaeFolder/Scenes/LobbyScene.unity
-    guid: d6efaaadeffcf424d8e7d6738cc02dd1
-  - enabled: 1
-    path: Assets/KanegaeFolder/Scenes/MapChooseScene.unity
-    guid: efcbea48b2fc407489b5def94182c45b
-  - enabled: 1
-    path: Assets/KanegaeFolder/Scenes/GameScene.unity
-    guid: 9a5293d2e2a47134b97b74eaccbedb9f
-  - enabled: 1
-    path: Assets/KanegaeFolder/Scenes/ResultScene.unity
-    guid: 37ea612948ec8ac48ae01cf8c24836c3
-  - enabled: 1
-    path: Assets/KanegaeFolder/Scenes/GameOverScene.unity
-    guid: 322d4163577b3df49a67fa0b5cf8c9c3
-
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

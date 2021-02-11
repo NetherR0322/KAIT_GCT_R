@@ -53,19 +53,19 @@ public class asiMover : MonoBehaviour
         debugText.text += "list:" + haveAsiList.asiList[id] + "\n";
         debugText.text += "curList:" + haveAsiList.curHaveList[curNameI] + "\n";
 
-        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || haveAsiList.curHaveList[curNameI] == id || haveAsiList.curHaveList[curNameI] == -1))//もし足をつかまれていたら
+        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false&&haveAsiList.curHaveList[curNameI] == -1)||(haveAsiList.asiList[id] == true && haveAsiList.curHaveList[curNameI] == id))//もし足をつかまれていたら
         {
             this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
             haveAsiList.asiList[id] = true;
             //curScript.curHaveId = id;
-            haveAsiList.curHaveList[(int.Parse(cur.name))]=id;
+            haveAsiList.curHaveList[curNameI] =id;
             debugText.text += "oh";
         }
         if (Input.GetMouseButtonUp(0)) {
             this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
             haveAsiList.asiList[id] = false;
             //curScript.curHaveId = -1;
-            haveAsiList.curHaveList[(int.Parse(cur.name))] = -1;
+            haveAsiList.curHaveList[curNameI] = -1;
         }
    }
     void OnTriggerStay2D(Collider2D col) {
