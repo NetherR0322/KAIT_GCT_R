@@ -35,21 +35,23 @@ public class asiMover : MonoBehaviour
         curScript = cur.GetComponent<cursor>();
         Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
         float dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
-        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || curScript.rin_curHaveId == id || curScript.rin_curHaveId == -1))//もし足をつかまれていたら
+        if (dist <= touchDist && Input.GetMouseButton(0) && (haveAsiList.asiList[id] == false || curScript.curHaveId == id || curScript.curHaveId == -1))//もし足をつかまれていたら
         {
             this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
             haveAsiList.asiList[id] = true;
-            curScript.rin_curHaveId = id;
+            curScript.curHaveId = id;
         }
         if (Input.GetMouseButtonUp(0)) {
             this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
-        haveAsiList.asiList[id] = false; curScript.rin_curHaveId = -1; }
+            haveAsiList.asiList[id] = false;
+            curScript.curHaveId = -1;
+        }
    }
     void OnTriggerStay2D(Collider2D col) {
             cur = col.gameObject;
             curScript = cur.GetComponent<cursor>();
             //if(curScript.rin_curHaveId==-1) curScript.rin_curHaveId = id;
-            haveAsiList.asiList[id] = true;
+            //haveAsiList.asiList[id] = true;
             //curHaveId = curScript.rin_curHaveId;
     }
     /*void OnTriggerExit2D(Collider2D col)
