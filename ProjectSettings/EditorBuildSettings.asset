@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/RinFolder/RinScene.unity
+    guid: 50c3669e8b7a4f045ad09552f262455e
   m_configObjects: {}

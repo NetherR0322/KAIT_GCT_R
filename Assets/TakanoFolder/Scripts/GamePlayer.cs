@@ -23,6 +23,8 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField]
     private TextMeshPro nameLabel = default;
 
+    GameObject[] tagObjects;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,9 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
         //ニックネーム
         nameLabel.text = photonView.Owner.NickName;
+
+        tagObjects = GameObject.FindGameObjectsWithTag("Cursor");
+        this.gameObject.name = tagObjects.Length.ToString();
     }
 
     // Update is called once per frame

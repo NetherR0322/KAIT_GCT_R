@@ -59,7 +59,7 @@ public class asiMover : MonoBehaviour
             haveAsiList.asiList[id] = true;
             //curScript.curHaveId = id;
             haveAsiList.curHaveList[curNameI] =id;
-            debugText.text += "oh";
+            debugText.text += "moveNow("+id+")";
         }
         if (Input.GetMouseButtonUp(0)) {
             this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
