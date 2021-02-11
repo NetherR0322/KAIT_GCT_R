@@ -7,6 +7,7 @@ using Photon.Pun;
 public class SampleScene : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static int id;
+    private GameObject[] cursor;
     private void Start()
     {
         // PhotonServerSettingsに設定した内容を使ってマスターサーバーへ接続する
@@ -26,9 +27,10 @@ public class SampleScene : MonoBehaviourPunCallbacks, IPunObservable
     {
         // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
         var v = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        GameObject cursor=PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
-        cursor.name = ""+id;
+        PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
+        //name = ""+id;
         id++;
+        Debug.Log("Join!:"+id);
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -44,7 +46,6 @@ public class SampleScene : MonoBehaviourPunCallbacks, IPunObservable
             // 他プレイヤー側が生成したオブジェクトの場合は
             // 受信したデータからクリック中フラグを更新する
             id = (int)stream.ReceiveNext();
-            Cursor.visible = false;
         }
     }
 }
