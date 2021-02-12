@@ -54,4 +54,19 @@ public class distanceLimit : MonoBehaviour
         if (mixDist < 0) forceMove.horizonalForce = 1;//これも
         //Debug.Log("L:"+ LAllDist + " R:"+ RAllDist);//一応表示してみる
     }
+
+    private void OnDrawGizmos()
+    {
+        //赤い色で0,0,0から上に1の線を引く
+        for (int i = 0; i < target.Length; i++)
+        {
+            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
+            if (dist > maxDist)
+            {
+                Gizmos.color = Color.red;
+            }
+            else { Gizmos.color = Color.green; }
+            Gizmos.DrawLine(this.transform.position, target[i].transform.position);
+        }
+    }
 }
