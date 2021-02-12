@@ -15,6 +15,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
             print("サーバーに接続しています");
             PhotonNetwork.ConnectUsingSettings();
         }
+        Cursor.visible = true;
     }
 
     //---マスターサーバーに接続した時---//
