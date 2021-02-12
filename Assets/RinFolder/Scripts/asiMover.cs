@@ -50,7 +50,8 @@ public class asiMover : MonoBehaviourPunCallbacks
             haveAsiList.curHaveList[curNameI] =id;
         }
         if (Input.GetMouseButtonUp(0)) {
-            this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
+            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - dPos.transform.position.x, 2) + Mathf.Pow(transform.position.y - dPos.transform.position.y, 2));//
+            if (dist > 1) this.transform.position = dPos.transform.position;//遠くに行き過ぎたIKを戻す
             haveAsiList.asiList[id] = false;
             haveAsiList.curHaveList[curNameI] = -1;
         }
