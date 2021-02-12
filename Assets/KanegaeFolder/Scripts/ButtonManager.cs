@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -35,7 +36,9 @@ public class ButtonManager : MonoBehaviour
 
     public void GoTitle()
     {
-        SceneManager.LoadScene("TakoTitleScene");
+        PhotonNetwork.LeaveLobby();  //ルームを出る
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene(0);//タイトルシーンに遷移
     }
 
     public void GoGame()
