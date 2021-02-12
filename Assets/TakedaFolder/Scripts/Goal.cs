@@ -17,15 +17,13 @@ public class Goal : MonoBehaviour
     void Update()
     {
 
-        this.gameObject.transform.Translate(0,-0.10f*Time.deltaTime, 0);
-
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name == "tako")
         {
             GameObject tako = GameObject.Find("tako");
-            SceneManager.LoadScene("End"); //シーン切り替え
+            SceneManager.LoadScene("ResultScene"); //シーン切り替え
         }
     }
 }
