@@ -1867,7 +1867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u90E8\u5C4B\u3092\u4F5C\u6210\u3059\u308B"
+  m_Text: Make Room
 --- !u!222 &1753477766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2624,7 +2624,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u66F4\u65B0"
+  m_Text: Refresh
 --- !u!222 &2034079680
 CanvasRenderer:
   m_ObjectHideFlags: 0
