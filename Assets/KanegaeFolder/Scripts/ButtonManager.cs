@@ -36,8 +36,10 @@ public class ButtonManager : MonoBehaviour
 
     public void GoTitle()
     {
+        GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveLobby();  //ルームを出る
         PhotonNetwork.Disconnect();
+        Destroy(DDOobj);
         SceneManager.LoadScene(0);//タイトルシーンに遷移
     }
 
