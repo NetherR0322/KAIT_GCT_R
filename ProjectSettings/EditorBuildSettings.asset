@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KanegaeFolder/Scenes/ResultScene.unity
     guid: 37ea612948ec8ac48ae01cf8c24836c3
+  - enabled: 1
+    path: Assets/TakanoFolder/Scenes/GameScene.unity
+    guid: 434cd66833a46f347beca22ed302ac2e
   m_configObjects: {}
