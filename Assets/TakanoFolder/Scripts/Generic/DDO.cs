@@ -6,7 +6,7 @@ public class DDO : MonoBehaviour
 {
     private void Awake()
     {
-        //シーン遷移しても消えない設定
-        DontDestroyOnLoad(this);
+            //シーン遷移しても消えない設定
+            DontDestroyOnLoad(this);
     }
 }

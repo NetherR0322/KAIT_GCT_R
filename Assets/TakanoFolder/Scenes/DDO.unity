@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 249850131}
   m_Layer: 0
   m_Name: DDO
-  m_TagString: Untagged
+  m_TagString: DDO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
