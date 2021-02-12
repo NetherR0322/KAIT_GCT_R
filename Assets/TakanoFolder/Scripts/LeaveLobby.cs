@@ -10,6 +10,7 @@ public class LeaveLobby : MonoBehaviour
     public void OnClick_LeaveLobby()
     {
         GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LeaveLobby();  //ルームを出る
         PhotonNetwork.Disconnect();
         Destroy(DDOobj);
