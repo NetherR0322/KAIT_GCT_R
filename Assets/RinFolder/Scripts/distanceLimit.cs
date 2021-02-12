@@ -6,6 +6,7 @@ public class distanceLimit : MonoBehaviour
 {
     //スクリプトをつける場所:tako>bone>body
     public GameObject[] target;//足を入れる配列(0-3が左、4-7が右)
+    public GameObject[] loot;//足の根本を入れる配列(0-3が左、4-7が右)
     public float maxDist;//足の長さ(これ以上足が伸びなくなる)
     private Rigidbody2D rb;//Rigidbody2D用の箱
     private float LAllDist;//左足の、体からの距離の総和
@@ -21,8 +22,7 @@ public class distanceLimit : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //左足4本の体からの距離の合計と
         //右足4本の体からの距離の合計を
         //比べて、距離の合計が短いほうに進ませる
@@ -40,7 +40,7 @@ public class distanceLimit : MonoBehaviour
             else {
                 target[i].GetComponent<SpriteRenderer>().sprite = defSprite;
             }
-            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
+            dist = Mathf.Sqrt(Mathf.Pow(loot[i].transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(loot[i].transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
             if (dist > maxDist)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePosition;//指定の距離よりも足が伸びていたらpositionをフリーズ
@@ -60,13 +60,13 @@ public class distanceLimit : MonoBehaviour
         //赤い色で0,0,0から上に1の線を引く
         for (int i = 0; i < target.Length; i++)
         {
-            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
+            dist = Mathf.Sqrt(Mathf.Pow(loot[i].transform.position.x - target[i].transform.position.x, 2) + Mathf.Pow(loot[i].transform.position.y - target[i].transform.position.y, 2));//体から足の先端の距離を代入
             if (dist > maxDist)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.white;
             }
             else { Gizmos.color = Color.green; }
-            Gizmos.DrawLine(this.transform.position, target[i].transform.position);
+            Gizmos.DrawLine(loot[i].transform.position, target[i].transform.position);
         }
     }
 }
