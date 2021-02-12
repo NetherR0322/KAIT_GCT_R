@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    float time = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,9 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        this.gameObject.transform.Translate(0,-0.10f*Time.deltaTime, 0);
+
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
