@@ -321,7 +321,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1495686191937239057}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c5fbe02b59b84469ce9efaf1f16baf, type: 3}
   m_Name: 
@@ -780,12 +780,12 @@ PrefabInstance:
     - target: {fileID: 1012503836708140198, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: observableSearch
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1012503836708140198, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: ObservedComponents.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1012503836708140198, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
@@ -796,7 +796,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 491406310}
+      objectReference: {fileID: 0}
     - target: {fileID: 1495686191078539112, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
@@ -807,20 +807,40 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1495686191295118412, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495686191298774450, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495686191539432179, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495686191625534099, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1495686191763938411, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495686191858200265, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495686191892502214, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495686192184531504, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
@@ -882,10 +902,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: tako
       objectReference: {fileID: 0}
+    - target: {fileID: 1495686192252484599, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495686192371530678, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495686192472523237, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495686192499066519, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
@@ -897,10 +927,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1495686192604399497, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495686192771737198, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495686192796604426, guid: e12b711e9d4072c4e9aa1387a505d3ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1969283883305847581, guid: e12b711e9d4072c4e9aa1387a505d3ad,
         type: 3}
