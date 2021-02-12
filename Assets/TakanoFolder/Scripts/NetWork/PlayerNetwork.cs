@@ -74,6 +74,6 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_CreatePlayer()
     {
         float randomValue = Random.Range(5f, 5f);
-        PhotonNetwork.Instantiate(Path.Combine("GamaPlayer"), Vector3.up * randomValue, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(Path.Combine("GamePlayer"), Vector3.up * randomValue, Quaternion.identity, 0);
     }
 }
