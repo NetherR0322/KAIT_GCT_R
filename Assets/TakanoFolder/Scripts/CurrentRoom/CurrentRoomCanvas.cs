@@ -17,6 +17,6 @@ public class CurrentRoomCanvas : MonoBehaviour
         PhotonNetwork.CurrentRoom.IsOpen = false;
         //PhotonNetwork.CurrentRoom.IsVisible = false;
 
-        PhotonNetwork.LoadLevel(9); //ゲームプレイシーンに遷移
+        PhotonNetwork.LoadLevel(3); //ゲームプレイシーンに遷移
     }
 }

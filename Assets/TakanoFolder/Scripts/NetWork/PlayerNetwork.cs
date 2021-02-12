@@ -22,16 +22,16 @@ public class PlayerNetwork : MonoBehaviour
         //プレイヤーの名前を自動で生成
         PlayerName = "Player" + Random.Range(1000, 9999);
 
-        //SceneManager.sceneLoaded += OnSceneFinishedLoading;
+        SceneManager.sceneLoaded += OnSceneFinishedLoading;
 
         //ロビーシーンに遷移
-        PhotonNetwork.LoadLevel(8);
+        PhotonNetwork.LoadLevel(2);
     }
     //---プレイヤースポーン関係---//
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         PlayersInGame = 0;
-        if (scene.name == "Game")
+        if (scene.name == "RinScene")
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -57,7 +57,7 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(9);
+        PhotonNetwork.LoadLevel(3);
     }
 
     [PunRPC]

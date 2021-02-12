@@ -16,7 +16,7 @@ public class KanegaeTitleManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene("LobbyScene");
+            SceneManager.LoadScene(1);
         }
     }
 }
