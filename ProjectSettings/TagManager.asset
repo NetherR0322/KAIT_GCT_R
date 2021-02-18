@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cursor
   - DDO
+  - tako
   layers:
   - Default
   - TransparentFX
