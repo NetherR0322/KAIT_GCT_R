@@ -9,6 +9,8 @@ public class ResultScript : MonoBehaviour
 
     public TextMeshProUGUI RateResultText;
 
+    public TextMeshProUGUI ClearTimeText;
+
     void Start()
     {
         
@@ -19,5 +21,6 @@ public class ResultScript : MonoBehaviour
     {
         ScoreResultText.text = "ResultScore : " + KanegaeGameManager.score;
         RateResultText.text = "RastRate : " + KanegaeGameManager.rate+" / 2";//ここの分母もおねがいします～(;w;)
+        ClearTimeText.text = "ClearTime : " + LimitScript.limit.ToString("f2")+"sec";
     }   
 }
