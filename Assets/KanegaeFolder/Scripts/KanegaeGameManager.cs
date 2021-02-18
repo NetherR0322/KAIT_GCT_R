@@ -9,27 +9,25 @@ public class KanegaeGameManager : MonoBehaviour
 
     public static int score;
 
+    public static int rate;
+
     public static bool checkScore = false;
 
     public TextMeshProUGUI ScoreText;
+
+    public TextMeshProUGUI RateText;
 
     [SerializeField]
     static public bool OnPose = false;
     void Start()
     {
         score = 0;
+        rate = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (checkScore == true)
-        {
-           // Debug.Log("trueになったのでスコア足します");
-            //score += 10;
-            Debug.Log("Score:" + score);
-        }
-       
 
         if (OnPose == false)
         {
@@ -49,5 +47,6 @@ public class KanegaeGameManager : MonoBehaviour
         }
 
         ScoreText.text = "Score:"+score;
+        RateText.text = "Rate:"+rate+"/2";//分母はステージによって変えてください(;w;)
     }
 }

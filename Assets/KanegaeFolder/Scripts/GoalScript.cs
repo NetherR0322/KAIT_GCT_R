@@ -22,7 +22,7 @@ public class GoalScript : MonoBehaviour
         if(collision.gameObject.tag == "tako")
         {
             Debug.Log("ゴールしました");
-            //SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("ResultScene");
         }
     }
 }

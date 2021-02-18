@@ -23,6 +23,8 @@ public class ShellfishScript : MonoBehaviour
         {
             KanegaeGameManager.checkScore = true;
             KanegaeGameManager.score += 10;
+            KanegaeGameManager.rate += 1;
+            Debug.Log("Rate:" + KanegaeGameManager.rate);
             Debug.Log("Score:" + KanegaeGameManager.score);
             Debug.Log("trueにしました");
             Destroy(this.gameObject);
