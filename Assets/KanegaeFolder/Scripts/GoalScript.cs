@@ -19,7 +19,10 @@ public class GoalScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ゴールしました");
-        SceneManager.LoadScene("ResultScene");
+        if(collision.gameObject.tag == "tako")
+        {
+            Debug.Log("ゴールしました");
+            SceneManager.LoadScene("ResultScene");
+        }
     }
 }
