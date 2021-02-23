@@ -18,7 +18,16 @@ public class PlayerListing : MonoBehaviourPunCallbacks
 
     public void ApplyPhotonPlayer(Photon.Realtime.Player photonPlayer)
     {
-        PhotonPlayer = photonPlayer;
-        PlayerName.text = photonPlayer.NickName;
+        //マスタークラインか判定
+        if (photonPlayer.IsMasterClient)
+        {
+            PhotonPlayer = photonPlayer;
+            PlayerName.text = "★" + photonPlayer.NickName;
+        }
+        else
+        {
+            PhotonPlayer = photonPlayer;
+            PlayerName.text = photonPlayer.NickName;
+        }
     }
 }

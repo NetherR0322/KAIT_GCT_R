@@ -12,11 +12,19 @@ public class RoomListing : MonoBehaviour
     {
         get { return _roomNameText; }
     }
+    //ルームの人数を表示する
+    [SerializeField]
+    private Text _roomPlayerText;
+    private Text RoomPlayerText
+    {
+        get { return _roomPlayerText; }
+    }
+
     public string RoomName { get; private set; }
 
     public bool Updated { get; set; }
 
-
+    private string RoomPlayer;
     private void Start()
     {
         //LobbyCanvasを読み込む
@@ -47,5 +55,12 @@ public class RoomListing : MonoBehaviour
     {
         RoomName = text;
         RoomNameText.text = RoomName;
+    }
+
+    //ルームの人数を設定する
+    public void SetRoomPlayerText(string text)
+    {
+        RoomPlayer = text + "/6 ";
+        RoomPlayerText.text = RoomPlayer;
     }
 }

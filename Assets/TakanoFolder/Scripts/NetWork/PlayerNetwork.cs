@@ -4,6 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerNetwork : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class PlayerNetwork : MonoBehaviour
     private PhotonView PhotonView;
 
     private int PlayersInGame = 0; //プレイヤーの人数
+
+    public TMP_InputField inputField;
+    public TextMeshProUGUI text;
 
     private void Awake()
     {
@@ -24,9 +29,31 @@ public class PlayerNetwork : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
 
-        //ロビーシーンに遷移
-        PhotonNetwork.LoadLevel(2);
+        inputField = inputField.GetComponent<TMP_InputField>();
+
     }
+    public void OnClicked_InputName()
+    {
+        //テキストにinputFieldの内容を反映
+        text.text = inputField.text;
+
+        //プレイシーンに遷移
+        if (string.IsNullOrWhiteSpace(inputField.text) && string.IsNullOrWhiteSpace(inputField.text))
+        {
+            PlayerName = "Player(" + Random.Range(1000, 9999) + ")";
+
+            PhotonNetwork.LoadLevel(2);
+        }
+        else
+        {
+            //プレイヤーの名前を自動で生成
+            PlayerName = inputField.text;
+
+            PhotonNetwork.LoadLevel(2);
+        }
+
+    }
+
     //---プレイヤースポーン関係---//
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
@@ -74,6 +101,6 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_CreatePlayer()
     {
         float randomValue = Random.Range(5f, 5f);
-        PhotonNetwork.Instantiate(Path.Combine("GamePlayer"), Vector3.up * randomValue, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("GamePlayer", Vector3.up * randomValue, Quaternion.identity, 0);
     }
 }
