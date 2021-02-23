@@ -46,17 +46,8 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 catchData = true;
             }
         }
-        if (GameObject.Find("-1")) { if (cur.name == "-1") curNameI = -1; }
-        if (GameObject.Find("0")) { if (cur.name == "0") curNameI = 0; }
-        if (GameObject.Find("1")) { if (cur.name == "1") curNameI = 1; }
-        if (GameObject.Find("2")) { if (cur.name == "2") curNameI = 2; }
-        if (GameObject.Find("3")) { if (cur.name == "3") curNameI = 3; }
-        if (GameObject.Find("4")) { if (cur.name == "4") curNameI = 4; }
-        if (GameObject.Find("5")) { if (cur.name == "5") curNameI = 5; }
-        if (GameObject.Find("6")) { if (cur.name == "6") curNameI = 6; }
-        if (GameObject.Find("7")) { if (cur.name == "7") curNameI = 7; }
         Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
-        dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
+        //dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
         if (catchData)//近くにカーソルがあったら
         {
             if (Input.GetMouseButtonDown(0)//クリックをしていて

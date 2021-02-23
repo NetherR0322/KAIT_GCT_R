@@ -14,6 +14,6 @@ public class curData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(haveId);
     }
 }
