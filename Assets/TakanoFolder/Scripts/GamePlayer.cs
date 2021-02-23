@@ -18,7 +18,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     public Sprite IdleSprite;   //アイドル状態
     public Sprite HoldSprite;   //つかむ
 
-    private bool isClicked = false; //クリック中フラグ
+    public bool isClicked = false; //クリック中フラグ
 
     [SerializeField]
     private TextMeshPro nameLabel = default;
