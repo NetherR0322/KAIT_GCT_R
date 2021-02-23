@@ -25,6 +25,8 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     GameObject[] tagObjects;
 
+    public Color SpriteColor;   //色分け用
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,8 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
             //Spriteを変更する
             ChangeSpriteState();
+            //プレイヤーのID別に色を変更する
+            photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
         }
     }
     //任意の値を定期的に同期させる
@@ -100,5 +104,35 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         {
             MainSpriteRenderer.sprite = IdleSprite; //アイドル状態
         }
+    }
+
+    //プレイヤーのID別に色を変更する
+    [PunRPC]
+    private void RPC_SendColor(int PlayerID)
+    {
+        switch (PlayerID)
+        {
+            case 1: //マスタークライアント
+                SpriteColor = Color.red; 
+                break;
+            case 2:
+                SpriteColor = Color.blue;
+                break;
+            case 3:
+                SpriteColor = Color.green;
+                break;
+            case 4:
+                SpriteColor = Color.yellow;
+                break;
+            case 5:
+                SpriteColor = Color.magenta;
+                break;
+            case 6:
+                SpriteColor = Color.cyan;
+                break;
+            default:
+                break;
+        }
+        MainSpriteRenderer.color = SpriteColor;
     }
 }

@@ -40,7 +40,6 @@ public class RoomLayoutGroup : MonoBehaviourPunCallbacks
         //ルームが存在しない
         if (index == -1)
         {
-            //ルームが見える、満員になっていない
             if (room.IsVisible && room.PlayerCount < room.MaxPlayers)
             {
                 GameObject roomListingObj = Instantiate(RoomListingPrefab);
@@ -53,15 +52,16 @@ public class RoomLayoutGroup : MonoBehaviourPunCallbacks
 
             }
         }
-
+        //ルームが存在する
         if (index != -1)
         {
             RoomListing roomListing = RoomListingButtons[index];
             roomListing.SetRoomNameText(room.Name);
+            roomListing.SetRoomPlayerText(room.PlayerCount.ToString());
             roomListing.Updated = true;
         }
     }
-
+    //ルームを消す
     private void RemoveOldRooms()
     {
         List<RoomListing> removeRooms = new List<RoomListing>();

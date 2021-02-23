@@ -25,7 +25,7 @@ public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-    //LoadBalancingClientがルームに入ったとき
+    //ルームに入ったとき
     public override void OnJoinedRoom()
     {
         foreach (Transform child in transform)

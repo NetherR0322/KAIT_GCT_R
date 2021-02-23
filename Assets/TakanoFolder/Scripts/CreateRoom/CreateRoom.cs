@@ -19,16 +19,20 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public void OnClicked_CreateRoom()
     {
         //ルームの設定：公開,入室可,最大8人
-        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 8 };
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 6 };
 
         //新しいルームを作ります
-        if (PhotonNetwork.CreateRoom(RoomName.text, roomOptions, TypedLobby.Default))
+        //ルームネームが入力されているかどうか判定
+        if (string.IsNullOrWhiteSpace(RoomName.text) && string.IsNullOrWhiteSpace(RoomName.text))
         {
-            print("ルームの作成に成功");
+            print("ルームの作成に失敗");
         }
         else
         {
-            print("ルームの作成に失敗");
+            if (PhotonNetwork.CreateRoom(RoomName.text, roomOptions, TypedLobby.Default))
+            {
+                print("ルームの作成に成功");
+            }
         }
     }
     /*

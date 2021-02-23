@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class LobbyNetwork : MonoBehaviourPunCallbacks
 {
+    //プレイヤーのID
+    public static int id;
 
     private void Start()
     {
@@ -40,5 +42,12 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
             //LobbyCanvasを上に配置
             MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
         }
+    }
+    //ルームに入室した時
+    public override void OnJoinedRoom()
+    {
+        //プレイヤーのidを取得
+        Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
+        id = player.ActorNumber;
     }
 }
