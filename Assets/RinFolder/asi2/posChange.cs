@@ -52,13 +52,16 @@ public class posChange : MonoBehaviour
         float dengerVal;
         dengerVal = maxDist - denger;
         dengerVal = (dist - denger) / dengerVal;
-        LR.endColor = new Color(1, 1 - dengerVal, 1 - dengerVal);
+        LR.endColor = new Color(1 - dengerVal, 1 - dengerVal, 1);
         if (!asiMover2.isHave)
         {
             LR.widthCurve = defAsi;
             top.transform.position = asi[boneCount - 1].transform.position + this.transform.position;
         }
-        if (asiMover2.isHave) LR.widthCurve = upAsi;
+        if (asiMover2.isHave)
+        {
+            LR.widthCurve = upAsi;
+        }
         for (int i = 0; i < boneCount; i++)
         {
             Rigidbody2D rb = asi[i].GetComponent<Rigidbody2D>();
