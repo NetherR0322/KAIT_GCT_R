@@ -97,7 +97,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2b8513442028304891151b50cf47a03, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -503,6 +503,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   maxDist: 8
   denger: 4
+  startPos: {x: 0, y: 0}
 --- !u!1 &3644398731271953333
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,6 +74,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     private void TransformSync(Vector2 mp)
     {
         this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
+
     }
 
 }

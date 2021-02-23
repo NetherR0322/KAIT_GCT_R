@@ -6,6 +6,7 @@ public class posChange : MonoBehaviour
 {
     public GameObject root;
     public GameObject[] asi = new GameObject[256];
+    public Vector3[] asiLinePos = new Vector3[256];
     public GameObject top;
     public GameObject boneBase;
     public int boneCount;
@@ -18,6 +19,10 @@ public class posChange : MonoBehaviour
     public float denger;
 
     private asiMover2 asiMover2;
+
+    public Vector2 startPos;
+
+    public GameObject mainObject;
 
     Vector2 targetPos;
     Vector2 targetPos2;
@@ -33,11 +38,13 @@ public class posChange : MonoBehaviour
         for (int i = 0; i < boneCount; i++)
         {
             Vector2 thisPos = this.transform.position;
-            if (i == 0) pos = new Vector3(thisPos.x, thisPos.y - i * 0.1f, 0);
-            if (i != 0) pos = new Vector3(thisPos.x, thisPos.y - i * 0.1f, 0) - this.transform.position;
+           // if (i == 0) 
+                pos = new Vector3(thisPos.x + i * startPos.x, thisPos.y + i * startPos.y, 0);
+            //if (i != 0) pos = new Vector3(thisPos.x + i * startPos.x, thisPos.y + i * startPos.y, 0) - this.transform.position;
             GameObject asiIns = Instantiate(boneBase, pos, Quaternion.identity, root.transform);
             asiIns.name = "asi-" + i;
             asi[i] = asiIns;
+            asiLinePos[i] = asi[i].transform.position;
         }
         top.transform.position = asi[boneCount - 1].transform.position + this.transform.position;
     }
@@ -56,7 +63,7 @@ public class posChange : MonoBehaviour
         if (!asiMover2.isHave)
         {
             LR.widthCurve = defAsi;
-            top.transform.position = asi[boneCount - 1].transform.position + this.transform.position;
+            asi[boneCount - 1].transform.position= top.transform.position;
         }
         if (asiMover2.isHave)
         {
@@ -69,23 +76,35 @@ public class posChange : MonoBehaviour
             float y;
             float x2;
             float y2;
-            float asiposX;
-            float asiposY;
             int l = boneCount;
-            x = top.transform.position.x - root.transform.position.x;
-            y = top.transform.position.y - root.transform.position.y;
-            asiposX = x / (l - 1) * i;
-            asiposY = y / (l - 1) * i;
-            x2 = asiposX - asi[i].transform.position.x;
-            y2 = asiposY - asi[i].transform.position.y;
+            Vector3 topPos = top.transform.position;// + this.transform.position;
+            Vector3 rootPos = root.transform.position;
+            Vector3 asiPos = new Vector3(0, 0, 0);
+            //Debug.Log(rootPos);
+            x = topPos.x - rootPos.x;
+            y = topPos.y - rootPos.y;
+            asiPos.x = x / (l - 1) * i;
+            asiPos.y = y / (l - 1) * i;
+            x2 = asiPos.x - asi[i].transform.position.x;
+            y2 = asiPos.y - asi[i].transform.position.y;
             Vector2 pos = asi[i].transform.position;
 
-            if (asiMover2.isHave) asi[i].transform.position = new Vector3(pos.x + x2 / (i * delay), pos.y + y2 / (i * delay),0);
+            //if (asiMover2.isHave) 
+            asi[i].transform.position = asiPos;
+            //asi[i].transform.position = new Vector3(pos.x + x2, pos.y + y2, 0);
+            asi[i].transform.position += rootPos ;
+            //targetPos = asi[i].transform.position;
+            //dist = Mathf.Sqrt(Mathf.Pow(asiposX - targetPos.x, 2) + Mathf.Pow(asiposY - targetPos.y, 2));//
+            float asiDistX = (asiPos.x+rootPos.x)-asiLinePos[i].x;
+            float asiDistY = (asiPos.y+rootPos.y)-asiLinePos[i].y;
+            asiLinePos[i] = new Vector3(asiLinePos[i].x+(asiDistX / (i * delay))
+                                       ,asiLinePos[i].y+(asiDistY / (i * delay)),0);
+            //asiLinePos[i] = asiPos;
+            //asiLinePos[i].x += 1.0f;
+            LR.SetPosition(i, asiLinePos[i]);
+            LR.SetPosition(0, rootPos);
 
-            targetPos = asi[i].transform.position;
-            dist = Mathf.Sqrt(Mathf.Pow(asiposX - targetPos.x, 2) + Mathf.Pow(asiposY - targetPos.y, 2));//
-            if (i == 0) LR.SetPosition(i, asi[i].transform.position);
-            if (i != 0) LR.SetPosition(i, asi[i].transform.position + this.transform.position);
         }
+        //Debug.Log(asiLinePos[1]);
     }
 }
