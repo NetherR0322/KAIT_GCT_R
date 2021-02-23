@@ -17,9 +17,11 @@ public class haveAsiList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        debugText.text = "asiList\n";
         //Debug.Log(curHaveList[0]);
-        //for (int i = 0; i < asiList.Length; i++) {
-        //Debug.Log(i+":"+asiList[i]);
-        //}
+        for (int i = 0; i < asiList.Length; i++) {
+            //Debug.Log(i+":"+asiList[i]);
+            debugText.text += i+")"+ asiList[i]+"\n";
+        }
     }
 }
