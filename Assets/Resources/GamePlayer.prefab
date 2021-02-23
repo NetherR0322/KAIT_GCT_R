@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 3639628218905296092}
   - component: {fileID: -7983875288500557962}
   - component: {fileID: -3535395116317471675}
+  - component: {fileID: -6575570093973877401}
   m_Layer: 0
   m_Name: GamePlayer
   m_TagString: Cursor
@@ -315,3 +316,16 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-6575570093973877401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639628218905296095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd05559e72417342a954c2fbfce97a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  haveId: -1
