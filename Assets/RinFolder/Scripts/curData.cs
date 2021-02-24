@@ -9,7 +9,7 @@ public class curData : MonoBehaviour
     private GameObject tako;
     Rigidbody2D rb;
     Vector3 beforePos;
-    Vector3 nowPos;
+    public Vector3 nowPos;
     // Start is called before the first frame update
     void Start()
     {
