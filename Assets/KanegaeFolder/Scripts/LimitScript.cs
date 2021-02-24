@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Realtime;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class LimitScript : MonoBehaviour
 {
@@ -13,7 +16,6 @@ public class LimitScript : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void Update()
