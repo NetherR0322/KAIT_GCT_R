@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   haveId: -1
+  nowPos: {x: 0, y: 0, z: 0}
 --- !u!1 &118520160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4892320807840862139, guid: 082d5440be6f80c4fa288338a8274c29,
