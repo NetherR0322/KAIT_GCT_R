@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class ShellfishScript : MonoBehaviour
+
+public class ShellfishScript : MonoBehaviourPunCallbacks
 {
 
     void Start()
     {
         
+
     }
 
     // Update is called once per frame
@@ -21,7 +26,11 @@ public class ShellfishScript : MonoBehaviour
         Debug.Log("当たりました");
         if (collision.gameObject.tag == "tako")
         {
+            
+
+            
             KanegaeGameManager.checkScore = true;
+            
             KanegaeGameManager.score += 10;
             KanegaeGameManager.rate += 1;
             Debug.Log("Rate:" + KanegaeGameManager.rate);
