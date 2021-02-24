@@ -58,11 +58,22 @@ public class PlayerNetwork : MonoBehaviour
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         PlayersInGame = 0;
-        if (scene.name == "RinScene")
+        if (scene.name == "Shopping streetStage")
         {
             if (PhotonNetwork.IsMasterClient)
             {
                 MasterLoadedGame();
+            }
+            else
+            {
+                NonMasterLoadedGame();
+            }
+        }
+        if (scene.name == "AquariumScene")
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                MasterLoadedGame2();
             }
             else
             {
@@ -76,6 +87,11 @@ public class PlayerNetwork : MonoBehaviour
         PhotonView.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
         PhotonView.RPC("RPC_LoadGameOthers", RpcTarget.Others);
     }
+    private void MasterLoadedGame2()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthers2", RpcTarget.Others);
+    }
     private void NonMasterLoadedGame()
     {
         PhotonView.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
@@ -84,7 +100,13 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(3);
+        PhotonNetwork.LoadLevel(4);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthers2()
+    {
+        PhotonNetwork.LoadLevel(5);
     }
 
     [PunRPC]
