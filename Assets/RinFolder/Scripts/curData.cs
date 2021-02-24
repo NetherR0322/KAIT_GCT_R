@@ -8,6 +8,8 @@ public class curData : MonoBehaviour
     GamePlayer data;
     private GameObject tako;
     Rigidbody2D rb;
+    Vector3 beforePos;
+    Vector3 nowPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,22 @@ public class curData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (haveId == -1 && data.isClicked) {
+        beforePos = nowPos;
+        nowPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (haveId == -1 && data.isClicked&&nowPos.y<beforePos.y) {
             rb.AddForce(new Vector3(0.0f,0.01f), ForceMode2D.Impulse);
+        }
+        if (haveId == -1 && data.isClicked && nowPos.y > beforePos.y)
+        {
+            rb.AddForce(new Vector3(0.0f, -0.01f), ForceMode2D.Impulse);
+        }
+        if (haveId == -1 && data.isClicked && nowPos.x < beforePos.x)
+        {
+            rb.AddForce(new Vector3(0.01f, 0.0f), ForceMode2D.Impulse);
+        }
+        if (haveId == -1 && data.isClicked && nowPos.x > beforePos.x)
+        {
+            rb.AddForce(new Vector3(-0.01f, 0.0f), ForceMode2D.Impulse);
         }
     }
 }
