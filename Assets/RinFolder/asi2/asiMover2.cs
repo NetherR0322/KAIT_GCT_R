@@ -16,6 +16,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
 
     float dist;
     curData data;
+    GamePlayer data2;
     bool catchData;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             if (dist <= touchDist)
             {
                 data = cursors[i].GetComponent<curData>();
+                data2 = cursors[i].GetComponent<GamePlayer>();
                 catchData = true;
             }
         }
@@ -50,7 +52,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
         //dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
         if (catchData)//近くにカーソルがあったら
         {
-            if (Input.GetMouseButtonDown(0)//クリックをしていて
+            if (data2.isClicked//クリックをしていて
                 && (haveAsiList.asiList[id] == false && data.haveId == -1)//この足が誰にも持たれていない && 触れているカーソルが何も持っていない
                 || (haveAsiList.asiList[id] == true && data.haveId == id)//この足が持たれている && 触れているカーソルが自分を持っている
                 )//もし足をつかまれていたら
@@ -61,7 +63,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 data.haveId = id;
                 //haveAsiList.curHaveList[curNameI] = id;
             }
-            if (Input.GetMouseButtonUp(0))
+            if (!data2.isClicked)
             {
                 isHave = false;
                 haveAsiList.asiList[id] = false;
