@@ -52,7 +52,7 @@ public class posChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetPos = asi[boneCount - 1].transform.position + this.transform.position;
+        targetPos = asi[boneCount - 1].transform.position;
         targetPos2 = root.transform.position;
         dist = Mathf.Sqrt(Mathf.Pow(targetPos2.x - targetPos.x, 2) + Mathf.Pow(targetPos2.y - targetPos.y, 2));//
                                                                                                                //Debug.Log(dist);
