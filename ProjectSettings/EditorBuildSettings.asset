@@ -15,8 +15,11 @@ EditorBuildSettings:
     path: Assets/TakanoFolder/Scenes/LobbyScene.unity
     guid: e4e1bf0200b444449bb4e8b7f1e29ada
   - enabled: 1
-    path: Assets/RinFolder/RinScene.unity
-    guid: 50c3669e8b7a4f045ad09552f262455e
+    path: Assets/SawatariFolder/Movies/MoveiScene.unity
+    guid: 34f9a870382788848ab8401275784de3
+  - enabled: 1
+    path: Assets/SawatariFolder/Scene/tutorial Scene.unity
+    guid: 269318d7fa50faf44b8aa903f1a0bd84
   - enabled: 1
     path: Assets/SawatariFolder/Stages/Shopping streetStage.unity
     guid: 85cf2722d0757ee4a8a39755aaaa9b2c
