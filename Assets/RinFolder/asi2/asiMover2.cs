@@ -63,7 +63,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 data.haveId = id;
                 //haveAsiList.curHaveList[curNameI] = id;
             }
-            if (Input.GetMouseButtonUp(0))
+            if (!data2.isClicked)
             {
                 isHave = false;
                 haveAsiList.asiList[id] = false;
