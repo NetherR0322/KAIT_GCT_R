@@ -11,7 +11,7 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        var customProperties = photonView.Owner.CustomProperties;
+        
 
     }
 
@@ -26,12 +26,11 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
         Debug.Log("当たりました");
         if (collision.gameObject.tag == "tako")
         {
-            var customProperties = PhotonNetwork.LocalPlayer.CustomProperties;
-            int score = (customProperties["Score"] is int value) ? value : 0;
+            
 
-            var hashtable = new Hashtable();
+            
             KanegaeGameManager.checkScore = true;
-            hashtable["Score"] = score + 10;
+            
             KanegaeGameManager.score += 10;
             KanegaeGameManager.rate += 1;
             Debug.Log("Rate:" + KanegaeGameManager.rate);
