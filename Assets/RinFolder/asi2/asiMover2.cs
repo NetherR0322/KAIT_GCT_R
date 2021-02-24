@@ -49,7 +49,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             }
         }
         //Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
-        Vector2 mp = data.nowPos;
+        Vector2 mp = data.thisPos;
         //dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
         if (catchData)//近くにカーソルがあったら
         {

@@ -9,7 +9,8 @@ public class curData : MonoBehaviour
     private GameObject tako;
     Rigidbody2D rb;
     Vector3 beforePos;
-    public Vector3 nowPos;
+    Vector3 nowPos;
+    public Vector3 thisPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class curData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        thisPos = this.transform.position;
         beforePos = nowPos;
         nowPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (haveId == -1 && data.isClicked&&nowPos.y<beforePos.y) {
