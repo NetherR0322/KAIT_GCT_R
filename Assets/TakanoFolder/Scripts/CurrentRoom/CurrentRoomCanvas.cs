@@ -7,7 +7,7 @@ public class CurrentRoomCanvas : MonoBehaviour
 {
     public GameObject stage;    //ステージ画面
 
-    //int num = 2;
+    int num = 4;
 
     //---ゲームプレイシーンに遷移するボタン---//
     public void OnClick_Start()
@@ -21,7 +21,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
-        PhotonNetwork.LoadLevel(3); //ゲームプレイシーンに遷移
+        PhotonNetwork.LoadLevel(num); //ゲームプレイシーンに遷移
     }
 
     //ステージ画面
@@ -43,7 +43,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         {
             return;
         }
-        //num = 2;
+        num = 4;
     }
     //ステージ2
     public void OnClick_Stage2()
@@ -53,7 +53,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         {
             return;
         }
-        //num = 3;
+        num = 5;
     }
     //ルームに戻る
     public void OnClick_returnRoom()
