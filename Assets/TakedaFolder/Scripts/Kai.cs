@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sample : MonoBehaviour
+public class Kai : MonoBehaviour
 {
+    private int score=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +14,14 @@ public class Sample : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-            var dx = 0.1f * Input.GetAxis("Horizontal");
-            var dy = 0.1f * Input.GetAxis("Vertical");
-            transform.Translate(dx, dy, 0f);
         
     }
-
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "tako")
+        {
+            Destroy(this);
+            score = +1;
+        }
+    }
 }
