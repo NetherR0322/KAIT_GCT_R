@@ -41,6 +41,8 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
         tagObjects = GameObject.FindGameObjectsWithTag("Cursor");
         this.gameObject.name = tagObjects.Length.ToString();
+        //プレイヤーのID別に色を変更する
+        photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
     }
 
     // Update is called once per frame
@@ -69,8 +71,6 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
             //Spriteを変更する
             ChangeSpriteState();
-            //プレイヤーのID別に色を変更する
-            photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
         }
     }
     //任意の値を定期的に同期させる
