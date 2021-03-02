@@ -24,11 +24,10 @@ public class PlayerNetwork : MonoBehaviour
         Instance = this;
         PhotonView = GetComponent<PhotonView>();
 
-        //プレイヤーの名前を自動で生成
-        PlayerName = "Player" + Random.Range(1000, 9999);
-
+        //シーン切り替えを検出
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
-
+        
+        //名前入力用
         inputField = inputField.GetComponent<TMP_InputField>();
 
     }
@@ -37,9 +36,10 @@ public class PlayerNetwork : MonoBehaviour
         //テキストにinputFieldの内容を反映
         text.text = inputField.text;
 
-        //プレイシーンに遷移
+        //名前入力されているか判定
         if (string.IsNullOrWhiteSpace(inputField.text) && string.IsNullOrWhiteSpace(inputField.text))
         {
+            //プレイヤーの名前を自動で生成
             PlayerName = "Player(" + Random.Range(1000, 9999) + ")";
 
             PhotonNetwork.LoadLevel(2);
@@ -57,8 +57,10 @@ public class PlayerNetwork : MonoBehaviour
     //---プレイヤースポーン関係---//
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        PlayersInGame = 0;
-        if (scene.name == "Shopping streetStage")
+        PlayersInGame = 0;　//初期化
+
+        //ステージ1
+        if (scene.buildIndex == 5)
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -69,7 +71,8 @@ public class PlayerNetwork : MonoBehaviour
                 NonMasterLoadedGame();
             }
         }
-        if (scene.name == "AquariumScene")
+        //ステージ2
+        if (scene.buildIndex == 6)
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -82,11 +85,13 @@ public class PlayerNetwork : MonoBehaviour
         }
 
     }
+    //ステージ1
     private void MasterLoadedGame()
     {
         PhotonView.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
         PhotonView.RPC("RPC_LoadGameOthers", RpcTarget.Others);
     }
+    //ステージ2
     private void MasterLoadedGame2()
     {
         PhotonView.RPC("RPC_LoadedGameScene", RpcTarget.MasterClient);
@@ -100,13 +105,13 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(4);
+        PhotonNetwork.LoadLevel(5);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthers2()
     {
-        PhotonNetwork.LoadLevel(5);
+        PhotonNetwork.LoadLevel(6);
     }
 
     [PunRPC]
@@ -115,13 +120,14 @@ public class PlayerNetwork : MonoBehaviour
         PlayersInGame++;
         if (PlayersInGame == PhotonNetwork.PlayerList.Length)
         {
-            print("ALL PLAYER ARE IN THE GAME SCENE");
+            print("プレイヤー全員が遷移しました");
             PhotonView.RPC("RPC_CreatePlayer", RpcTarget.All);
         }
     }
     [PunRPC]
     private void RPC_CreatePlayer()
     {
+        //マウスカーソルを生成
         float randomValue = Random.Range(5f, 5f);
         PhotonNetwork.Instantiate("GamePlayer", Vector3.up * randomValue, Quaternion.identity, 0);
     }
