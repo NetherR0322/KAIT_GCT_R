@@ -53,6 +53,10 @@ public class PlayerNetwork : MonoBehaviour
         }
 
     }
+    /*public void OnClicked_LoadMovie()
+    {
+        PhotonView.RPC("LoadMovieScene", RpcTarget.All);
+    }*/
 
     //---プレイヤースポーン関係---//
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
@@ -130,5 +134,10 @@ public class PlayerNetwork : MonoBehaviour
         //マウスカーソルを生成
         float randomValue = Random.Range(5f, 5f);
         PhotonNetwork.Instantiate("GamePlayer", Vector3.up * randomValue, Quaternion.identity, 0);
+    }
+    [PunRPC]
+    private void LoadMovieScene()
+    {
+        SceneManager.LoadSceneAsync("MoveiScene", LoadSceneMode.Additive);
     }
 }

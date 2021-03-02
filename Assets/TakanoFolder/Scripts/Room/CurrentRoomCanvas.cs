@@ -7,9 +7,17 @@ public class CurrentRoomCanvas : MonoBehaviour
 {
     public GameObject stage;    //ステージ画面
 
-    int num = 5; //stage num
+    public static int num = 5; //stage num
+
+    GameObject PlayerNetWork;
+    private PhotonView PhotonView;
 
     //---ゲームプレイシーンに遷移するボタン---//
+    private void Awake()
+    {
+        PlayerNetWork = GameObject.Find("PlayerNetWork");
+        PhotonView = PlayerNetWork.GetComponent<PhotonView>();
+    }
     public void OnClick_Start()
     {
         //マスタークライアント(ルームの主)だけが押せるボタン
@@ -20,8 +28,8 @@ public class CurrentRoomCanvas : MonoBehaviour
         //プレイ中のルームを非表示にし、後から入れないようにする
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
-
-        PhotonNetwork.LoadLevel(num); //ゲームプレイシーンに遷移
+        PhotonView.RPC("LoadMovieScene", RpcTarget.All);
+        //PhotonNetwork.LoadLevel(num); //ゲームプレイシーンに遷移
     }
 
     //ステージ画面
