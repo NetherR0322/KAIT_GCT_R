@@ -333,4 +333,4 @@ MonoBehaviour:
   haveId: -1
   beforePos: {x: 0, y: 0, z: 0}
   thisPos: {x: 0, y: 0, z: 0}
-  power: 0.01
+  power: 0.04
