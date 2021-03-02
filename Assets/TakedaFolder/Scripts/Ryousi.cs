@@ -19,7 +19,7 @@ public class Ryousi : MonoBehaviour
     {
         shotIntarval += 1;
 
-        if (shotIntarval % 360 == 0)
+        if (shotIntarval % 1260 == 0)
         {
             GameObject enemyShell = Instantiate(Ami, transform.position, Quaternion.identity);
 
@@ -27,10 +27,9 @@ public class Ryousi : MonoBehaviour
 
             // forwardはZ軸方向（青軸方向）・・・＞この方向に力を加える。
             enemyShellRb.AddForce(transform.forward * shotSpeed);
+         
 
-  
-
-            Destroy(enemyShell, 3.0f);
+            Destroy(enemyShell, 30.0f);
         }
 
     }
