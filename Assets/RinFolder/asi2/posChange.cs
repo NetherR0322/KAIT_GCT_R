@@ -35,18 +35,19 @@ public class posChange : MonoBehaviour
         asiMover2 = top.GetComponent<asiMover2>();
         LR = GetComponent<LineRenderer>();
         LR.positionCount = boneCount;
+        Vector2 thisPos = this.transform.position;
         for (int i = 0; i < boneCount; i++)
         {
-            Vector2 thisPos = this.transform.position;
            // if (i == 0) 
                 pos = new Vector3(thisPos.x + i * startPos.x, thisPos.y + i * startPos.y, 0);
+            Debug.Log(i * startPos.x);
             //if (i != 0) pos = new Vector3(thisPos.x + i * startPos.x, thisPos.y + i * startPos.y, 0) - this.transform.position;
             GameObject asiIns = Instantiate(boneBase, pos, Quaternion.identity, root.transform);
             asiIns.name = "asi-" + i;
             asi[i] = asiIns;
             asiLinePos[i] = asi[i].transform.position;
         }
-        top.transform.position = asi[boneCount - 1].transform.position + this.transform.position;
+        top.transform.position = this.transform.position+new Vector3(startPos.x*16,startPos.y*16);// asi[boneCount - 1].transform.position + this.transform.position;
     }
 
     // Update is called once per frame
