@@ -7,7 +7,7 @@ public class CurrentRoomCanvas : MonoBehaviour
 {
     public GameObject stage;    //ステージ画面
 
-    int num = 4;
+    int num = 5; //stage num
 
     //---ゲームプレイシーンに遷移するボタン---//
     public void OnClick_Start()
@@ -43,7 +43,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         {
             return;
         }
-        num = 4;
+        num = 5; //stage1
     }
     //ステージ2
     public void OnClick_Stage2()
@@ -53,7 +53,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         {
             return;
         }
-        num = 5;
+        num = 6; //stage2
     }
     //ルームに戻る
     public void OnClick_returnRoom()
