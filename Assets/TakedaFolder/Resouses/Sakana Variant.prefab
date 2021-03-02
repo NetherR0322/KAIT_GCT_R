@@ -47,22 +47,22 @@ PrefabInstance:
     - target: {fileID: 2826767000250377887, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.80711275
+      value: 2.3783865
       objectReference: {fileID: 0}
     - target: {fileID: 2826767000250377887, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5983576
+      value: 1.8359907
       objectReference: {fileID: 0}
     - target: {fileID: 2826767000250377887, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.36
+      value: -7.61
       objectReference: {fileID: 0}
     - target: {fileID: 2826767000250377887, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.94
+      value: 14.99
       objectReference: {fileID: 0}
     - target: {fileID: 2826767000250377887, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 4948923677732624328, guid: 5e16f32829f3878409fbdd0dad1270b9,
         type: 3}
       propertyPath: m_Name
-      value: Sakana
+      value: Sakana Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1128968740109935842, guid: 5e16f32829f3878409fbdd0dad1270b9, type: 3}
