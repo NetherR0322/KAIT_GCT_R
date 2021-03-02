@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7146018831211510003}
   - component: {fileID: 7146018831211509996}
-  - component: {fileID: 7146018831211509997}
   - component: {fileID: 7146018831211510002}
+  - component: {fileID: 5424539613699987918}
   m_Layer: 0
   m_Name: Ika
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7146018831211509999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.74, y: 1.78, z: -5.2714844}
-  m_LocalScale: {x: 0.5475612, y: 0.6715391, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,7 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7146018831211509997
+--- !u!114 &7146018831211510002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146018831211509999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108661fbd79cdf9458401baa0297c1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &5424539613699987918
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,17 +119,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6.5}
+  m_Size: {x: 1.86, y: 3.4}
   m_EdgeRadius: 0
---- !u!114 &7146018831211510002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146018831211509999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108661fbd79cdf9458401baa0297c1bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

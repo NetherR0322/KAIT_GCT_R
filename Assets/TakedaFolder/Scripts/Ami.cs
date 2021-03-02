@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Ika : MonoBehaviour
+public class Ami : MonoBehaviour
 {
-    private Vector3 targetps;
     // Start is called before the first frame update
     void Start()
     {
-        targetps = transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Sin(Time.time) * 4f + targetps.x, targetps.y, targetps.z);
-        }
+        Destroy(gameObject, 3f);
+    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name == "tako")
         {
-            GameObject tako = GameObject.Find("tako");
-        
+            Destroy(this);
+            SceneManager.LoadScene("GameOverScene"); //シーン切り替え
         }
     }
 }
