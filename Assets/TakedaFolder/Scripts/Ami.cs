@@ -14,7 +14,7 @@ public class Ami : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 17f);
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
