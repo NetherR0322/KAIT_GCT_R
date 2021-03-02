@@ -506,6 +506,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5165873529628815515, guid: de9e44fff0468ac4c9129505109af799,
+        type: 3}
+      propertyPath: m_SynchronizeScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5165873529628815516, guid: de9e44fff0468ac4c9129505109af799,
         type: 3}
       propertyPath: viewIdField
@@ -519,7 +524,7 @@ PrefabInstance:
     - target: {fileID: 5893836071242386584, guid: de9e44fff0468ac4c9129505109af799,
         type: 3}
       propertyPath: m_Name
-      value: tako
+      value: TAKO
       objectReference: {fileID: 0}
     - target: {fileID: 5893836071242386587, guid: de9e44fff0468ac4c9129505109af799,
         type: 3}
