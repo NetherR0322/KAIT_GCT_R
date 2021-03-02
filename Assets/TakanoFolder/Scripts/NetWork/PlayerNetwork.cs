@@ -16,8 +16,8 @@ public class PlayerNetwork : MonoBehaviour
 
     private int PlayersInGame = 0; //プレイヤーの人数
 
-    public TMP_InputField inputField;
-    public TextMeshProUGUI text;
+    public InputField inputField;
+    public Text text;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlayerNetwork : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
         
         //名前入力用
-        inputField = inputField.GetComponent<TMP_InputField>();
+        inputField = inputField.GetComponent<InputField>();
 
     }
     public void OnClicked_InputName()
