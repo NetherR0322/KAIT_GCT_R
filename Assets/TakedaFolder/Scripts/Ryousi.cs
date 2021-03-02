@@ -19,7 +19,7 @@ public class Ryousi : MonoBehaviour
     {
         shotIntarval += 1;
 
-        if (shotIntarval % 60 == 0)
+        if (shotIntarval % 360 == 0)
         {
             GameObject enemyShell = Instantiate(Ami, transform.position, Quaternion.identity);
 
