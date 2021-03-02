@@ -14,7 +14,7 @@ public class Ika : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Sin(Time.time) * 2.5f + targetps.x, targetps.y, targetps.z);
+        transform.position = new Vector3(Mathf.Sin(Time.time) * 3f + targetps.x, targetps.y, targetps.z);
         }
     private void OnCollisionEnter2D(Collision2D col)
     {
