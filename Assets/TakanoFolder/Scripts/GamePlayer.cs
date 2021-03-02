@@ -27,6 +27,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     public Color SpriteColor;   //色分け用
 
+    float time;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +43,15 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         tagObjects = GameObject.FindGameObjectsWithTag("Cursor");
         this.gameObject.name = tagObjects.Length.ToString();
         //プレイヤーのID別に色を変更する
-        photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
+        //Invoke("ChangeMouseColor",1.5f);
+        //photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
     }
 
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
@@ -71,6 +75,13 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             }
             //Spriteを変更する
             ChangeSpriteState();
+
+            if (time <= 5f)
+            {
+                //マウスカーソルの色を変更する
+                ChangeMouseColor();
+            }
+
         }
     }
     //任意の値を定期的に同期させる
@@ -104,6 +115,10 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         {
             MainSpriteRenderer.sprite = IdleSprite; //アイドル状態
         }
+    }
+    void ChangeMouseColor()
+    {
+        photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
     }
 
     //プレイヤーのID別に色を変更する
