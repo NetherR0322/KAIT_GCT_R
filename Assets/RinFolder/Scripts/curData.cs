@@ -11,6 +11,8 @@ public class curData : MonoBehaviour
     public Vector3 beforePos;
     Vector3 nowPos;
     public Vector3 thisPos;
+
+    public float power = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +29,19 @@ public class curData : MonoBehaviour
         beforePos = nowPos;
         nowPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (haveId == -1 && data.isClicked&&nowPos.y<beforePos.y) {
-            rb.AddForce(new Vector3(0.0f,0.01f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector3(0.0f,power), ForceMode2D.Impulse);
         }
         if (haveId == -1 && data.isClicked && nowPos.y > beforePos.y)
         {
-            rb.AddForce(new Vector3(0.0f, -0.01f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector3(0.0f, -power), ForceMode2D.Impulse);
         }
         if (haveId == -1 && data.isClicked && nowPos.x < beforePos.x)
         {
-            rb.AddForce(new Vector3(0.01f, 0.0f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector3(power, 0.0f), ForceMode2D.Impulse);
         }
         if (haveId == -1 && data.isClicked && nowPos.x > beforePos.x)
         {
-            rb.AddForce(new Vector3(-0.01f, 0.0f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector3(-power, 0.0f), ForceMode2D.Impulse);
         }
     }
 }
