@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class LobbyCanvas : MonoBehaviour
 {
@@ -13,7 +14,13 @@ public class LobbyCanvas : MonoBehaviour
     {
         get { return _roomLayoutGroup; }
     }
-
+    public Text PlayerCount;
+    string text;
+    private void Update()
+    {
+        text = PhotonNetwork.CountOfPlayersOnMaster.ToString();
+        PlayerCount.text = "待機プレイヤー:" + text+"人";
+    }
     public void OnClickJoinRoom(string roomName)
     {
         if (PhotonNetwork.JoinRoom(roomName))
