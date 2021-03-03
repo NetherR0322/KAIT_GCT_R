@@ -28,6 +28,9 @@ public class posChange : MonoBehaviour
     Vector2 targetPos2;
     float dist;
 
+    public Material LasiMat;
+    public Material RasiMat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,8 @@ public class posChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (top.transform.position.x < root.transform.position.x) LR.material = LasiMat;
+        if (top.transform.position.x > root.transform.position.x) LR.material = RasiMat;
         targetPos = asi[boneCount - 1].transform.position;
         targetPos2 = root.transform.position;
         dist = Mathf.Sqrt(Mathf.Pow(targetPos2.x - targetPos.x, 2) + Mathf.Pow(targetPos2.y - targetPos.y, 2));//
