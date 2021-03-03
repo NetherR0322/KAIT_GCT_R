@@ -26,12 +26,7 @@ public class Crow : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "tako")
-        {
-            GameObject tako = GameObject.Find("tako");
-
-
-        }
+       
         
     }
     void OnTriggerEnter2D(Collider2D col) {
