@@ -1918,6 +1918,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: -0.5, y: 0.5}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645296724157355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +2635,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: -0.5, y: 0.25}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645296773994862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3352,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: 0.5, y: 0}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297067819274
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,6 +4069,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: 0.5, y: 0.5}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297101469808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4855,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: -0.5, y: 0}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297603618092
 GameObject:
   m_ObjectHideFlags: 0
@@ -5562,6 +5572,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: -0.5, y: -0.25}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297624983694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6277,6 +6289,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: 0.5, y: 0.25}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297702764440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6992,6 +7006,8 @@ MonoBehaviour:
   denger: 10
   startPos: {x: 0.5, y: -0.25}
   mainObject: {fileID: 1620102022322412437}
+  LasiMat: {fileID: 2100000, guid: 0edf6cc62aff46c46b7bc46a9b2db44d, type: 2}
+  RasiMat: {fileID: 2100000, guid: 80db60f73297302409877805e42fe893, type: 2}
 --- !u!1 &7158645297870661620
 GameObject:
   m_ObjectHideFlags: 0
