@@ -39,6 +39,7 @@ public class ButtonManager : MonoBehaviour
 
     public void GoTitle()
     {
+        Cursor.visible = true;
         GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LeaveLobby();  //ルームを出る
@@ -52,9 +53,9 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
+        Cursor.visible = true;
         LobbyNetwork.isPlay = false;
         PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
-        //PhotonNetwork.CurrentRoom.IsOpen = true;
     }
     public void GoRoom2()
     {
@@ -62,9 +63,9 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
+        Cursor.visible = true;
         LobbyNetwork.isPlay = false;
         PhotonView.RPC("UnLoadStageScene2", RpcTarget.All);
-        //PhotonNetwork.CurrentRoom.IsOpen = true;
     }
     public void GoGame()
     {

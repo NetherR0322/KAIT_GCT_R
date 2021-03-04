@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ResultScript : MonoBehaviour
 {
-    public TextMeshProUGUI ScoreResultText;
+    /*public TextMeshProUGUI ScoreResultText;
 
     public TextMeshProUGUI RateResultText;
 
-    public TextMeshProUGUI ClearTimeText;
+    public TextMeshProUGUI ClearTimeText;*/
+    public Text ScoreResultText;
+
+    public Text RateResultText;
+
+    public Text ClearTimeText;
 
     void Start()
     {
-        
+        ScoreResultText.text = "スコア:" + KanegaeGameManager.score;
+        RateResultText.text = "レート:" + KanegaeGameManager.rate + "/2";//ここの分母もおねがいします～(;w;)
+        ClearTimeText.text = "クリアタイム:" + LimitScript.limit.ToString("f0") + "秒";
     }
 
     // Update is called once per frame
     void Update()
     {
-        ScoreResultText.text = "ResultScore : " + KanegaeGameManager.score;
-        RateResultText.text = "RastRate : " + KanegaeGameManager.rate+" / 2";//ここの分母もおねがいします～(;w;)
-        ClearTimeText.text = "ClearTime : " + LimitScript.limit.ToString("f2")+"sec";
-    }   
+    }
 }
