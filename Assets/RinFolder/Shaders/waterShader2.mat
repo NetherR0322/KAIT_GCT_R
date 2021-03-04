@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: waterShader
-  m_Shader: {fileID: 4800000, guid: 484af3c462496f749bb14a801edf1c20, type: 3}
+  m_Name: waterShader2
+  m_Shader: {fileID: 4800000, guid: 32137d2d329ecf74fb9b3f188b8d52af, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -47,6 +47,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: bda115a2bee41dd498f9c69c4e7d8abd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTex3:
+        m_Texture: {fileID: 2800000, guid: 554c393696dd20f45b7bf1659e14b2e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex4:
+        m_Texture: {fileID: 2800000, guid: 8d650ca02bd9da5418df6bbf325f8597, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -73,8 +81,10 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Shader: 0.1
+    - _Size: 0.25
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 25
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
