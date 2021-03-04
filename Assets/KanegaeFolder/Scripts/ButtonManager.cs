@@ -47,6 +47,12 @@ public class ButtonManager : MonoBehaviour
         Destroy(DDOobj);
         SceneManager.LoadScene(0);//タイトルシーンに遷移
     }
+    public void retrunLobby()
+    {
+        Cursor.visible = true;
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(2);//タイトルシーンに遷移
+    }
     public void GoRoom()
     {
         if (!PhotonNetwork.IsMasterClient)
