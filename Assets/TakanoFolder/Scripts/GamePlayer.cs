@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -20,8 +21,9 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     public bool isClicked = false; //クリック中フラグ
 
-    [SerializeField]
-    private TextMeshPro nameLabel = default;
+    //[SerializeField]
+    //private TextMeshPro nameLabel = default;
+    public Text nameLabel;
 
     GameObject[] tagObjects;
 
