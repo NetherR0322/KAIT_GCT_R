@@ -25,6 +25,7 @@ public class CreatePlayer : MonoBehaviour
     }
     void createPlayer()
     {
+        Cursor.visible = false;
         PhotonView.RPC("RPC_CreatePlayer", RpcTarget.All);
     }
 }

@@ -23,6 +23,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject.name == "tako")
         {
             GameObject tako = GameObject.Find("tako");
+            Cursor.visible = true;
             SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
         }
     }

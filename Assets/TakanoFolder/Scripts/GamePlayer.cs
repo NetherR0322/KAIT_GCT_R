@@ -36,7 +36,6 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         //マウスカーソルを非表示
-        Cursor.visible = false;
 
         // このobjectのSpriteRendererを取得
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -106,7 +105,6 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             // 他プレイヤー側が生成したオブジェクトの場合は
             // 受信したデータからクリック中フラグを更新する
             isClicked = (bool)stream.ReceiveNext();
-            Cursor.visible = false;
             ChangeSpriteState();
         }
     }

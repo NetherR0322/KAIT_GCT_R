@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class CurrentRoomCanvas : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class CurrentRoomCanvas : MonoBehaviour
 
     GameObject PlayerNetWork;
     private PhotonView PhotonView;
+
+    public Text stageName;
+    public Text stageName2;
 
     //---ゲームプレイシーンに遷移するボタン---//
     private void Awake()
@@ -26,7 +30,7 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         //プレイ中のルームを非表示にし、後から入れないようにする
-        //PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         //ムービーシーンを読み込む
         PhotonView.RPC("LoadMovieScene", RpcTarget.All);
         LobbyNetwork.isPlay = true;
@@ -52,6 +56,8 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         num = 5; //stage1
+        stageName.text = "選択中のステージ:商店街";
+        stageName2.text = "選択中のステージ:商店街";
     }
     //ステージ2
     public void OnClick_Stage2()
@@ -62,6 +68,8 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         num = 6; //stage2
+        stageName.text = "選択中のステージ:水族館";
+        stageName2.text = "選択中のステージ:水族館";
     }
     //ルームに戻る
     public void OnClick_returnRoom()
