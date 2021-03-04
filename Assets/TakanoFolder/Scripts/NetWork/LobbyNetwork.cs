@@ -19,6 +19,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
         Cursor.visible = true;
+        isPlay = false;
     }
     private void Update()
     {

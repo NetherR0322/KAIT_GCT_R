@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class KanegaeGameManager : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class KanegaeGameManager : MonoBehaviour
 
     public static bool checkScore = false;
 
-    public TextMeshProUGUI ScoreText;
+    //public TextMeshProUGUI ScoreText;
 
-    public TextMeshProUGUI RateText;
+    //public TextMeshProUGUI RateText;
+
+    public Text ScoreText;
+
+    public Text RateText;
 
     /*public TextMeshProUGUI LengthText;
 
@@ -57,8 +62,8 @@ public class KanegaeGameManager : MonoBehaviour
 
         //LengthText.text = "Length:" + len;//海までの長さ
 
-        ScoreText.text = "Score:"+score;
-        RateText.text = "Rate:"+rate+"/2";//分母はステージによって変えてください(;w;)
+        ScoreText.text = "スコア:"+score;
+        RateText.text = "レート:"+rate+"/2";//分母はステージによって変えてください(;w;)
     }
 
     /*private float LengthCheck()
