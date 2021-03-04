@@ -8,10 +8,17 @@ using Photon.Pun;
 public class TimeLineManager : MonoBehaviour
 {
     private PlayableDirector playableDirector;
+
+    GameObject PlayerNetWork;
+    private PhotonView PhotonView;
+
     // Start is called before the first frame update
     void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
+
+        PlayerNetWork = GameObject.Find("PlayerNetWork");
+        PhotonView = PlayerNetWork.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -19,7 +26,9 @@ public class TimeLineManager : MonoBehaviour
     {
         if (playableDirector.state != PlayState.Playing)
         {
-            PhotonNetwork.LoadLevel(CurrentRoomCanvas.num);
+            //PhotonNetwork.LoadLevel(CurrentRoomCanvas.num);
+            PhotonView.RPC("LoadStageScene", RpcTarget.All);
+            PhotonView.RPC("UnLoadMovieScene", RpcTarget.All);
         }
     }
     public void On_clickedSkip()
@@ -29,6 +38,8 @@ public class TimeLineManager : MonoBehaviour
         {
             return;
         }
-        PhotonNetwork.LoadLevel(CurrentRoomCanvas.num);
+        //PhotonNetwork.LoadLevel(CurrentRoomCanvas.num);
+        PhotonView.RPC("LoadStageScene", RpcTarget.All);
+        PhotonView.RPC("UnLoadMovieScene", RpcTarget.All);
     }
 }

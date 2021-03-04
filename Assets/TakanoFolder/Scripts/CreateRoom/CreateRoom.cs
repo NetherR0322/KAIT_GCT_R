@@ -35,17 +35,4 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             }
         }
     }
-    /*
-    //---CreateRoomの呼び出しを確認する---//
-
-    //ルームの作成に失敗したとき
-    public void OnPhotonCreateRoomFailed(object[] codeAndMessage)
-    {
-        print("create room failed"+codeAndMessage);
-    }
-    //ルームの作成に成功したとき
-    public override void OnCreatedRoom()
-    {
-        Debug.Log("作成したルームを確認");
-    }*/
 }

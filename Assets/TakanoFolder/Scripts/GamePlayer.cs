@@ -28,6 +28,10 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     public Color SpriteColor;   //色分け用
 
     float time;
+
+    GameObject mainCamObj;
+    Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,9 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         //プレイヤーのID別に色を変更する
         //Invoke("ChangeMouseColor",1.5f);
         //photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
+
+        mainCamObj = GameObject.Find("Main Camera");
+        cam = mainCamObj.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -59,7 +66,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             position = Input.mousePosition;
 
             // マウス位置座標をスクリーン座標からワールド座標に変換する
-            screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(position);
+            screenToWorldPointPosition = cam.ScreenToWorldPoint(position);
 
             // ワールド座標に変換されたマウス座標を代入
             this.gameObject.transform.position = screenToWorldPointPosition;

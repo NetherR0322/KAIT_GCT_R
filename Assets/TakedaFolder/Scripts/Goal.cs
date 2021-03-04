@@ -23,7 +23,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject.name == "tako")
         {
             GameObject tako = GameObject.Find("tako");
-            SceneManager.LoadScene("ResultScene"); //シーン切り替え
+            SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
         }
     }
 }
