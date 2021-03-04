@@ -13,7 +13,7 @@ public class Crow : MonoBehaviour
     void Start()
     {
         targetps = transform.position;
-        speed = -0.1f;
+        speed = -0.01f;
     }
 
     // Update is called once per frame
