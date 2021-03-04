@@ -8,6 +8,7 @@
         _MainTex4 ("Mask", 2D) = "white" {}
 
         _Add ("Add", Range(0,1)) = 0
+        _Add2 ("Add(awa)", Range(0,1)) = 0
         _Shader ("Shader", Range(0,0.1)) = 0
         _Speed ("Speed", Range(0,100)) = 0
         _Size ("Size", Range(0,1)) = 0
@@ -64,6 +65,7 @@
             float2 posShader;
             Float isUnStart;
             Float _Add;
+            Float _Add2;
             Float _Shader;
             Float _Speed;
             Float _Size;
@@ -88,7 +90,7 @@
                  fixed4 col = tex2D(_MainTex,i.uv);//もともとのスプライトを描画
                 if(tex2D(_MainTex2, posShader).a>0.5&&tex2D(_MainTex2, pos).a<0.5)col -= tex2D(_MainTex2, posShader)*_Add/4;//テクスチャ決める
                 if(tex2D(_MainTex2, pos).a>0.5)col += tex2D(_MainTex2, pos)*_Add;//テクスチャ決める
-                if(tex2D(_MainTex3, posWave).a>0.5)col += tex2D(_MainTex3, posWave)*_Add;//テクスチャ決める
+                if(tex2D(_MainTex3, posWave).a>0.5)col += tex2D(_MainTex3, posWave)*_Add2;//テクスチャ決める
                 col.a=1;
                 if(tex2D(_MainTex4, posWave).a<0.5)col.a=0;
                 //col.rgb = 1-col.rgb;//色反転

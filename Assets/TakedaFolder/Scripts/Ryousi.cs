@@ -23,7 +23,7 @@ public class Ryousi : MonoBehaviour
         {
             GameObject enemyShell = Instantiate(Ami, transform.position, Quaternion.identity);
 
-            Rigidbody enemyShellRb = enemyShell.GetComponent<Rigidbody>();
+            Rigidbody2D enemyShellRb = enemyShell.GetComponent<Rigidbody2D>();
 
             // forwardはZ軸方向（青軸方向）・・・＞この方向に力を加える。
             enemyShellRb.AddForce(transform.forward * shotSpeed);
