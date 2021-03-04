@@ -5,8 +5,8 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     float Times;
-    float Xsize = 8.071276f;
-    float Ysize = 8.071276f;
+    float Xsize = 2.469088f;
+    float Ysize = 2.469088f;
     private Vector3 targetps;
     public float speed = -0.1f;
     // Start is called before the first frame update
@@ -24,16 +24,7 @@ public class Car : MonoBehaviour
         transform.position = new Vector3(targetps.x, targetps.y, targetps.z);
 
     }
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.name == "tako")
-        {
-          
-
-
-        }
-
-    }
+   
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Return")

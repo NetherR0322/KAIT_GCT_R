@@ -8,12 +8,12 @@ public class Crow : MonoBehaviour
      float Xsize= 1.494188f;
     float Ysize= 1.494188f;
     private Vector3 targetps;
-    public float speed ;
+    public float speed = -0.01f;
     // Start is called before the first frame update
     void Start()
     {
         targetps = transform.position;
-        speed = -0.01f;
+        
     }
 
     // Update is called once per frame
