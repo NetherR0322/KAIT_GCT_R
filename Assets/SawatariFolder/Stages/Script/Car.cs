@@ -28,7 +28,7 @@ public class Car : MonoBehaviour
     {
         if (col.gameObject.name == "tako")
         {
-            GameObject tako = GameObject.Find("tako");
+          
 
 
         }
