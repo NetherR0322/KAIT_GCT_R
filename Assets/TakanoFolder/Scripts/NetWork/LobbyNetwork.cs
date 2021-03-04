@@ -8,7 +8,8 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
 {
     //プレイヤーのID
     public static int id;
-
+    public GameObject LobbyCanvas;
+    public static bool isPlay=false;
     private void Start()
     {
         //サーバーに接続しているか確認する
@@ -18,6 +19,18 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
         Cursor.visible = true;
+    }
+    private void Update()
+    {
+        Debug.Log(isPlay);
+        if (isPlay==true)
+        {
+            LobbyCanvas.SetActive(false);
+        }
+        else if (isPlay==false)
+        {
+            LobbyCanvas.SetActive(true);
+        }
     }
 
     //---マスターサーバーに接続した時---//

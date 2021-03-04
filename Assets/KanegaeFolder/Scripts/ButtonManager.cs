@@ -6,10 +6,13 @@ using Photon.Pun;
 
 public class ButtonManager : MonoBehaviour
 {
-    
+    GameObject PlayerNetWork;
+    private PhotonView PhotonView;
     void Start()
     {
         Cursor.visible = true;
+        PlayerNetWork = GameObject.Find("PlayerNetWork");
+        PhotonView = PlayerNetWork.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -43,7 +46,26 @@ public class ButtonManager : MonoBehaviour
         Destroy(DDOobj);
         SceneManager.LoadScene(0);//タイトルシーンに遷移
     }
-
+    public void GoRoom()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+        LobbyNetwork.isPlay = false;
+        PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
+        //PhotonNetwork.CurrentRoom.IsOpen = true;
+    }
+    public void GoRoom2()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+        LobbyNetwork.isPlay = false;
+        PhotonView.RPC("UnLoadStageScene2", RpcTarget.All);
+        //PhotonNetwork.CurrentRoom.IsOpen = true;
+    }
     public void GoGame()
     {
         SceneManager.LoadScene("GameScene");

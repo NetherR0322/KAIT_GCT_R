@@ -14,8 +14,10 @@ public class LimitScript : MonoBehaviour
 
     public TextMeshProUGUI LimitText;
 
+    bool flag=false;
     void Start()
     {
+        limit = 300.0f;
     }
 
     void Update()
@@ -24,9 +26,10 @@ public class LimitScript : MonoBehaviour
 
         LimitText.text = limit.ToString("f2") + "sec";
 
-        if (limit <= 0)
+        if (limit <= 0&&flag==false)
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
+            flag = true;
         }
     }
 }

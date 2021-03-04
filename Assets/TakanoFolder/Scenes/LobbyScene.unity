@@ -1997,6 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de0c8fc96f2a6848a8d316dd46da64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LobbyCanvas: {fileID: 1183380917}
 --- !u!4 &1402761799
 Transform:
   m_ObjectHideFlags: 0
@@ -3271,7 +3272,7 @@ GameObject:
   - component: {fileID: 1881894928}
   - component: {fileID: 1881894927}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: LobbyCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

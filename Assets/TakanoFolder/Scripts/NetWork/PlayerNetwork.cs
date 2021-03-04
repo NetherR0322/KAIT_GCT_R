@@ -18,14 +18,13 @@ public class PlayerNetwork : MonoBehaviour
 
     public InputField inputField;
     public Text text;
-
     private void Awake()
     {
         Instance = this;
         PhotonView = GetComponent<PhotonView>();
 
         //シーン切り替えを検出
-        SceneManager.sceneLoaded += OnSceneFinishedLoading;
+        //SceneManager.sceneLoaded += OnSceneFinishedLoading;
         
         //名前入力用
         inputField = inputField.GetComponent<InputField>();
@@ -59,7 +58,7 @@ public class PlayerNetwork : MonoBehaviour
     }*/
 
     //---プレイヤースポーン関係---//
-    private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
+    /*private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         PlayersInGame = 0;　//初期化
 
@@ -127,7 +126,8 @@ public class PlayerNetwork : MonoBehaviour
             print("プレイヤー全員が遷移しました");
             PhotonView.RPC("RPC_CreatePlayer", RpcTarget.All);
         }
-    }
+    }*/
+
     [PunRPC]
     private void RPC_CreatePlayer()
     {
@@ -139,5 +139,48 @@ public class PlayerNetwork : MonoBehaviour
     private void LoadMovieScene()
     {
         SceneManager.LoadSceneAsync("MoveiScene", LoadSceneMode.Additive);
+    }
+    [PunRPC]
+    private void LoadStageScene()
+    {
+        int stage=CurrentRoomCanvas.num;
+        SceneManager.LoadSceneAsync(stage, LoadSceneMode.Additive);
+    }
+    [PunRPC]
+    private void UnLoadMovieScene()
+    {
+        SceneManager.UnloadSceneAsync("MoveiScene");
+    }
+    [PunRPC]
+    private void UnLoadStageScene()
+    {
+        int stage = CurrentRoomCanvas.num;
+        if (stage==5)
+        {
+            SceneManager.UnloadSceneAsync("Shopping streetStage");
+            SceneManager.UnloadSceneAsync("GameOverScene");
+        }
+        else if(stage==6)
+        {
+            SceneManager.UnloadSceneAsync("AquariumScene");
+            SceneManager.UnloadSceneAsync("GameOverScene");
+        }
+
+    }
+    [PunRPC]
+    private void UnLoadStageScene2()
+    {
+        int stage = CurrentRoomCanvas.num;
+        if (stage == 5)
+        {
+            SceneManager.UnloadSceneAsync("Shopping streetStage");
+            SceneManager.UnloadSceneAsync("ResultScene");
+        }
+        else if (stage == 6)
+        {
+            SceneManager.UnloadSceneAsync("AquariumScene");
+            SceneManager.UnloadSceneAsync("ResultScene");
+        }
+
     }
 }
