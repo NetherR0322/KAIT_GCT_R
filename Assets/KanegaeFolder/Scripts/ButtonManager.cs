@@ -53,7 +53,7 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
-        Cursor.visible = true;
+
         LobbyNetwork.isPlay = false;
         PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
     }
@@ -63,7 +63,6 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
-        Cursor.visible = true;
         LobbyNetwork.isPlay = false;
         PhotonView.RPC("UnLoadStageScene2", RpcTarget.All);
     }

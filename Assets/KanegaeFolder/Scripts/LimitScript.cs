@@ -30,6 +30,7 @@ public class LimitScript : MonoBehaviour
 
         if (limit <= 0&&flag==false)
         {
+            Cursor.visible = true;
             SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
             flag = true;
         }
