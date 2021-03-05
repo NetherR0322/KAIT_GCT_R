@@ -19,19 +19,15 @@ public class BGMPlayer : MonoBehaviour
 
     void SceneLoaded(Scene nextScene, LoadSceneMode mode)
     {
-        Debug.Log("sceneIndex:"+SceneManager.GetActiveScene().buildIndex);
-        for (int i = 0; i < bgm.Length; i++)
-        {
-            if (sceneId[i] == SceneManager.GetActiveScene().buildIndex)
-            {
-                this.GetComponent<AudioSource>().clip = bgm[i];
-                this.GetComponent<AudioSource>().Play();
-            }
-        }
+        BgmChangeTester();
     }
 
     void ActiveSceneChanged(Scene thisScene, Scene nextScene)
     {
+        BgmChangeTester();
+    }
+
+    public void BgmChangeTester() {
         Debug.Log("sceneIndex:" + SceneManager.GetActiveScene().buildIndex);
         for (int i = 0; i < bgm.Length; i++)
         {
