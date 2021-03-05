@@ -18,6 +18,11 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     curData data;
     GamePlayer data2;
     bool catchData;
+
+    //SE
+    bool isSoundPlay;
+    public AudioClip[] se;
+
     // Start is called before the first frame update
     void Start()
     {
