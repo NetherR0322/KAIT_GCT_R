@@ -59,7 +59,6 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
-
         LobbyNetwork.isPlay = false;
         PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
     }

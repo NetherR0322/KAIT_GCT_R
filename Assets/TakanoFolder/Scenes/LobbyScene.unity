@@ -1685,7 +1685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: {fileID: 686738111}
-  stageName: {fileID: 1857749135}
   stageName2: {fileID: 1279340408}
 --- !u!1 &1183380917
 GameObject:
@@ -3542,7 +3541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1857749134
 RectTransform:
   m_ObjectHideFlags: 0

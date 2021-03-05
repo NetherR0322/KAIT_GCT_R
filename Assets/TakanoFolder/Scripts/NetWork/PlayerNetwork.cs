@@ -18,6 +18,11 @@ public class PlayerNetwork : MonoBehaviour
 
     public InputField inputField;
     public Text text;
+
+    public static int stageNumber;
+
+    GameObject CRCobj;
+    Text StageName;
     private void Awake()
     {
         Instance = this;
@@ -28,7 +33,9 @@ public class PlayerNetwork : MonoBehaviour
         
         //名前入力用
         inputField = inputField.GetComponent<InputField>();
-
+        CRCobj = GameObject.Find("StageName");
+        StageName = CRCobj.GetComponent<Text>();
+        stageNumber = 5;
     }
     public void OnClicked_InputName()
     {
@@ -143,8 +150,8 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void LoadStageScene()
     {
-        int stage=CurrentRoomCanvas.num;
-        SceneManager.LoadSceneAsync(stage, LoadSceneMode.Additive);
+        //int stage=CurrentRoomCanvas.num;
+        SceneManager.LoadSceneAsync(stageNumber, LoadSceneMode.Additive);
     }
     [PunRPC]
     private void UnLoadMovieScene()
@@ -154,13 +161,13 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void UnLoadStageScene()
     {
-        int stage = CurrentRoomCanvas.num;
-        if (stage==5)
+        //int stage = CurrentRoomCanvas.num;
+        if (stageNumber == 5)
         {
             SceneManager.UnloadSceneAsync("Shopping streetStage");
             SceneManager.UnloadSceneAsync("GameOverScene");
         }
-        else if(stage==6)
+        else if(stageNumber == 6)
         {
             SceneManager.UnloadSceneAsync("AquariumScene");
             SceneManager.UnloadSceneAsync("GameOverScene");
@@ -170,17 +177,22 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void UnLoadStageScene2()
     {
-        int stage = CurrentRoomCanvas.num;
-        if (stage == 5)
+        //int stage = CurrentRoomCanvas.num;
+        if (stageNumber == 5)
         {
             SceneManager.UnloadSceneAsync("Shopping streetStage");
             SceneManager.UnloadSceneAsync("ResultScene");
         }
-        else if (stage == 6)
+        else if (stageNumber == 6)
         {
             SceneManager.UnloadSceneAsync("AquariumScene");
             SceneManager.UnloadSceneAsync("ResultScene");
         }
 
+    }
+    [PunRPC]
+    private void StageNumber(int num)
+    {
+        stageNumber = num;
     }
 }

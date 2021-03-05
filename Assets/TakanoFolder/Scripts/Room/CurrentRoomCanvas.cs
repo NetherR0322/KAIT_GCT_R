@@ -8,18 +8,19 @@ public class CurrentRoomCanvas : MonoBehaviour
 {
     public GameObject stage;    //ステージ画面
 
-    public static int num = 5; //stage num
+    public static int num; //stage num
 
     GameObject PlayerNetWork;
     private PhotonView PhotonView;
 
-    public Text stageName;
+    //public Text stageName;
     public Text stageName2;
 
     //---ゲームプレイシーンに遷移するボタン---//
     private void Awake()
     {
         PlayerNetWork = GameObject.Find("PlayerNetWork");
+        num = 5;
         PhotonView = PlayerNetWork.GetComponent<PhotonView>();
     }
     public void OnClick_Start()
@@ -56,7 +57,8 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         num = 5; //stage1
-        stageName.text = "選択中のステージ:商店街";
+        PhotonView.RPC("StageNumber", RpcTarget.All, num);
+        //stageName.text = "選択中のステージ:商店街";
         stageName2.text = "選択中のステージ:商店街";
     }
     //ステージ2
@@ -68,7 +70,8 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         num = 6; //stage2
-        stageName.text = "選択中のステージ:水族館";
+        PhotonView.RPC("StageNumber", RpcTarget.All,num);
+        //stageName.text = "選択中のステージ:水族館";
         stageName2.text = "選択中のステージ:水族館";
     }
     //ルームに戻る
