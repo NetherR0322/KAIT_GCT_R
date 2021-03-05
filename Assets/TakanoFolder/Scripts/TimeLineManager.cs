@@ -22,17 +22,21 @@ public class TimeLineManager : MonoBehaviour
         PlayerNetWork = GameObject.Find("PlayerNetWork");
         PhotonView = PlayerNetWork.GetComponent<PhotonView>();
 
-        flag = false;
+        flag = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playableDirector.state != PlayState.Playing&&flag==false)
+        if (playableDirector.state != PlayState.Playing&&flag==true)
         {
             //PhotonNetwork.LoadLevel(CurrentRoomCanvas.num);
-            PhotonView.RPC("LoadStageScene", RpcTarget.All);
             PhotonView.RPC("UnLoadMovieScene", RpcTarget.All);
+            flag = false;
+        }
+        if (flag==false)
+        {
+            PhotonView.RPC("LoadStageScene", RpcTarget.All);
             flag = true;
         }
     }

@@ -64,10 +64,4 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
         id = player.ActorNumber;
     }
-    public override void OnLeftRoom()
-    {
-        //プレイヤーのidを取得
-        Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
-        id = player.ActorNumber;
-    }
 }

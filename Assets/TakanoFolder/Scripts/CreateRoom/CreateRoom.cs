@@ -34,5 +34,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
                 print("ルームの作成に成功");
             }
         }
+        PlayerNetwork.stageNumber = 5;
     }
 }
