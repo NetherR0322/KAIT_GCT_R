@@ -6,6 +6,7 @@
         _MainTex2 ("Texture", 2D) = "white" {}
         _Add ("Add", Range(0,1)) = 0
         _Shader ("Shader", Range(0,0.1)) = 0
+        _Speed ("Speed", Range(0,1)) = 0
     }
     SubShader
     {
@@ -56,12 +57,13 @@
             Float _Add;
             fixed4 color;
             Float _Shader;
+            Float _Speed;
 
             //メインっぽい
             fixed4 frag (v2f i) : SV_Target
             {
-                pos.x+=i.uv.x+1*_Time;//UVいじれる
-                pos.y+=i.uv.y+2.5*_Time;
+                pos.x+=i.uv.x+1*_Time*_Speed;//UVいじれる
+                pos.y+=i.uv.y+2.5*_Time*_Speed;
                 posShader.x=pos.x-_Shader;
                 posShader.y=pos.y+_Shader;
 
