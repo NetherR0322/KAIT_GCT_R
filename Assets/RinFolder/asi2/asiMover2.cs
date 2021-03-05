@@ -20,7 +20,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     bool catchData;
 
     //SE
-    bool isSoundPlay;
+    bool isSoundPlay=true;
     public AudioClip[] se;
 
     // Start is called before the first frame update
@@ -65,6 +65,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 || (haveAsiList.asiList[id] == true && data.haveId == id)//この足が持たれている && 触れているカーソルが自分を持っている
                 )//もし足をつかまれていたら
             {
+                isSoundPlay = false;
                 isHave = true;
                 if(mp!=beforeMp)GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
                 haveAsiList.asiList[id] = true;
@@ -73,6 +74,11 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             }
             if (!data2.isClicked)
             {
+                if (!isSoundPlay) {
+                    this.GetComponent<AudioSource>().clip = se[Random.Range(0,se.Length)];
+                    this.GetComponent<AudioSource>().Play();
+                    isSoundPlay = true;
+                }
                 isHave = false;
                 haveAsiList.asiList[id] = false;
                 data.haveId = -1;
