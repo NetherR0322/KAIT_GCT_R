@@ -19,10 +19,7 @@ public class PlayerNetwork : MonoBehaviour
     public InputField inputField;
     public Text text;
 
-    public static int stageNumber;
-
-    GameObject CRCobj;
-    Text StageName;
+    public static int stageNumber=5;
     private void Awake()
     {
         Instance = this;
@@ -33,9 +30,6 @@ public class PlayerNetwork : MonoBehaviour
         
         //名前入力用
         inputField = inputField.GetComponent<InputField>();
-        CRCobj = GameObject.Find("StageName");
-        StageName = CRCobj.GetComponent<Text>();
-        stageNumber = 5;
     }
     public void OnClicked_InputName()
     {
