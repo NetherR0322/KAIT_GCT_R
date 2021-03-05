@@ -189,4 +189,11 @@ public class PlayerNetwork : MonoBehaviour
     {
         stageNumber = num;
     }
+    [PunRPC]
+    private void closeRoom()
+    {
+        Cursor.visible = true;
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(2);
+    }
 }
