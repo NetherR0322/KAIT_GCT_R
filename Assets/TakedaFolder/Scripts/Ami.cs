@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Ami : MonoBehaviour
 {
+    bool flag;
     // Start is called before the first frame update
     void Start()
     {
-        
+        flag = false;
     }
 
     // Update is called once per frame
@@ -18,10 +19,11 @@ public class Ami : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "tako")
+        if (col.gameObject.name == "tako"&&flag==false)
         {
             Destroy(this);
-            SceneManager.LoadScene("GameOverScene"); //シーン切り替え
+            SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive); //シーン切り替え
+            flag = true;
         }
     }
 }
