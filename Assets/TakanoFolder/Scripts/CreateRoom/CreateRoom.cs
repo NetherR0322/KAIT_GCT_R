@@ -35,5 +35,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
             }
         }
         PlayerNetwork.stageNumber = 5;
+        CurrentRoomCanvas.num = 5;
     }
 }

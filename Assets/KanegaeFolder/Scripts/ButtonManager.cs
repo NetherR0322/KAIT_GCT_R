@@ -49,9 +49,16 @@ public class ButtonManager : MonoBehaviour
     }
     public void retrunLobby()
     {
-        Cursor.visible = true;
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(2);//タイトルシーンに遷移
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonView.RPC("closeRoom", RpcTarget.All);
+        }
+        else
+        {
+            Cursor.visible = true;
+            PhotonNetwork.LeaveRoom();
+            SceneManager.LoadScene(2);
+        }
     }
     public void GoRoom()
     {
