@@ -142,9 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd70b7088d240a549875483ed6407ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 000000000500000006000000
+  sceneId: 00000000050000000600000008000000
   bgm:
   - {fileID: 8300000, guid: 93bc9b539b8729440a9094d4c7c0df4a, type: 3}
+  - {fileID: 8300000, guid: e47a041362d580643911a36aa09199ff, type: 3}
   - {fileID: 8300000, guid: e47a041362d580643911a36aa09199ff, type: 3}
   - {fileID: 8300000, guid: e47a041362d580643911a36aa09199ff, type: 3}
 --- !u!81 &-4814397797073524067
