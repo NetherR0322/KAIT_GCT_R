@@ -75,6 +75,7 @@ Material:
     - _Shader: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 0.45
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
