@@ -76,6 +76,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             {
                 if (!isSoundPlay) {
                     this.GetComponent<AudioSource>().clip = se[Random.Range(0,se.Length)];
+                    Debug.Log("random:"+Random.Range(0, se.Length));
                     this.GetComponent<AudioSource>().Play();
                     isSoundPlay = true;
                 }
