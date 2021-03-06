@@ -28,6 +28,7 @@ public class Goal : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
             flag = true;
+            LimitScript.countCheck = false;
         }
     }
 }
