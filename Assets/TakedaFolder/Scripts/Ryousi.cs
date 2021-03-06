@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Ryousi : MonoBehaviour
 {
-    public GameObject Ami;
+    public GameObject Amimi;
     public float shotSpeed;
 
     private int shotIntarval;
     // Start is called before the first frame update
     void Start()
     {
-
+        Ami.flag = false;
     }
 
     // Update is called once per frame
@@ -19,9 +19,9 @@ public class Ryousi : MonoBehaviour
     {
         shotIntarval += 1;
 
-        if (shotIntarval % 1260 == 0)
+        if (shotIntarval % 1260 == 0&&Ami.flag==false)
         {
-            GameObject enemyShell = Instantiate(Ami, transform.position, Quaternion.identity);
+            GameObject enemyShell = Instantiate(Amimi, transform.position, Quaternion.identity);
 
             Rigidbody2D enemyShellRb = enemyShell.GetComponent<Rigidbody2D>();
 

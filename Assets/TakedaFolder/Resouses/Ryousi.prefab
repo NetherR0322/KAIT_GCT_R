@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caee3fdaf6839b34ca38e48ecd1b57d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ami: {fileID: 2152873164909121043, guid: dcf262e5c2fe2c3429ed3be0a3224ae0, type: 3}
+  Amimi: {fileID: 2152873164909121043, guid: dcf262e5c2fe2c3429ed3be0a3224ae0, type: 3}
   shotSpeed: 0

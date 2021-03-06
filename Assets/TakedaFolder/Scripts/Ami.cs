@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Ami : MonoBehaviour
 {
-    bool flag;
+    public static bool flag=false;
     // Start is called before the first frame update
     void Start()
     {
