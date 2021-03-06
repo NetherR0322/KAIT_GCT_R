@@ -196,4 +196,9 @@ public class PlayerNetwork : MonoBehaviour
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(2);
     }
+    [PunRPC]
+    private void isPlay()
+    {
+        LobbyNetwork.isPlay = true;
+    }
 }
