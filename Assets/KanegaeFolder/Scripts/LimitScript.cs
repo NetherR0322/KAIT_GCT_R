@@ -11,7 +11,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class LimitScript : MonoBehaviour
 {
     [SerializeField]
-    public static float limit = 300.0f;
+    public static float limit = 420.0f;
 
     //public TextMeshProUGUI LimitText;
     public Text LimitText;
@@ -21,7 +21,7 @@ public class LimitScript : MonoBehaviour
     public static bool countCheck = true;
     void Start()
     {
-        limit = 300.0f;
+        limit = 420.0f;
         countCheck = true;
     }
 
