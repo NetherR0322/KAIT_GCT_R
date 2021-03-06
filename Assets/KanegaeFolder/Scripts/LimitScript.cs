@@ -16,23 +16,32 @@ public class LimitScript : MonoBehaviour
     //public TextMeshProUGUI LimitText;
     public Text LimitText;
 
-    bool flag=false;
+    bool flag = false;
+
+    public static bool countCheck = true;
     void Start()
     {
         limit = 300.0f;
+        countCheck = true;
     }
 
     void Update()
     {
-        limit -= Time.deltaTime;
+        if (countCheck == true)
+        {
+            limit -= Time.deltaTime;
 
-        LimitText.text = "残り"+limit.ToString("f0") + "秒";
+            LimitText.text = "残り" + limit.ToString("f0") + "秒";
+        }
 
-        if (limit <= 0&&flag==false)
+        if (limit <= 0 && flag == false)
         {
             Cursor.visible = true;
             SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
             flag = true;
+            
         }
+
     }
+
 }
