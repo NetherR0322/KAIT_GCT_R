@@ -31,9 +31,10 @@ public class CurrentRoomCanvas : MonoBehaviour
         }
         //プレイ中のルームを非表示にし、後から入れないようにする
         PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
         //ムービーシーンを読み込む
         PhotonView.RPC("LoadMovieScene", RpcTarget.All);
-        LobbyNetwork.isPlay = true;
+        PhotonView.RPC("isPlay", RpcTarget.All);
     }
 
     //ステージ画面

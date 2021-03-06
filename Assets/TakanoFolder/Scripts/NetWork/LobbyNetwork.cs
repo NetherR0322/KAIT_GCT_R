@@ -23,7 +23,6 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        Debug.Log(isPlay);
         if (isPlay==true)
         {
             LobbyCanvas.SetActive(false);
