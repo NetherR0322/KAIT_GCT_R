@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class kyori : MonoBehaviour
+public class Kyorihakaru : MonoBehaviour
 {
     public Text distance;
     public Transform tako;
     public Transform goal;
-    float _distance;
+    float a;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _distance = Vector3.Distance(tako.position, goal.position);
-        distance.text = "海まであと"+_distance.ToString("f0")+"m";
+        a = Vector3.Distance(tako.position, goal.position);
+        distance.text = "海まであと" + a.ToString("f0") + "m";
     }
 }

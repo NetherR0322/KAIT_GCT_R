@@ -29866,6 +29866,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1908229167}
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: tako
+      value: 
+      objectReference: {fileID: 159298478}
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: distance
+      value: 
+      objectReference: {fileID: 2001527824}
     - target: {fileID: 4769652081099359840, guid: 34df2dae810de6f4ba5b486a067102ac,
         type: 3}
       propertyPath: RateText
@@ -29958,6 +29973,7 @@ PrefabInstance:
       objectReference: {fileID: 2001527824}
     m_RemovedComponents:
     - {fileID: 4769652081099359846, guid: 34df2dae810de6f4ba5b486a067102ac, type: 3}
+    - {fileID: 7867482233332001724, guid: 34df2dae810de6f4ba5b486a067102ac, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34df2dae810de6f4ba5b486a067102ac, type: 3}
 --- !u!1001 &5249829270378258940
 PrefabInstance:
