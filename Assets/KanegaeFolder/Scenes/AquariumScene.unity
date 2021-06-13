@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 178755445}
   - component: {fileID: 178755444}
   m_Layer: 5
-  m_Name: kyori
+  m_Name: distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28192,6 +28192,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1306960235}
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: tako
+      value: 
+      objectReference: {fileID: 720470894}
+    - target: {fileID: 2722764555983350742, guid: 34df2dae810de6f4ba5b486a067102ac,
+        type: 3}
+      propertyPath: distance
+      value: 
+      objectReference: {fileID: 178755444}
     - target: {fileID: 4769652081099359840, guid: 34df2dae810de6f4ba5b486a067102ac,
         type: 3}
       propertyPath: RateText
