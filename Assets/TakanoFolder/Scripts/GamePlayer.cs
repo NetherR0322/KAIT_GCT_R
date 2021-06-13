@@ -73,18 +73,18 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             this.gameObject.transform.position = screenToWorldPointPosition;
 
             //マウスがクリックされているかの判定
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 isClicked = true;
+                ChangeSpriteState();
             }
-            else
+            if (Input.GetMouseButtonUp(0))
             {
                 isClicked = false;
+                ChangeSpriteState();
             }
-            //Spriteを変更する
-            ChangeSpriteState();
 
-            if (time <= 5f)
+            if (time >= 3f && time<=5f)
             {
                 //マウスカーソルの色を変更する
                 ChangeMouseColor();
