@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4769652081099359840}
   - component: {fileID: 4769652081099359846}
   - component: {fileID: 4769652081099359845}
+  - component: {fileID: 7867482233332001724}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -73,3 +74,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LimitText: {fileID: 0}
+--- !u!114 &7867482233332001724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769652081099359841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebc48061101b214bb08a9b79549cba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: {fileID: 0}
+  tako: {fileID: 0}
+  goal: {fileID: 0}
