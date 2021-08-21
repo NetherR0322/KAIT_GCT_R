@@ -19,7 +19,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     public void OnClicked_CreateRoom()
     {
         //ルームの設定：公開,入室可,最大8人
-        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 3 };
 
         //新しいルームを作ります
         //ルームネームが入力されているかどうか判定
