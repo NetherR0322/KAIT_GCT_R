@@ -33,6 +33,7 @@ public class PlayerNetwork : MonoBehaviour
     }
     public void OnClicked_InputName()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //テキストにinputFieldの内容を反映
         text.text = inputField.text;
 
@@ -192,6 +193,7 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void closeRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         Cursor.visible = true;
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(2);

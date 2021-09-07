@@ -16,6 +16,7 @@ public class KanegaeTitleManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
+            BGMPlayer.GetInstance().PlaySound(0);
             SceneManager.LoadScene(1);
         }
     }
