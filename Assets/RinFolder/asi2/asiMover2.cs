@@ -23,6 +23,9 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     bool isSoundPlay=true;
     public AudioClip[] se;
 
+    //追加====
+    private int punTimer;//@
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,8 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+        punTimer++;//@
+        if (punTimer > 3) punTimer = 0;//@
         //全てのカーソルを取得
         GameObject[] cursors = GameObject.FindGameObjectsWithTag("Cursor");
         for (int i = 0; i < cursors.Length; i++)
@@ -67,7 +72,8 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             {
                 isSoundPlay = false;
                 isHave = true;
-                if(mp!=beforeMp)GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
+                //if (mp != beforeMp) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//-@
+                if (mp != beforeMp && punTimer == 0) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//@
                 haveAsiList.asiList[id] = true;
                 data.haveId = id;
                 //haveAsiList.curHaveList[curNameI] = id;
