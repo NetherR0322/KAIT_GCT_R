@@ -18,6 +18,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     //---ルームを作るボタンを押したとき---//
     public void OnClicked_CreateRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //ルームの設定：公開,入室可,最大8人
         RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 3 };
 

@@ -83,6 +83,7 @@ public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
 
     public void OnClick_LaveRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         PhotonNetwork.LeaveRoom();
     }
 

@@ -9,6 +9,7 @@ public class LeaveLobby : MonoBehaviour
     //---ロビーから退出するボタン---//
     public void OnClick_LeaveLobby()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LeaveLobby();  //ルームを出る

@@ -8,6 +8,7 @@ public class RefreshLobby : MonoBehaviour
 {
     public void OnClick_RefreshRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //ルームにいないとき
         if (!PhotonNetwork.InRoom)
         {
