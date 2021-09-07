@@ -25,6 +25,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
 
     //追加====
     private int punTimer;//@
+    private int n;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     void Update()
     {
         punTimer++;//@
-        if (punTimer > 3) punTimer = 0;//@
+        if (punTimer > 29) punTimer = 0;//@
         //全てのカーソルを取得
         GameObject[] cursors = GameObject.FindGameObjectsWithTag("Cursor");
         for (int i = 0; i < cursors.Length; i++)
@@ -73,7 +74,13 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 isSoundPlay = false;
                 isHave = true;
                 //if (mp != beforeMp) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//-@
-                if (mp != beforeMp && punTimer == 0) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//@
+                if (mp != beforeMp && punTimer == 0)
+                {
+                    GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//@
+                    Debug.Log("id : "+id+"|| 通信("+n+"回目)");
+                    n++;
+                }
+                this.transform.position = mp;//IKの位置をカーソルの位置に持っていく//@
                 haveAsiList.asiList[id] = true;
                 data.haveId = id;
                 //haveAsiList.curHaveList[curNameI] = id;
@@ -96,7 +103,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     [PunRPC]
     private void TransformSync(Vector3 mp)
     {
-        this.transform.position = mp;//IKの位置をカーソルの位置に持っていく
+        //this.transform.position = mp;//IKの位置をカーソルの位置に持っていく//-@
         Debug.Log("asiMover2>PUN通信の実行(mp:" + data.thisPos + ",beforeMp:" + data.beforePos + ")") ;
     }
 
