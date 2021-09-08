@@ -3,6 +3,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun.UtilityScripts;
 
 public class LobbyNetwork : MonoBehaviourPunCallbacks
 {
@@ -60,7 +61,24 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         //プレイヤーのidを取得
+        //Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
+        //id = player.ActorNumber;
+    }
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        PlayerNumbering.OnPlayerNumberingChanged += OnPlayerNumberingChanged;
+
+    }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        PlayerNumbering.OnPlayerNumberingChanged -= OnPlayerNumberingChanged;
+    }
+    private void OnPlayerNumberingChanged()
+    {
+        Debug.Log("ON Player Numbering changed");
         Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
-        id = player.ActorNumber;
+        id = player.GetPlayerNumber();
     }
 }
