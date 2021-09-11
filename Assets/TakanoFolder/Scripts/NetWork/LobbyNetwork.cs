@@ -51,11 +51,11 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         print("ロビーに接続しています");
 
         //ルームに接続しているか確認する
-        if (!PhotonNetwork.InRoom)
+        /*if (!PhotonNetwork.InRoom)
         {
             //LobbyCanvasを上に配置
             MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
-        }
+        }*/
     }
     //ルームに入室した時
     public override void OnJoinedRoom()
