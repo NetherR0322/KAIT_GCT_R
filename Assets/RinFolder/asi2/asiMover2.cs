@@ -19,17 +19,18 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     GamePlayer data2;
     bool catchData;
 
-    //SE
+    //SE関係
     bool isSoundPlay=true;
     public AudioClip[] se;
 
-    //追加====
-    private int punTimer;//@
-    private int n;
+    //PUNの通信削減①テスト
+    //private int punTimer;
+    //private int n;
 
     // Start is called before the first frame update
     void Start()
     {
+        //どの足にくっついているかをIDで識別可能にする
         if (this.name == "L1IK") id = 0;
         if (this.name == "L2IK") id = 1;
         if (this.name == "L3IK") id = 2;
@@ -38,19 +39,24 @@ public class asiMover2 : MonoBehaviourPunCallbacks
         if (this.name == "R2IK") id = 5;
         if (this.name == "R3IK") id = 6;
         if (this.name == "R4IK") id = 7;
+
+        //通信削減②を試してみた
         //PhotonNetwork.SendRate = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        punTimer++;//@
-        if (punTimer > 7) punTimer = 0;//@
+        //通信削減①の為に、8tickに1回のみ処理するようにする。
+        //punTimer++;
+        //if (punTimer > 7) punTimer = 0;
+
         //全てのカーソルを取得
         GameObject[] cursors = GameObject.FindGameObjectsWithTag("Cursor");
+
         for (int i = 0; i < cursors.Length; i++)
         {
-            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - cursors[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - cursors[i].transform.position.y, 2));//
+            dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - cursors[i].transform.position.x, 2) + Mathf.Pow(transform.position.y - cursors[i].transform.position.y, 2));
 
             catchData = false;
             if (dist <= touchDist)
@@ -60,11 +66,11 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 catchData = true;
             }
         }
-        //Vector2 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);//マウスの位置を取得して…
+
         Vector3 mp = data.thisPos;
         Vector3 beforeMp = data.beforePos;
         beforeMp.z = 0.0f;
-        //dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.x - mp.x, 2) + Mathf.Pow(transform.position.y - mp.y, 2));//
+
         if (catchData)//近くにカーソルがあったら
         {
             if (data2.isClicked//クリックをしていて
@@ -74,15 +80,17 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             {
                 isSoundPlay = false;
                 isHave = true;
-                //if (mp != beforeMp) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//-@
-//                if (mp != beforeMp && punTimer == id)
-                  if (mp != beforeMp)
-                    {
-                        GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//@
-                    Debug.Log("id : "+id+"|| 通信("+n+"回目)");
-                    n++;
-                }
-                //this.transform.position = mp;//IKの位置をカーソルの位置に持っていく//@
+                  if (mp != beforeMp){//☆
+                    GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//☆
+                }//☆
+
+                /*通信削減①するため、8tickのうちタイミングをずらして通信　この場合上の☆と入れ替える
+              if (mp != beforeMp&&puntimer==id)
+              {
+                  GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
+              }
+                */
+
                 haveAsiList.asiList[id] = true;
                 data.haveId = id;
                 //haveAsiList.curHaveList[curNameI] = id;
