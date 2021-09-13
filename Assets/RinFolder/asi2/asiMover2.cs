@@ -72,8 +72,8 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             }
         }
 
-        Vector3 mp = data.thisPos;
-        Vector3 beforeMp = data.beforePos;
+        Vector2 mp = data.thisPos;
+        Vector2 beforeMp = data.beforePos;
         beforeMp.z = 0.0f;
 
         if (catchData)//近くにカーソルがあったら
