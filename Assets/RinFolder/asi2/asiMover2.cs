@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿#define reduction1
+#undef reduction2
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -23,11 +26,11 @@ public class asiMover2 : MonoBehaviourPunCallbacks
     bool isSoundPlay=true;
     public AudioClip[] se;
 
-    //PUNの通信削減①テスト
-    //private int punTimer;
-    //private int n;
+#if reduction1//通信削減①
+    private int punTimer;
+    private int n;
+#endif
 
-    // Start is called before the first frame update
     void Start()
     {
         //どの足にくっついているかをIDで識別可能にする
@@ -40,16 +43,18 @@ public class asiMover2 : MonoBehaviourPunCallbacks
         if (this.name == "R3IK") id = 6;
         if (this.name == "R4IK") id = 7;
 
-        //通信削減②を試してみた
-        //PhotonNetwork.SendRate = 4;
+#if reduction2//通信削減②
+        PhotonNetwork.SendRate = 4;
+#endif
     }
 
     // Update is called once per frame
     void Update()
     {
-        //通信削減①の為に、8tickに1回のみ処理するようにする。
-        //punTimer++;
-        //if (punTimer > 7) punTimer = 0;
+#if reduction1//通信削減①
+        punTimer++;
+        if (punTimer > 7) punTimer = 0;
+#endif
 
         //全てのカーソルを取得
         GameObject[] cursors = GameObject.FindGameObjectsWithTag("Cursor");
@@ -80,20 +85,22 @@ public class asiMover2 : MonoBehaviourPunCallbacks
             {
                 isSoundPlay = false;
                 isHave = true;
-                  if (mp != beforeMp){//☆
-                    GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//☆
-                }//☆
 
-                /*通信削減①するため、8tickのうちタイミングをずらして通信　この場合上の☆と入れ替える
-              if (mp != beforeMp&&puntimer==id)
+#if !reduction1//通信削減①ではない場合
+                  if (mp != beforeMp){
+                    GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
+                }
+#endif
+
+#if reduction1//通信削減①
+                if (mp != beforeMp&&punTimer==id)
               {
                   GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
               }
-                */
+#endif
 
                 haveAsiList.asiList[id] = true;
                 data.haveId = id;
-                //haveAsiList.curHaveList[curNameI] = id;
             }
             if (!data2.isClicked)
             {
@@ -106,14 +113,13 @@ public class asiMover2 : MonoBehaviourPunCallbacks
                 isHave = false;
                 haveAsiList.asiList[id] = false;
                 data.haveId = -1;
-                //haveAsiList.curHaveList[curNameI] = -1;
             }
         }
     }
     [PunRPC]
     private void TransformSync(Vector3 mp)
     {
-        this.transform.position = mp;//IKの位置をカーソルの位置に持っていく//-@
+        this.transform.position = mp;
         Debug.Log("asiMover2>PUN通信の実行(mp:" + data.thisPos + ",beforeMp:" + data.beforePos + ")") ;
     }
 
