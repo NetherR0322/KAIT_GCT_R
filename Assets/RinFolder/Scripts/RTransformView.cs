@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class RTransformView : MonoBehaviourPunCallbacks
 {
-    private int punTimer;
+    //private int punTimer;
     private int n;
     public string name;
     private Vector3 beforePos;
@@ -19,12 +19,12 @@ public class RTransformView : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        punTimer++;//@
-        if (punTimer > 29) punTimer = 0;
+        //punTimer++;//@
+        //if (punTimer > 29) punTimer = 0;
 
         beforePos=nowPos;
         nowPos=this.transform.position;
-        if (beforePos!=nowPos && punTimer == 0)
+        if (beforePos!=nowPos)
         {
             if (PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//@
             Debug.Log(name + "|| 通信(" + n + "回目)");

@@ -1,4 +1,4 @@
-﻿#define reduction1
+﻿#undef reduction1
 #undef reduction2
 
 using System.Collections;
@@ -74,7 +74,7 @@ public class asiMover2 : MonoBehaviourPunCallbacks
 
         Vector2 mp = data.thisPos;
         Vector2 beforeMp = data.beforePos;
-        beforeMp.z = 0.0f;
+        //beforeMp.z = 0.0f;
 
         if (catchData)//近くにカーソルがあったら
         {
