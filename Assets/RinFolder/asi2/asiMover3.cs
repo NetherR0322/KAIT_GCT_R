@@ -68,6 +68,8 @@ public class asiMover3 : MonoBehaviourPunCallbacks
 
                 isSoundPlay = false;//離したときに効果音がなるようにする
 
+                transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//近くにカーソルがある&&クリックされているときにリングを大きくする
+
                 Vector2 mp = data.thisPos;//カーソルの位置を取得
                 this.transform.position = mp;//カーソルの位置にこのIK(自分)を持っていく
                 if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, this.transform.position);//ホストはその他にこのIK(自分)の座標を伝える
@@ -75,11 +77,13 @@ public class asiMover3 : MonoBehaviourPunCallbacks
             }
         }
 
-        if (!catchData)//この近くにカーソルがなかったら
+        if (!data2.isClicked)//近くにあるカーソルがクリックをしていなかったら
         {
             isHave = false;//このIK(自分)は誰かに掴まれていない
             haveAsiList.asiList[id] = false;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていないことを伝える
             data.haveId = -1;//カーソル側に、何も持っていないことを伝える
+
+            transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//近くにカーソルがないときにリングを小さくする
 
             if (!isSoundPlay)//もしまだ効果音を鳴らしていなかったら
             {
