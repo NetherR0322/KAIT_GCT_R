@@ -2142,8 +2142,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2343,8 +2342,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -5367,7 +5365,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7158645297101469809}
-  - component: {fileID: 7158645297101469710}
   - component: {fileID: 5893836071785880002}
   - component: {fileID: 386708625773027083}
   - component: {fileID: 1844321166155762424}
@@ -5395,26 +5392,6 @@ Transform:
   m_Father: {fileID: 5893836071242386587}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7158645297101469710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7158645297101469808}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ffd1b26815f9df429333e76e522d2a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchDist: 1
-  isHave: 0
-  se:
-  - {fileID: 8300000, guid: 834f6add27b744d4391b0c65f12eba7c, type: 3}
-  - {fileID: 8300000, guid: 866cfe9d4fc7e8c4db929272c1847cea, type: 3}
-  - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
-  - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
-  - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
 --- !u!114 &5893836071785880002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8501,8 +8478,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -8702,8 +8678,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -8903,8 +8878,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

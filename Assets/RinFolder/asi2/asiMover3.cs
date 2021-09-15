@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class asiMover3 : MonoBehaviourPunCallbacks
+public class asiMover3 : MonoBehaviourPunCallbacks, IPunObservable
 {
     //スクリプトをつける場所:各IK
     public float touchDist;//掴むことができる距離
@@ -68,12 +68,21 @@ public class asiMover3 : MonoBehaviourPunCallbacks
 
                 isSoundPlay = false;//離したときに効果音がなるようにする
 
-                transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//近くにカーソルがある&&クリックされているときにリングを大きくする
+                //transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//近くにカーソルがある&&クリックされているときにリングを大きくする
 
                 Vector2 mp = data.thisPos;//カーソルの位置を取得
+                Vector2 beforeMp = data.beforePos;//前回のカーソルの位置を取得
                 this.transform.position = mp;//カーソルの位置にこのIK(自分)を持っていく
-                if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, this.transform.position);//ホストはその他にこのIK(自分)の座標を伝える
-                if (!PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, this.transform.position);//その他はホストにこのIK(自分)も座標を伝える
+                //if (Mathf.Abs(Distance(mp,beforeMp))>4.0f)
+                {
+                    transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//通信しているときにリングを大きくする
+                    //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//座標を伝える
+                    //if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//ホストはその他にこのIK(自分)の座標を伝える
+                    //if (!PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, this.transform.position);//その他はホストにこのIK(自分)も座標を伝える
+                //}
+                //else {
+                //    transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//通信していないときにリングを小さくする
+                }
             }
         }
 
@@ -83,7 +92,7 @@ public class asiMover3 : MonoBehaviourPunCallbacks
             haveAsiList.asiList[id] = false;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていないことを伝える
             data.haveId = -1;//カーソル側に、何も持っていないことを伝える
 
-            transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//近くにカーソルがないときにリングを小さくする
+           //transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//近くにカーソルがないときにリングを小さくする
 
             if (!isSoundPlay)//もしまだ効果音を鳴らしていなかったら
             {
@@ -99,7 +108,26 @@ public class asiMover3 : MonoBehaviourPunCallbacks
         return ans;
     }
 
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (catchData&& data2.isClicked)
+        {
+            // 自身側が生成したオブジェクトの場合は
+            // 色相値と移動中フラグのデータを送信する
+            stream.SendNext(this.transform.position);
+        }
+        else
+        {
+            // 他プレイヤー側が生成したオブジェクトの場合は
+            // 受信したデータから色相値と移動中フラグを更新する
+            this.transform.position = (Vector2)stream.ReceiveNext();
+        }
+    }
+
+    /*
     private void TransformSync(Vector2 pos)
     {
+        this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
     }
+    */
 }
