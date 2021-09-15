@@ -71,18 +71,18 @@ public class asiMover3 : MonoBehaviourPunCallbacks, IPunObservable
                 //transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//近くにカーソルがある&&クリックされているときにリングを大きくする
 
                 Vector2 mp = data.thisPos;//カーソルの位置を取得
-                Vector2 beforeMp = data.beforePos;//前回のカーソルの位置を取得
+                //Vector2 beforeMp = data.beforePos;//前回のカーソルの位置を取得
                 this.transform.position = mp;//カーソルの位置にこのIK(自分)を持っていく
                 //if (Mathf.Abs(Distance(mp,beforeMp))>4.0f)
-                {
                     transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);//通信しているときにリングを大きくする
+                    #region
                     //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//座標を伝える
                     //if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//ホストはその他にこのIK(自分)の座標を伝える
                     //if (!PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, this.transform.position);//その他はホストにこのIK(自分)も座標を伝える
-                //}
-                //else {
-                //    transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//通信していないときにリングを小さくする
-                }
+                    //}
+                    //else {
+                    //    transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);//通信していないときにリングを小さくする
+                    #endregion
             }
         }
 
@@ -101,6 +101,10 @@ public class asiMover3 : MonoBehaviourPunCallbacks, IPunObservable
                 isSoundPlay = true;//複数回鳴らさないようにする
             }
         }
+
+        if (isHave) transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);
+        if (!isHave) transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);
+
     }
 
     float Distance(Vector2 fPos, Vector2 sPos) {
@@ -110,18 +114,15 @@ public class asiMover3 : MonoBehaviourPunCallbacks, IPunObservable
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (catchData&& data2.isClicked)
+        if (isHave&& Input.GetMouseButton(0))
         {
             // 自身側が生成したオブジェクトの場合は
             // 色相値と移動中フラグのデータを送信する
             stream.SendNext(this.transform.position);
         }
-        else
-        {
             // 他プレイヤー側が生成したオブジェクトの場合は
             // 受信したデータから色相値と移動中フラグを更新する
             this.transform.position = (Vector2)stream.ReceiveNext();
-        }
     }
 
     /*
