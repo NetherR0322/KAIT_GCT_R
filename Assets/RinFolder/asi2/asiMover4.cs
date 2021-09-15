@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class asiMover4 : MonoBehaviourPunCallbacks, IPunObservable
+public class asiMover4 : MonoBehaviourPunCallbacks
 {
     //スクリプトをつける場所:各IK
     //カーソルを使わずにマウス位置を取得する方法
@@ -51,8 +51,6 @@ public class asiMover4 : MonoBehaviourPunCallbacks, IPunObservable
 
         Vector3 mouse = Input.mousePosition;
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //target.x *= 3.3f;
-        //target.y *= 63.25f;
         dist = Distance(this.transform.position,target);//マウスとIK(自分)との距離を取得
         Debug.Log("["+id+"]"+ target + " : "+ this.transform.position+" : "+dist);
         catchData = false;
@@ -75,6 +73,13 @@ public class asiMover4 : MonoBehaviourPunCallbacks, IPunObservable
 
                 Vector2 mp = target;//カーソルの位置を取得
                 this.transform.position = mp;//カーソルの位置にこのIK(自分)を持っていく
+                //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
+                //foreach (var player in PhotonNetwork.PlayerList)
+                //{
+                //if (player.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//ホストは全員にこのIK(自分)の座標を伝える
+                //if (player.IsLocal) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.MasterClient, mp);//その他はホストにこのIK(自分)の座標を伝える
+                //}
+
             }
         }
 
@@ -103,6 +108,12 @@ public class asiMover4 : MonoBehaviourPunCallbacks, IPunObservable
         return ans;
     }
 
+    private void TransformSync(Vector2 pos)
+    {
+        this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
+    }
+
+    /*
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (isHave && Input.GetMouseButton(0))
@@ -115,4 +126,5 @@ public class asiMover4 : MonoBehaviourPunCallbacks, IPunObservable
         // 受信したデータから色相値と移動中フラグを更新する
         this.transform.position = (Vector2)stream.ReceiveNext();
     }
+    */
 }
