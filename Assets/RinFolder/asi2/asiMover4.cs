@@ -25,7 +25,7 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     bool isSoundPlay = true;//効果音を鳴らしたかどうか
     public AudioClip[] se;//鳴らす効果音を格納する場所
 
-    private string overId;
+    public string overId;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +71,6 @@ public class asiMover4 : MonoBehaviourPunCallbacks
                 isSoundPlay = false;//離したときに効果音がなるようにする
 
                 this.transform.position = (Vector2)curPos;//カーソルの位置にこのIK(自分)を持っていく
-                Debug.Log("[" + id + "]座標を移動準備完了。");
                 GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             }
         }
@@ -92,6 +91,8 @@ public class asiMover4 : MonoBehaviourPunCallbacks
 
         if (isHave) transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);
         if (!isHave) transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);
+        if (isHave) transform.Find("arrow").localScale = new Vector2(0.75f, 0.75f);
+        if (!isHave) transform.Find("arrow").localScale = new Vector2(0.5f, 0.5f);
 
     }
 
@@ -105,6 +106,5 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     private void TransformSync(Vector2 pos)
     {
         this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
-        Debug.Log("["+id+"]座標を移動させました。");
     }
 }
