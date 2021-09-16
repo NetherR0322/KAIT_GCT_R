@@ -33,7 +33,8 @@ public class RTransformView : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void TransformSync(Vector3 mp)
+    private void TransformSync(Vector2 pos)
     {
+        this.transform.position = pos;
     }
 }
