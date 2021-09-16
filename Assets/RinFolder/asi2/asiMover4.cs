@@ -8,7 +8,7 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     //カーソルを使わずにマウス位置を取得する方法
 
     public float touchDist;//掴むことができる距離
-    private int id;//このIK(自分)がどの足なのかを識別
+    public int id;//このIK(自分)がどの足なのかを識別
     private int myHaveId = -1;
     private GameObject cur;
     private int curHaveId;
@@ -31,6 +31,11 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     void Start()
     {
         GameObject.Find("LobbyCamera").gameObject.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //どの足にくっついているかをIDで識別可能にする
         #region
         if (this.name == "L1IK") id = 0;
@@ -42,12 +47,8 @@ public class asiMover4 : MonoBehaviourPunCallbacks
         if (this.name == "R3IK") id = 6;
         if (this.name == "R4IK") id = 7;
         #endregion
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("overId[" + id + "]:" + overId);
+        Debug.Log("overId[" + id + "]:" + overId);
 
         Vector3 curPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dist = Distance(this.transform.position, curPos);//マウスとIK(自分)との距離を取得
@@ -57,6 +58,12 @@ public class asiMover4 : MonoBehaviourPunCallbacks
         {
             catchData = true;//マウスが近くにいる
             overId = PhotonNetwork.LocalPlayer.UserId;//マウスのIDをこのIK(自分)に代入する
+        }
+
+        GameObject[] IKs = GameObject.FindGameObjectsWithTag("IK");
+        for (int i = 0; i < IKs.Length; i++) {
+            if (IKs[i].GetComponent<asiMover4>().overId == PhotonNetwork.LocalPlayer.UserId
+             && IKs[i].GetComponent<asiMover4>().id != id) catchData = false;
         }
 
         if (catchData)//この近くにカーソルがあったら
@@ -69,10 +76,12 @@ public class asiMover4 : MonoBehaviourPunCallbacks
                 haveAsiList.asiList[id] = true;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていることを伝える
 
                 isSoundPlay = false;//離したときに効果音がなるようにする
-
-                this.transform.position = (Vector2)curPos;//カーソルの位置にこのIK(自分)を持っていく
-                GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             }
+        }
+
+        if (isHave) {
+            this.transform.position = (Vector2)curPos;//カーソルの位置にこのIK(自分)を持っていく
+            GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
         }
 
         if (!Input.GetMouseButton(0))//近くにあるカーソルがクリックをしていなかったら
