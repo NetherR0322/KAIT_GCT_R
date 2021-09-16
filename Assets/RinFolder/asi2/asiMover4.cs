@@ -49,10 +49,9 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     {
         //Debug.Log("overId[" + id + "]:" + overId);
 
-        Vector3 mouse = Input.mousePosition;
-        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        dist = Distance(this.transform.position,target);//マウスとIK(自分)との距離を取得
-        Debug.Log("["+id+"]"+ target + " : "+ this.transform.position+" : "+dist);
+        Vector3 curPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        dist = Distance(this.transform.position, curPos);//マウスとIK(自分)との距離を取得
+        //Debug.Log("["+id+"]"+ curPos + " : "+ this.transform.position+" : "+dist);
         catchData = false;
         if (dist <= touchDist)//もしマウスが近くにあったら
         {
@@ -71,15 +70,9 @@ public class asiMover4 : MonoBehaviourPunCallbacks
 
                 isSoundPlay = false;//離したときに効果音がなるようにする
 
-                Vector2 mp = target;//カーソルの位置を取得
-                this.transform.position = mp;//カーソルの位置にこのIK(自分)を持っていく
-                //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);
-                //foreach (var player in PhotonNetwork.PlayerList)
-                //{
-                //if (player.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, mp);//ホストは全員にこのIK(自分)の座標を伝える
-                //if (player.IsLocal) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.MasterClient, mp);//その他はホストにこのIK(自分)の座標を伝える
-                //}
-
+                this.transform.position = (Vector2)curPos;//カーソルの位置にこのIK(自分)を持っていく
+                Debug.Log("[" + id + "]座標を移動準備完了。");
+                GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             }
         }
 
@@ -108,23 +101,10 @@ public class asiMover4 : MonoBehaviourPunCallbacks
         return ans;
     }
 
+    [PunRPC]
     private void TransformSync(Vector2 pos)
     {
         this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
+        Debug.Log("["+id+"]座標を移動させました。");
     }
-
-    /*
-    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (isHave && Input.GetMouseButton(0))
-        {
-            // 自身側が生成したオブジェクトの場合は
-            // 色相値と移動中フラグのデータを送信する
-            stream.SendNext(this.transform.position);
-        }
-        // 他プレイヤー側が生成したオブジェクトの場合は
-        // 受信したデータから色相値と移動中フラグを更新する
-        this.transform.position = (Vector2)stream.ReceiveNext();
-    }
-    */
 }
