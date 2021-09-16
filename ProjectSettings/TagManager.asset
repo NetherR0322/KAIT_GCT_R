@@ -9,6 +9,7 @@ TagManager:
   - tako
   - Return
   - key
+  - IK
   layers:
   - Default
   - TransparentFX
