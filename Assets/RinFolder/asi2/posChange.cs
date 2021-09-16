@@ -18,7 +18,7 @@ public class posChange : MonoBehaviour
     public float maxDist;
     public float denger;
 
-    private asiMover2 asiMover2;
+    private asiMover4 asiMover4;
 
     public Vector2 startPos;
 
@@ -35,7 +35,7 @@ public class posChange : MonoBehaviour
     void Start()
     {
         Vector3 pos = new Vector3();
-        asiMover2 = top.GetComponent<asiMover2>();
+        asiMover4 = top.GetComponent<asiMover4>();
         LR = GetComponent<LineRenderer>();
         LR.positionCount = boneCount;
         Vector2 thisPos = this.transform.position;
@@ -66,12 +66,12 @@ public class posChange : MonoBehaviour
         dengerVal = maxDist - denger;
         dengerVal = (dist - denger) / dengerVal;
         LR.endColor = new Color(1 - dengerVal, 1 - dengerVal, 1);
-        if (!asiMover2.isHave)
+        if (!asiMover4.isHave)
         {
             LR.widthCurve = defAsi;
             asi[boneCount - 1].transform.position= top.transform.position;
         }
-        if (asiMover2.isHave)
+        if (asiMover4.isHave)
         {
             LR.widthCurve = upAsi;
         }
