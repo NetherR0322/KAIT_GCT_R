@@ -1903,7 +1903,7 @@ GameObject:
   - component: {fileID: 9109428378575879739}
   m_Layer: 0
   m_Name: L2IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1942,8 +1942,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2082,6 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -2089,6 +2089,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645296237575537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2105,7 @@ GameObject:
   - component: {fileID: 3113199285274646351}
   m_Layer: 0
   m_Name: R3IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2284,6 +2285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -2291,6 +2293,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645296531072277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2309,7 @@ GameObject:
   - component: {fileID: 5557445251258722569}
   m_Layer: 0
   m_Name: R1IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2486,6 +2489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -2493,6 +2497,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645296564411503
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,7 +5381,7 @@ GameObject:
   - component: {fileID: 2451612466027242394}
   m_Layer: 0
   m_Name: L1IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5415,9 +5420,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -5556,6 +5559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -5563,6 +5567,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645297338844139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8446,7 +8451,7 @@ GameObject:
   - component: {fileID: 4534044327008315647}
   m_Layer: 0
   m_Name: L3IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8626,6 +8631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -8633,6 +8639,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645298142757171
 GameObject:
   m_ObjectHideFlags: 0
@@ -8648,7 +8655,7 @@ GameObject:
   - component: {fileID: 2665767803719108211}
   m_Layer: 0
   m_Name: L4IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8828,6 +8835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -8835,6 +8843,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645298154949777
 GameObject:
   m_ObjectHideFlags: 0
@@ -8850,7 +8859,7 @@ GameObject:
   - component: {fileID: 4212936012227242392}
   m_Layer: 0
   m_Name: R2IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9030,6 +9039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -9037,6 +9047,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645298244950919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9052,7 +9063,7 @@ GameObject:
   - component: {fileID: 7632396370297159939}
   m_Layer: 0
   m_Name: R4IK
-  m_TagString: Untagged
+  m_TagString: IK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9232,6 +9243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchDist: 1
+  id: 0
   isHave: 0
   se:
   - {fileID: 8300000, guid: a0ace7f56b8c7434a9d8b2aaca9764d8, type: 3}
@@ -9239,6 +9251,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52e6d527d6bc9074c8252ba52d3783d3, type: 3}
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
+  overId: 
 --- !u!1 &7158645298302704053
 GameObject:
   m_ObjectHideFlags: 0
