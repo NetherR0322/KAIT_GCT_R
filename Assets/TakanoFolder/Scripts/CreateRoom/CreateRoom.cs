@@ -20,7 +20,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         BGMPlayer.GetInstance().PlaySound(0);
         //ルームの設定：公開,入室可,最大8人
-        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 3 };
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 6 };
 
         //新しいルームを作ります
         //ルームネームが入力されているかどうか判定
