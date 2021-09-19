@@ -24,7 +24,7 @@ public class RTransformView : MonoBehaviourPunCallbacks
 
         beforePos=nowPos;
         nowPos=this.transform.position;
-        if (beforePos!=nowPos)
+        if ((Distance(beforePos, nowPos)/10) != 0)
         {
             if (PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//@
             Debug.Log(name + "|| 通信(" + n + "回目)");
@@ -36,5 +36,11 @@ public class RTransformView : MonoBehaviourPunCallbacks
     private void TransformSync(Vector2 pos)
     {
         this.transform.position = pos;
+    }
+
+    float Distance(Vector2 fPos, Vector2 sPos)
+    {
+        float ans = Mathf.Pow(fPos.x - sPos.x, 2) + Mathf.Pow(fPos.y - sPos.y, 2);
+        return ans;
     }
 }

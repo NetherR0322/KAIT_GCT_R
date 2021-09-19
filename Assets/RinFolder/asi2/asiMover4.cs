@@ -96,7 +96,7 @@ public class asiMover4 : MonoBehaviourPunCallbacks
 
         if (!Input.GetMouseButton(0))//近くにあるカーソルがクリックをしていなかったら
         {
-            GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
+            //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             isHave = false;//このIK(自分)は誰かに掴まれていない
             haveAsiList.asiList[id] = false;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていないことを伝える
             overId = "";
