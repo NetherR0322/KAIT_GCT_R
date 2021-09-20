@@ -30,6 +30,9 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     private Vector2 beforePos;
     private Vector2 nowPos;
 
+    private Vector2 offPos;
+    private Vector2 onPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,14 +92,22 @@ public class asiMover4 : MonoBehaviourPunCallbacks
 
             if ((int)(Distance(beforePos, nowPos) / 10) != 0)
             {
-                GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
+                //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             }
-            Debug.Log("DIST"+(int)(Distance(beforePos, nowPos)*100));
+            //Debug.Log("DIST"+(int)(Distance(beforePos, nowPos)*100));
+        }
+
+        if (Input.GetMouseButtonDown(0)) offPos = this.transform.position;
+        if (Input.GetMouseButtonUp(0)) onPos = this.transform.position;
+
+        if (Input.GetMouseButtonUp(0)&&offPos!=onPos)
+        {
+            GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)this.transform.position);
+            Debug.Log("@@@:離した！");
         }
 
         if (!Input.GetMouseButton(0))//近くにあるカーソルがクリックをしていなかったら
         {
-            //GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)curPos);
             isHave = false;//このIK(自分)は誰かに掴まれていない
             haveAsiList.asiList[id] = false;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていないことを伝える
             overId = "";
