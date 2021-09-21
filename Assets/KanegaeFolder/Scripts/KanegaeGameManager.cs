@@ -22,9 +22,6 @@ public class KanegaeGameManager : MonoBehaviour
 
     public static bool checkScore = false;
 
-    public float lim_hari = LimitScript.limit / 360f;
-
-    private float len = 0.0f;
 
     private float len_N;
 
@@ -34,7 +31,13 @@ public class KanegaeGameManager : MonoBehaviour
 
     public Text RateText;
 
-    public Text LengthText;
+    /*public TextMeshProUGUI LengthText;
+
+    private float len = 0.0f;
+
+    Vector2 goal = GameObject.Find("Goal").transform.position;
+
+    GameObject[] gos;*/
 
     [SerializeField]
     static public bool OnPose = false;
@@ -67,9 +70,7 @@ public class KanegaeGameManager : MonoBehaviour
         }
         //LengthCheck();//距離を測るメソッドです
 
-       len = LengthCheck();//距離を測るメソッドです
-        len_N = len;
-        LengthText.text = "海までの距離:" + len.ToString("f1")+"m";//海までの長さ
+
         ScoreText.text = "スコア:"+score;
         RateText.text =rate+"/3";//分母はステージによって変えてください(;w;
         lim_hari += Time.deltaTime;
@@ -80,17 +81,13 @@ public class KanegaeGameManager : MonoBehaviour
         Clock_hari.transform.rotation = Quaternion.Euler(0,0,-(lim_hari));
     }
 
-   
-
-    private float LengthCheck()
     {
 
-        Vector2 oq = GameObject.FindGameObjectWithTag("tako").transform.position;
-
-        Vector2 goal = GameObject.Find("Goals").transform.position;
-
-        len = Vector2.Distance(goal, oq);
-
+        gos = GameObject.FindGameObjectsWithTag("tako");
+        foreach (GameObject go in gos)
+        {
+            len = goal.y - go.transform.position.y;
+        }
         return len;
-    }
+    }*/
 }
