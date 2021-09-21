@@ -22,16 +22,19 @@ public class ButtonManager : MonoBehaviour
     }
     public void GoLobby()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         SceneManager.LoadScene("LobbyScene");
     }
 
     public void GoMapChoose()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         SceneManager.LoadScene("MapChooseScene");
     }
 
     public void ReturnGame()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         GameObject Pose = GameObject.Find("Canvas");
         KanegaeGameManager.OnPose = false;
         Pose.SetActive(false);
@@ -39,6 +42,7 @@ public class ButtonManager : MonoBehaviour
 
     public void GoTitle()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         Cursor.visible = true;
         GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveRoom();
@@ -49,6 +53,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void retrunLobby()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonView.RPC("closeRoom", RpcTarget.All);
@@ -62,6 +67,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void GoRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         if (!PhotonNetwork.IsMasterClient)
         {
             return;
@@ -71,6 +77,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void GoRoom2()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         if (!PhotonNetwork.IsMasterClient)
         {
             return;
@@ -80,6 +87,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void GoGame()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         SceneManager.LoadScene("GameScene");
     }
 }

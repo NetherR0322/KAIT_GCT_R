@@ -412,6 +412,7 @@ MonoBehaviour:
   beforePos: {x: 0, y: 0, z: 0}
   thisPos: {x: 0, y: 0, z: 0}
   power: 0.04
+  distance: 1
 --- !u!1 &6827926279806843357
 GameObject:
   m_ObjectHideFlags: 0

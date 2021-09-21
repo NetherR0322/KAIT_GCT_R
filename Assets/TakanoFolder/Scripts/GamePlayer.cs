@@ -33,7 +33,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     GameObject mainCamObj;
     Camera cam;
-
+    bool one_id = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,21 +73,23 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             this.gameObject.transform.position = screenToWorldPointPosition;
 
             //マウスがクリックされているかの判定
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 isClicked = true;
+                ChangeSpriteState();
             }
-            else
+            if (Input.GetMouseButtonUp(0))
             {
                 isClicked = false;
+                ChangeSpriteState();
             }
-            //Spriteを変更する
-            ChangeSpriteState();
 
-            if (time <= 5f)
+            if (time >= 2f && time <= 3f && !one_id)
             {
                 //マウスカーソルの色を変更する
                 ChangeMouseColor();
+                print(LobbyNetwork.id);
+                one_id = true;
             }
 
         }
@@ -134,22 +136,22 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         switch (PlayerID)
         {
-            case 1: //マスタークライアント
+            case 0: //マスタークライアント
                 SpriteColor = Color.red; 
                 break;
-            case 2:
+            case 1:
                 SpriteColor = Color.blue;
                 break;
-            case 3:
+            case 2:
                 SpriteColor = Color.green;
                 break;
-            case 4:
+            case 3:
                 SpriteColor = Color.yellow;
                 break;
-            case 5:
+            case 4:
                 SpriteColor = Color.magenta;
                 break;
-            case 6:
+            case 5:
                 SpriteColor = Color.cyan;
                 break;
             default:

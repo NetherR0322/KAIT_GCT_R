@@ -60,7 +60,7 @@ public class RoomListing : MonoBehaviour
     //ルームの人数を設定する
     public void SetRoomPlayerText(string text)
     {
-        RoomPlayer = text + "/2 ";
+        RoomPlayer = text + "/6 ";
         RoomPlayerText.text = RoomPlayer;
     }
 }

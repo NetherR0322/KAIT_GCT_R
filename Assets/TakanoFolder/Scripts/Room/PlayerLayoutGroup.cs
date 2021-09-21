@@ -6,6 +6,8 @@ using Photon.Realtime;
 
 public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
 {
+    //public GameObject CreateRoomLobby;
+    //public GameObject SearchRoomLobby;
     [SerializeField]
     private GameObject _playerListngPrefab;
     private GameObject PlayerlistingPrefab
@@ -83,7 +85,26 @@ public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
 
     public void OnClick_LaveRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         PhotonNetwork.LeaveRoom();
     }
-
+    /*public void OnClick_LaveRoom()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            BGMPlayer.GetInstance().PlaySound(0);
+            MainCanvasManager.Instance.CurrentRoomCanvas.transform.SetAsFirstSibling();
+            SearchRoomLobby.SetActive(false);
+            CreateRoomLobby.SetActive(true);
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            BGMPlayer.GetInstance().PlaySound(0);
+            MainCanvasManager.Instance.CurrentRoomCanvas.transform.SetAsFirstSibling();
+            SearchRoomLobby.SetActive(true);
+            CreateRoomLobby.SetActive(false);
+            PhotonNetwork.LeaveRoom();
+        }
+    }*/
 }

@@ -7,11 +7,16 @@ public class BGMPlayer : MonoBehaviour
 {
     public int[] sceneId;
     public AudioClip[] bgm;
+    public AudioClip[] se;
+
+    static BGMPlayer Instance = null;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.sceneLoaded += SceneLoaded;
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,14 +33,26 @@ public class BGMPlayer : MonoBehaviour
     }
 
     public void BgmChangeTester() {
-        Debug.Log("sceneIndex:" + SceneManager.GetActiveScene().buildIndex);
+        //Debug.Log("sceneIndex:" + SceneManager.GetActiveScene().buildIndex);
         for (int i = 0; i < bgm.Length; i++)
         {
             if (sceneId[i] == SceneManager.GetActiveScene().buildIndex)
             {
-                this.GetComponent<AudioSource>().clip = bgm[i];
-                this.GetComponent<AudioSource>().Play();
+                audioSource.clip = bgm[i];
+                audioSource.Play();
             }
         }
+    }
+    public static BGMPlayer GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = FindObjectOfType<BGMPlayer>();
+        }
+        return Instance;
+    }
+    public void PlaySound(int index)
+    {
+        audioSource.PlayOneShot(se[index]);
     }
 }

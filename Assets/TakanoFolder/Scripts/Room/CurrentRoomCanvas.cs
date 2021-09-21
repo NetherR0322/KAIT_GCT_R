@@ -24,6 +24,7 @@ public class CurrentRoomCanvas : MonoBehaviour
     }
     public void OnClick_Start()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -40,6 +41,7 @@ public class CurrentRoomCanvas : MonoBehaviour
     //ステージ画面
     public void OnClick_StageSelect()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -54,6 +56,7 @@ public class CurrentRoomCanvas : MonoBehaviour
     //ステージ1
     public void OnClick_Stage1()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -66,6 +69,7 @@ public class CurrentRoomCanvas : MonoBehaviour
     //ステージ2
     public void OnClick_Stage2()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {
@@ -78,6 +82,7 @@ public class CurrentRoomCanvas : MonoBehaviour
     //ルームに戻る
     public void OnClick_returnRoom()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {

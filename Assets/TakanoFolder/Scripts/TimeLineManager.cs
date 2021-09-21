@@ -42,6 +42,7 @@ public class TimeLineManager : MonoBehaviour
     }
     public void On_clickedSkip()
     {
+        BGMPlayer.GetInstance().PlaySound(0);
         //マスタークライアント(ルームの主)だけが押せるボタン
         if (!PhotonNetwork.IsMasterClient)
         {

@@ -14,17 +14,6 @@ public class LobbyCanvas : MonoBehaviour
     {
         get { return _roomLayoutGroup; }
     }
-    public Text PlayerCount;
-    string text;
-    public Text PlayerCoun2;
-    string text2;
-    private void Update()
-    {
-        text = PhotonNetwork.CountOfPlayersOnMaster.ToString();
-        text2 = PhotonNetwork.CountOfPlayers.ToString();
-        PlayerCount.text = "待機プレイヤー:" + text+"人";
-        PlayerCoun2.text = "接続プレイヤー:"+text2+"人";
-    }
     public void OnClickJoinRoom(string roomName)
     {
         if (PhotonNetwork.JoinRoom(roomName))
