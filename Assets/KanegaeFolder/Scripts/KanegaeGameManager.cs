@@ -8,13 +8,27 @@ public class KanegaeGameManager : MonoBehaviour
 {
     public GameObject Pose;
 
+    public GameObject Clock_hari;
+
+    public GameObject Gage_tako;
+
     public static int score;
 
     public static int rate;
 
+    public float Move_Gage;
+
+    public float Move_Gage02;
+
     public static bool checkScore = false;
 
+    public float lim_hari = LimitScript.limit / 360f;
+
     private float len = 0.0f;
+
+    private float len_N;
+
+  //  private bool check_Movement = true;
 
     public Text ScoreText;
 
@@ -28,6 +42,7 @@ public class KanegaeGameManager : MonoBehaviour
     {
         score = 0;
         rate = 0;
+       // Move_Gage = 0.0f;
     }
 
     // Update is called once per frame
@@ -53,11 +68,19 @@ public class KanegaeGameManager : MonoBehaviour
         //LengthCheck();//距離を測るメソッドです
 
        len = LengthCheck();//距離を測るメソッドです
-
+        len_N = len;
         LengthText.text = "海までの距離:" + len.ToString("f1")+"m";//海までの長さ
         ScoreText.text = "スコア:"+score;
-        RateText.text = "レート:"+rate+"/2";//分母はステージによって変えてください(;w;)
+        RateText.text =rate+"/3";//分母はステージによって変えてください(;w;
+        lim_hari += Time.deltaTime;
+        if (len_N < len)
+        {
+            Gage_tako.gameObject.transform.Translate(0, len, 0);
+        }
+        Clock_hari.transform.rotation = Quaternion.Euler(0,0,-(lim_hari));
     }
+
+   
 
     private float LengthCheck()
     {

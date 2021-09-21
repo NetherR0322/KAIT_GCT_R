@@ -21,7 +21,7 @@ public class LimitScript : MonoBehaviour
     public static bool countCheck = true;
     void Start()
     {
-        limit = 700.0f;
+        limit = 360.0f;
         countCheck = true;
     }
 
