@@ -14,13 +14,21 @@ public class KanegaeGameManager : MonoBehaviour
 
     public static bool checkScore = false;
 
-    private float len = 0.0f;
+    //public TextMeshProUGUI ScoreText;
+
+    //public TextMeshProUGUI RateText;
 
     public Text ScoreText;
 
     public Text RateText;
 
-    public Text LengthText;
+    /*public TextMeshProUGUI LengthText;
+
+    private float len = 0.0f;
+
+    Vector2 goal = GameObject.Find("Goal").transform.position;
+
+    GameObject[] gos;*/
 
     [SerializeField]
     static public bool OnPose = false;
@@ -52,22 +60,20 @@ public class KanegaeGameManager : MonoBehaviour
         }
         //LengthCheck();//距離を測るメソッドです
 
-       len = LengthCheck();//距離を測るメソッドです
+        //LengthText.text = "Length:" + len;//海までの長さ
 
-        LengthText.text = "海までの距離:" + len.ToString("f1")+"m";//海までの長さ
         ScoreText.text = "スコア:"+score;
         RateText.text = "レート:"+rate+"/2";//分母はステージによって変えてください(;w;)
     }
 
-    private float LengthCheck()
+    /*private float LengthCheck()
     {
 
-        Vector2 oq = GameObject.FindGameObjectWithTag("tako").transform.position;
-
-        Vector2 goal = GameObject.Find("Goals").transform.position;
-
-        len = Vector2.Distance(goal, oq);
-
+        gos = GameObject.FindGameObjectsWithTag("tako");
+        foreach (GameObject go in gos)
+        {
+            len = goal.y - go.transform.position.y;
+        }
         return len;
-    }
+    }*/
 }
