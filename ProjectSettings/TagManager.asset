@@ -8,8 +8,7 @@ TagManager:
   - DDO
   - tako
   - Return
-  - key
-  - IK
+
   layers:
   - Default
   - TransparentFX
