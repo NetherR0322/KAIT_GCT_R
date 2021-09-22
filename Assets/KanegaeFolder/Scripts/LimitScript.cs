@@ -13,6 +13,8 @@ public class LimitScript : MonoBehaviour
     [SerializeField]
     public static float limit = 700.0f;
 
+    
+
     //public TextMeshProUGUI LimitText;
     public Text LimitText;
 
