@@ -20,7 +20,7 @@ public class ResultScript : MonoBehaviour
     void Start()
     {
         ScoreResultText.text = "スコア:" + KanegaeGameManager.score;
-        RateResultText.text = "レート:" + KanegaeGameManager.rate + "/2";//ここの分母もおねがいします～(;w;)
+        RateResultText.text = "レート:" + KaiScript.rate + "/2";//ここの分母もおねがいします～(;w;)
         ClearTimeText.text = "クリアタイム:" + LimitScript.limit.ToString("f0") + "秒";
     }
 

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 
 public class ShellfishScript : MonoBehaviourPunCallbacks
 {
-
+ 
     void Start()
     {
-        
+        KaiScript.rate = 0;
 
     }
 
@@ -31,9 +32,10 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
             
             KanegaeGameManager.checkScore = true;
             
-            KanegaeGameManager.score += 10;
-            KanegaeGameManager.rate += 1;
-            Debug.Log("Rate:" + KanegaeGameManager.rate);
+            //KanegaeGameManager.score += 10;
+            KaiScript.rate += 1;
+           
+            Debug.Log("Rate:" + KaiScript.rate);
             Debug.Log("Score:" + KanegaeGameManager.score);
             Debug.Log("trueにしました");
             Destroy(this.gameObject);
