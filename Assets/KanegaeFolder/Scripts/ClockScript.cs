@@ -22,6 +22,6 @@ public class ClockScript : MonoBehaviour
 
         lim_hari += Time.deltaTime;
 
-        Clock_hari.transform.rotation = Quaternion.Euler(0, 0, -(lim_hari));
+        Clock_hari.transform.rotation = Quaternion.Euler(0, 0, lim_hari);
     }
 }
