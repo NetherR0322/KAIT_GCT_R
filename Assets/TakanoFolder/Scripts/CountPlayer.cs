@@ -25,7 +25,7 @@ public class CountPlayer : MonoBehaviour
         text3 = PhotonNetwork.CountOfRooms.ToString();
         PlayerCount.text = "待機プレイヤー:" + text + "人";
         PlayerCoun2.text = "接続プレイヤー:" + text2 + "人";
-        PlayerCoun3.text = "待機ルーム　　:" + text3 + "室";
+        PlayerCoun3.text = "待機ルーム:" + text3 + "室";
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class CountPlayer : MonoBehaviour
             text3 = PhotonNetwork.CountOfRooms.ToString();
             PlayerCount.text = "待機プレイヤー:" + text + "人";
             PlayerCoun2.text = "接続プレイヤー:" + text2 + "人";
-            PlayerCoun3.text = "待機ルーム　　:" + text3 + "室";
+            PlayerCoun3.text = "待機ルーム:" + text3 + "室";
             countPlayerMaster = PhotonNetwork.CountOfPlayersOnMaster;
             countPlayer = PhotonNetwork.CountOfPlayers;
             countRoom= PhotonNetwork.CountOfRooms;

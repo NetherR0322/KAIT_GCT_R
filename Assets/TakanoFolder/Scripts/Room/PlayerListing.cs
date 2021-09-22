@@ -22,7 +22,7 @@ public class PlayerListing : MonoBehaviourPunCallbacks
         if (photonPlayer.IsMasterClient)
         {
             PhotonPlayer = photonPlayer;
-            PlayerName.text = "★" + photonPlayer.NickName;
+            PlayerName.text = photonPlayer.NickName;
         }
         else
         {
