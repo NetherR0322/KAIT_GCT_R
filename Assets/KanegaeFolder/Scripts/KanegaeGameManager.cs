@@ -14,7 +14,7 @@ public class KanegaeGameManager : MonoBehaviour
 
     public static int score;
 
-    public static int rate;
+    //public static int rate;
 
     public float Move_Gage;
 
@@ -32,7 +32,7 @@ public class KanegaeGameManager : MonoBehaviour
 
     public Text ScoreText;
 
-    public Text RateText;
+    //public Text RateText;
 
     public Text LengthText;
 
@@ -41,7 +41,7 @@ public class KanegaeGameManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        rate = 0;
+        //rate = 0;
        // Move_Gage = 0.0f;
     }
 
@@ -71,7 +71,7 @@ public class KanegaeGameManager : MonoBehaviour
         len_N = len;
         LengthText.text = "海までの距離:" + len.ToString("f1")+"m";//海までの長さ
         ScoreText.text = "スコア:"+score;
-        RateText.text =rate+"/3";//分母はステージによって変えてください(;w;
+        //分母はステージによって変えてください(;w;
         lim_hari += Time.deltaTime;
       
         Clock_hari.transform.rotation = Quaternion.Euler(0,0,-(lim_hari));
