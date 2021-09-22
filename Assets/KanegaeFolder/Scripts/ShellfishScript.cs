@@ -9,7 +9,9 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ShellfishScript : MonoBehaviourPunCallbacks
 {
- 
+
+    
+
     void Start()
     {
         KaiScript.rate = 0;
@@ -44,5 +46,6 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
             Debug.Log("falseにしました");
 
         }
+
     }
 }
