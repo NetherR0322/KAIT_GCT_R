@@ -12,19 +12,31 @@ public class RoomListing : MonoBehaviour
     {
         get { return _roomNameText; }
     }
-    //ルームの人数を表示する
+    //ルームの状況
     [SerializeField]
-    private Text _roomPlayerText;
-    private Text RoomPlayerText
+    private Text _roomIsPlayText;
+    private Text RoomIsPlayText
     {
-        get { return _roomPlayerText; }
+        get { return _roomIsPlayText; }
     }
 
     public string RoomName { get; private set; }
-
+    public string IsPlay { get; private set; }
     public bool Updated { get; set; }
 
-    private string RoomPlayer;
+    //HP
+    private float player;
+    private float MaxPlayer;
+
+    bool one = false;
+    //ルームの人数を表示する
+    [SerializeField]
+    private Image _roomPlayerImage;
+    private Image RoomPlayerImage
+    {
+        get { return _roomPlayerImage; }
+    }
+    //private string RoomPlayer;
     private void Start()
     {
         //LobbyCanvasを読み込む
@@ -40,7 +52,10 @@ public class RoomListing : MonoBehaviour
         Button button = GetComponent<Button>();
         //ルームに入る
         button.onClick.AddListener(() => lobbyCanvas.OnClickJoinRoom(RoomNameText.text));
-
+        MaxPlayer = 5;
+        player = 1;
+        RoomPlayerImage.fillAmount = player / MaxPlayer;
+        RoomIsPlayText.text = "募集中";
     }
 
     //RoomListingが破壊されたとき
@@ -58,9 +73,18 @@ public class RoomListing : MonoBehaviour
     }
 
     //ルームの人数を設定する
-    public void SetRoomPlayerText(string text)
+    public void SetRoomPlayerText(float text)
     {
-        RoomPlayer = text + "/6 ";
-        RoomPlayerText.text = RoomPlayer;
+        /*RoomPlayer = text + "/6 ";
+        RoomPlayerText.text = RoomPlayer;*/
+        player = text;
+        RoomPlayerImage.fillAmount = player/MaxPlayer;
+    }
+    public void SetRoomIsPlay(bool text)
+    {
+        if (text==false)
+        {
+            RoomIsPlayText.text = "プレイ中";
+        }
     }
 }

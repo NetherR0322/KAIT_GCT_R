@@ -57,7 +57,8 @@ public class RoomLayoutGroup : MonoBehaviourPunCallbacks
         {
             RoomListing roomListing = RoomListingButtons[index];
             roomListing.SetRoomNameText(room.Name);
-            roomListing.SetRoomPlayerText(room.PlayerCount.ToString());
+            roomListing.SetRoomPlayerText(room.PlayerCount);
+            roomListing.SetRoomIsPlay(room.IsOpen);
             roomListing.Updated = true;
         }
     }

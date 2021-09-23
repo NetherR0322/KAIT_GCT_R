@@ -32,7 +32,7 @@ public class CurrentRoomCanvas : MonoBehaviour
         }
         //プレイ中のルームを非表示にし、後から入れないようにする
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        PhotonNetwork.CurrentRoom.IsVisible = false;
+        PhotonNetwork.CurrentRoom.IsVisible = true;
         //ムービーシーンを読み込む
         PhotonView.RPC("LoadMovieScene", RpcTarget.All);
         PhotonView.RPC("isPlay", RpcTarget.All);
