@@ -5,7 +5,7 @@ using UnityEngine;
 public class GageScript : MonoBehaviour
 {
     [SerializeField]
-    public float speed = 30f;
+    public float speed = 10f;
 
     private float dist = 0f;
 
