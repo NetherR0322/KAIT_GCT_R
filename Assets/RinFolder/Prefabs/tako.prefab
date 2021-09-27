@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1620102022322412442}
   - component: {fileID: 5165873529628815516}
   - component: {fileID: 8556394729338002562}
+  - component: {fileID: 7997492616205533730}
+  - component: {fileID: 5761738486082408217}
   m_Layer: 0
   m_Name: tako
   m_TagString: tako
@@ -284,12 +286,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620102022322412437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9125741e6bc73242bcf25fca298e559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: takoBody
+--- !u!114 &7997492616205533730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620102022322412437}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f7bfaaa4970c14dbb25a61fdf67cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforePos: {x: 0, y: 0, z: 0}
+  thisPos: {x: 0, y: 0, z: 0}
+  power: 1
+  distance: 12
+--- !u!114 &5761738486082408217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620102022322412437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10868067508849448b8a83b713d788c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 144
 --- !u!1 &2540151819120427739
 GameObject:
   m_ObjectHideFlags: 0

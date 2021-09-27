@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class curData : MonoBehaviourPunCallbacks
+
+public class dragMover : MonoBehaviourPunCallbacks
 {
-    public int haveId;
-    GamePlayer data;
-    private GameObject tako;
-    Rigidbody2D rb;
     public Vector3 beforePos;
     Vector3 nowPos;
     public Vector3 thisPos;
 
+    private GameObject tako;
+
+    Rigidbody2D rb;
+
     public float power = 0.01f;
 
     private bool canMove;
-    public float distance=1.0f;
+    public float distance = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        haveId = -1;
-        tako= GameObject.FindGameObjectWithTag("tako");
-        data = GetComponent<GamePlayer>();
+        tako = this.gameObject;// GameObject.FindGameObjectWithTag("tako");
         rb = tako.GetComponent<Rigidbody2D>();
     }
 
@@ -35,28 +34,34 @@ public class curData : MonoBehaviourPunCallbacks
             float dist = Distance(this.transform.position, IKs[i].gameObject.transform.position);
             if (dist <= distance) canMove = false;
         }
-        if (canMove&&PhotonNetwork.IsMasterClient)
+        if (canMove&& Input.GetMouseButton(0))
         {
             thisPos = this.transform.position;
             beforePos = nowPos;
             nowPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (haveId == -1 && data.isClicked && nowPos.y < beforePos.y)
+            if (nowPos.y < beforePos.y)
             {
                 rb.AddForce(new Vector3(0.0f, power), ForceMode2D.Impulse);
             }
-            if (haveId == -1 && data.isClicked && nowPos.y > beforePos.y)
+            if (nowPos.y > beforePos.y)
             {
                 rb.AddForce(new Vector3(0.0f, -power), ForceMode2D.Impulse);
             }
-            if (haveId == -1 && data.isClicked && nowPos.x < beforePos.x)
+            if (nowPos.x < beforePos.x)
             {
                 rb.AddForce(new Vector3(power, 0.0f), ForceMode2D.Impulse);
             }
-            if (haveId == -1 && data.isClicked && nowPos.x > beforePos.x)
+            if (nowPos.x > beforePos.x)
             {
                 rb.AddForce(new Vector3(-power, 0.0f), ForceMode2D.Impulse);
             }
         }
+        GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//@
+    }
+
+    private void TransformSync(Vector2 pos)
+    {
+        this.transform.position = pos;
     }
 
     float Distance(Vector2 fPos, Vector2 sPos)
