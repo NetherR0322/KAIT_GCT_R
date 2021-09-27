@@ -26,7 +26,8 @@ public class RTransformView : MonoBehaviourPunCallbacks
         nowPos=this.transform.position;
         if ((Distance(beforePos, nowPos)/10) != 0)
         {
-            if (PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//@
+            //if (PhotonNetwork.IsMasterClient)
+                GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, this.transform.position);//@
             Debug.Log(name + "|| 通信(" + n + "回目)");
             n++;
         }
