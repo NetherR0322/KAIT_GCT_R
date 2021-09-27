@@ -2090,6 +2090,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671247304424}
 --- !u!1 &7158645296237575537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,9 +2145,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2294,6 +2293,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671298460717}
 --- !u!1 &7158645296531072277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,9 +2348,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2498,6 +2496,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671038383177}
 --- !u!1 &7158645296564411503
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,6 +5567,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 7158645298302704053}
 --- !u!1 &7158645297338844139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,9 +8490,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -8640,6 +8638,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671841035944}
 --- !u!1 &7158645298142757171
 GameObject:
   m_ObjectHideFlags: 0
@@ -8694,9 +8693,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -8844,6 +8841,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671576260719}
 --- !u!1 &7158645298154949777
 GameObject:
   m_ObjectHideFlags: 0
@@ -8898,9 +8896,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9048,6 +9044,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671588453837}
 --- !u!1 &7158645298244950919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9102,9 +9099,7 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  ObservedComponents: []
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -9252,6 +9247,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f650e5e1cd377a46a7cd27206611109, type: 3}
   - {fileID: 8300000, guid: 9a47f181d52d7354783314f42ae1c0ea, type: 3}
   overId: 
+  ring: {fileID: 2659449671410109147}
 --- !u!1 &7158645298302704053
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,9 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     private Vector2 offPos;
     private Vector2 onPos;
 
+    private bool canCatch=true;
+    public GameObject ring;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,12 +75,13 @@ public class asiMover4 : MonoBehaviourPunCallbacks
              && IKs[i].GetComponent<asiMover4>().id != id) catchData = false;
         }
 
-        if (catchData)//この近くにカーソルがあったら
+        if (catchData&&canCatch)//この近くにカーソルがあったら
         {
-            if (Input.GetMouseButton(0)//マウスをクリックしていて
+            if (Input.GetMouseButtonDown(0)//マウスをクリックしていて
                 && (overId == ""                               //この足が誰にも持たれていない && この足がどのマウスにも持たれていない
                 || (overId==PhotonNetwork.LocalPlayer.UserId)))//この足が持たれている         && このマウスが持っている
             {
+                GetComponent<PhotonView>().RPC(nameof(CatchSync), RpcTarget.Others, (bool)false);
                 isHave = true;//このIK(自分)は誰かに掴まれている
                 haveAsiList.asiList[id] = true;//staticに用意してある、どの足が持たれているかを代入する配列に、このIK(自分)が持たれていることを伝える
 
@@ -97,12 +101,16 @@ public class asiMover4 : MonoBehaviourPunCallbacks
             //Debug.Log("DIST"+(int)(Distance(beforePos, nowPos)*100));
         }
 
-        if (Input.GetMouseButtonDown(0)) offPos = this.transform.position;
+        if (Input.GetMouseButtonDown(0))
+        {
+            offPos = this.transform.position;
+        }
         if (Input.GetMouseButtonUp(0)) onPos = this.transform.position;
 
         if (Input.GetMouseButtonUp(0)&&offPos!=onPos)
         {
             GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.All, (Vector2)this.transform.position);
+            GetComponent<PhotonView>().RPC(nameof(CatchSync), RpcTarget.Others, (bool)true);
             Debug.Log("@@@:離した！");
         }
 
@@ -119,6 +127,9 @@ public class asiMover4 : MonoBehaviourPunCallbacks
                 isSoundPlay = true;//複数回鳴らさないようにする
             }
         }
+
+        if (!canCatch) ring.SetActive(false);
+        if (canCatch) ring.SetActive(true);
 
         if (isHave) transform.Find("ring").localScale = new Vector2(0.75f, 0.75f);
         if (!isHave) transform.Find("ring").localScale = new Vector2(0.5f, 0.5f);
@@ -137,5 +148,11 @@ public class asiMover4 : MonoBehaviourPunCallbacks
     private void TransformSync(Vector2 pos)
     {
         this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
+    }
+
+    [PunRPC]
+    private void CatchSync(bool can)
+    {
+        canCatch=can;//相手がこの足を掴めるか否かを変更
     }
 }
