@@ -15757,7 +15757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b9b9545e56ae94cae1c859d5b42023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 28
+  speed: 0.6
   GageTako: {fileID: 713840884}
 --- !u!1001 &728698892
 PrefabInstance:
@@ -15769,7 +15769,7 @@ PrefabInstance:
     - target: {fileID: 926683829299106846, guid: 218bc75eb07139e45a8415ed55fad175,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 926683829299106847, guid: 218bc75eb07139e45a8415ed55fad175,
         type: 3}
