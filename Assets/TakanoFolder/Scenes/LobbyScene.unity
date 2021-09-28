@@ -7862,6 +7862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LobbyCanvas: {fileID: 1183380917}
+  LobbyCamera: {fileID: 1881894926}
 --- !u!4 &1402761799
 Transform:
   m_ObjectHideFlags: 0

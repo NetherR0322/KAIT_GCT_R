@@ -34,7 +34,8 @@ public class CurrentRoomCanvas : MonoBehaviour
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = true;
         //ムービーシーンを読み込む
-        PhotonView.RPC("LoadMovieScene", RpcTarget.All);
+        //PhotonView.RPC("LoadMovieScene", RpcTarget.All);
+        PhotonView.RPC("LoadStageScene", RpcTarget.All);
         PhotonView.RPC("isPlay", RpcTarget.All);
     }
 

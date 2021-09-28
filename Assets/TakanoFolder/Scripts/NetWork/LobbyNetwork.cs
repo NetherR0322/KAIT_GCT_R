@@ -10,6 +10,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     //プレイヤーのID
     public static int id;
     public GameObject LobbyCanvas;
+    public GameObject LobbyCamera;
     public static bool isPlay=false;
     private void Start()
     {
@@ -27,10 +28,12 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         if (isPlay==true)
         {
             LobbyCanvas.SetActive(false);
+            LobbyCamera.SetActive(false);
         }
         else if (isPlay==false)
         {
             LobbyCanvas.SetActive(true);
+            LobbyCamera.SetActive(true);
         }
     }
 
@@ -60,6 +63,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     //ルームに入室した時
     public override void OnJoinedRoom()
     {
+        PhotonNetwork.Instantiate("GamePlayer", new Vector2(0f, 0f), Quaternion.identity, 0);
         //プレイヤーのidを取得
         //Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
         //id = player.ActorNumber;
