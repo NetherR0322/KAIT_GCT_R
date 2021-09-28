@@ -34,6 +34,9 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
     GameObject mainCamObj;
     Camera cam;
     bool one_id = false;
+
+    bool one = false;
+    int id;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,13 +54,27 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
         //Invoke("ChangeMouseColor",1.5f);
         //photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
 
-        mainCamObj = GameObject.Find("Main Camera");
-        cam = mainCamObj.GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (LobbyNetwork.isPlay == true&&one)
+        {
+            mainCamObj = GameObject.Find("Main Camera");
+            cam = mainCamObj.GetComponent<Camera>();
+            one = false;
+        }
+        else if (LobbyNetwork.isPlay == false&&!one)
+        {
+            mainCamObj = GameObject.Find("LobbyCamera");
+            cam = mainCamObj.GetComponent<Camera>();
+            one = true;
+        }
+        /*if (Cursor.visible == true)
+        {
+            Cursor.visible = false;
+        }*/
         time += Time.deltaTime;
 
         // 自身が生成したオブジェクトだけに移動処理を行う
@@ -84,10 +101,12 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
                 ChangeSpriteState();
             }
 
-            if (time >= 2f && time <= 3f && !one_id)
+            if (LobbyNetwork.id >= 0 && !one_id)
             {
+               id=LobbyNetwork.id;
                 //マウスカーソルの色を変更する
-                ChangeMouseColor();
+                SendColor(id);
+                //ChangeColor(SpriteColor);
                 print(LobbyNetwork.id);
                 one_id = true;
             }
@@ -103,12 +122,16 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             // 自身側が生成したオブジェクトの場合は
             // クリック中フラグのデータを送信する
             stream.SendNext(isClicked);
+            stream.SendNext(id);
+            SendColor(id);
         }
         else
         {
             // 他プレイヤー側が生成したオブジェクトの場合は
             // 受信したデータからクリック中フラグを更新する
             isClicked = (bool)stream.ReceiveNext();
+            id = (int)stream.ReceiveNext();
+            SendColor(id);
             ChangeSpriteState();
         }
     }
@@ -125,19 +148,13 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             MainSpriteRenderer.sprite = IdleSprite; //アイドル状態
         }
     }
-    void ChangeMouseColor()
-    {
-        photonView.RPC("RPC_SendColor", RpcTarget.All, LobbyNetwork.id);
-    }
-
     //プレイヤーのID別に色を変更する
-    [PunRPC]
-    private void RPC_SendColor(int PlayerID)
+    private void SendColor(int PlayerID)
     {
         switch (PlayerID)
         {
             case 0: //マスタークライアント
-                SpriteColor = Color.red; 
+                SpriteColor = Color.red;
                 break;
             case 1:
                 SpriteColor = Color.blue;

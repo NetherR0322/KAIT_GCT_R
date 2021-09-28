@@ -1545,7 +1545,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763602121}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &763602123
 Camera:
   m_ObjectHideFlags: 0
@@ -1878,7 +1878,6 @@ GameObject:
   - component: {fileID: 1114844193}
   - component: {fileID: 1114844192}
   - component: {fileID: 1114844191}
-  - component: {fileID: 1114844194}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1949,7 +1948,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1114844194}
+      - m_Target: {fileID: 318360191}
         m_MethodName: On_clickedSkip
         m_Mode: 1
         m_Arguments:
@@ -1997,18 +1996,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114844189}
   m_CullTransparentMesh: 0
---- !u!114 &1114844194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114844189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6664fd0959d084c918fe528a8b1bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1171518078
 GameObject:
   m_ObjectHideFlags: 0

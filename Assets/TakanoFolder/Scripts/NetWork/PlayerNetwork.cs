@@ -130,13 +130,13 @@ public class PlayerNetwork : MonoBehaviour
         }
     }*/
 
-    [PunRPC]
+    /*[PunRPC]
     private void RPC_CreatePlayer()
     {
         //マウスカーソルを生成
         float randomValue = Random.Range(5f, 5f);
         PhotonNetwork.Instantiate("GamePlayer", Vector3.up * randomValue, Quaternion.identity, 0);
-    }
+    }*/
     [PunRPC]
     private void LoadMovieScene()
     {
