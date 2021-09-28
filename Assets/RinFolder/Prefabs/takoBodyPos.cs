@@ -34,7 +34,8 @@ public class takoBodyPos : MonoBehaviour
                 Vector3.Lerp(IKs[6].transform.position, IKs[7].transform.position, 0.5f), 0.5f), 0.5f);
 
             Vector2 thisPos = this.transform.position;
-            rb.AddForce(new Vector3((hopePos.x-thisPos.x)/10, (hopePos.y-thisPos.y) / 10), ForceMode2D.Impulse);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(new Vector3((hopePos.x - thisPos.x), (hopePos.y - thisPos.y)), ForceMode2D.Impulse);
         }
     }
     float Distance(Vector2 fPos, Vector2 sPos)
@@ -42,4 +43,5 @@ public class takoBodyPos : MonoBehaviour
         float ans = Mathf.Pow(fPos.x - sPos.x, 2) + Mathf.Pow(fPos.y - sPos.y, 2);
         return ans;
     }
+
 }
