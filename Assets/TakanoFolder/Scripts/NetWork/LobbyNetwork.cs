@@ -11,6 +11,8 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     //プレイヤーのID
     public static int id;
     public GameObject LobbyCanvas;
+    public GameObject StartButton;
+    public GameObject returnButton;
     public GameObject LobbyCamera;
     public static bool isPlay=false;
     private void Start()
@@ -29,11 +31,15 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         if (isPlay==true)
         {
             //LobbyCanvas.SetActive(false);
+            StartButton.SetActive(false);
+            returnButton.SetActive(false);
             LobbyCamera.SetActive(false);
         }
         else if (isPlay==false)
         {
             //LobbyCanvas.SetActive(true);
+            StartButton.SetActive(true);
+            returnButton.SetActive(true);
             LobbyCamera.SetActive(true);
         }
     }
