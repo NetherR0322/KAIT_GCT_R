@@ -27,7 +27,7 @@ public class GageScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      dist = Map(tako.transform.position.y,143,342,-600,270);
+      dist = Map(tako.transform.position.y,143,342,-450,157);
 
         GageTako.transform.localPosition = new Vector3(GageTako.transform.localPosition.x, dist, GageTako.transform.localPosition.z);
 
