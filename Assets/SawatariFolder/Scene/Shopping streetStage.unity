@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Kai_UI: {fileID: 1604242841}
-  M_rate: 0
   Ratetext: {fileID: 1448840849}
 --- !u!114 &4242434
 MonoBehaviour:
@@ -16047,6 +16046,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 67a1e9541ef1abc4db78fc402d7d6bde,
         type: 3}
+    - target: {fileID: 6227600634544493418, guid: 218bc75eb07139e45a8415ed55fad175,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6227600634544493419, guid: 218bc75eb07139e45a8415ed55fad175,
         type: 3}
       propertyPath: m_RootOrder
@@ -16080,7 +16084,7 @@ PrefabInstance:
     - target: {fileID: 6227600634544493419, guid: 218bc75eb07139e45a8415ed55fad175,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -570
+      value: -560
       objectReference: {fileID: 0}
     - target: {fileID: 6227600634544493419, guid: 218bc75eb07139e45a8415ed55fad175,
         type: 3}
