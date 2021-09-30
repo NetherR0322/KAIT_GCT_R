@@ -70,7 +70,6 @@ public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
 
         PlayerListing playerlisting = playerListingObj.GetComponent<PlayerListing>();
         playerlisting.ApplyPhotonPlayer(photonPlayer);
-
         PlayerListings.Add(playerlisting);
     }
     private void PlayerleftRoom(Photon.Realtime.Player photonPlayer)

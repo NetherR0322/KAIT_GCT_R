@@ -15,7 +15,17 @@ public class PlayerListing : MonoBehaviourPunCallbacks
     {
         get { return _playerName; }
     }
+    /*
+    [SerializeField]
+    private Image _playerColor;
+    private Image PlayerColor
+    {
+        get { return _playerColor; }
+    }
 
+    Color SpriteColor;
+    bool one_id = false;
+    int id;*/
     public void ApplyPhotonPlayer(Photon.Realtime.Player photonPlayer)
     {
         //マスタークラインか判定
