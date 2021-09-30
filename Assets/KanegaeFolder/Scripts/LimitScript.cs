@@ -18,13 +18,14 @@ public class LimitScript : MonoBehaviour
     //public TextMeshProUGUI LimitText;
     public Text LimitText;
 
-    bool flag = false;
+    public static bool flag = false;
 
     public static bool countCheck = true;
     void Start()
     {
         limit = 360.0f;
         countCheck = true;
+        flag = false;
     }
 
     void Update()
@@ -38,7 +39,7 @@ public class LimitScript : MonoBehaviour
 
         if (limit <= 0 && flag == false)
         {
-            Cursor.visible = true;
+            //Cursor.visible = true;
             SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
             flag = true;
             

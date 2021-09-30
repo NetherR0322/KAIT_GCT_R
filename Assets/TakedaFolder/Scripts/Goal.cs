@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour
 {
     float time = 0;
 
-    bool flag;
+    public static bool flag=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject.name == "tako"&&flag==false)
         {
             GameObject tako = GameObject.Find("tako");
-            Cursor.visible = true;
+            //Cursor.visible = true;
             SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
             flag = true;
             LimitScript.countCheck = false;
