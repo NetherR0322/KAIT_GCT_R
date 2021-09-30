@@ -13,44 +13,38 @@ public class GageScript : MonoBehaviour
 
     public GameObject GageTako;
 
+    public GameObject Tako;
+
+    public Transform tako;
+
+    public Transform goal;
+
     void Start()
     {
     
-           dist = Kyorihakaru.dis;
     }
 
     // Update is called once per frame
     void Update()
     {
-        count += Time.deltaTime;
-        Debug.Log(Kyorihakaru.dis);
-        Debug.Log(dist);
+      dist = Map(tako.transform.position.y,143,342,-600,270);
 
-        if (count > 9.0f)
-        {
+        GageTako.transform.localPosition = new Vector3(GageTako.transform.localPosition.x, dist, GageTako.transform.localPosition.z);
 
-            if (Kyorihakaru.dis == dist)
-            {
-                GageTako.transform.localPosition = new Vector3(GageTako.transform.localPosition.x, GageTako.transform.localPosition.y, GageTako.transform.localPosition.z);
-                dist = Kyorihakaru.dis;
-            }
-
-
-            if (dist != Kyorihakaru.dis)
-            {
-
-                if (dist > Kyorihakaru.dis)
-                {
-                    GageTako.transform.localPosition = new Vector3(GageTako.transform.localPosition.x, GageTako.transform.localPosition.y + speed, GageTako.transform.localPosition.z);
-                    dist = Kyorihakaru.dis;
-                }
-                else
-                {
-                    GageTako.transform.localPosition = new Vector3(GageTako.transform.localPosition.x, GageTako.transform.localPosition.y - speed, GageTako.transform.localPosition.z);
-                    dist = Kyorihakaru.dis;
-                }
-            }
-        }
-
+       // Debug.Log(dist);
     }
+
+    float Map(float val, float beforemin, float beforemax, float aftermin, float aftermax)
+    {
+        if (beforemax - beforemin != 0)
+        {
+            return (val - beforemin) * (aftermax - aftermin) / (beforemax - beforemin) + aftermin;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 }
+
