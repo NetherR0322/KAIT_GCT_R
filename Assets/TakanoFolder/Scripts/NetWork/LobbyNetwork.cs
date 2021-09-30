@@ -52,7 +52,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         print("ロビーに接続しています");
-
+        Cursor.visible = true;
         //ルームに接続しているか確認する
         if (!PhotonNetwork.InRoom)
         {

@@ -41,7 +41,7 @@ public class PlayerNetwork : MonoBehaviour
         if (string.IsNullOrWhiteSpace(inputField.text) && string.IsNullOrWhiteSpace(inputField.text))
         {
             //プレイヤーの名前を自動で生成
-            PlayerName = "Player(" + Random.Range(1000, 9999) + ")";
+            PlayerName = "たこ" + Random.Range(0, 99) + "号";
 
             PhotonNetwork.LoadLevel(2);
         }

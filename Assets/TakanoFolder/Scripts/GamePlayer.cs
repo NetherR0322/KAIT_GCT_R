@@ -71,10 +71,10 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             cam = mainCamObj.GetComponent<Camera>();
             one = true;
         }
-        /*if (Cursor.visible == true)
+        if (Cursor.visible == true)
         {
             Cursor.visible = false;
-        }*/
+        }
         time += Time.deltaTime;
 
         // 自身が生成したオブジェクトだけに移動処理を行う
@@ -107,7 +107,6 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
                 //マウスカーソルの色を変更する
                 SendColor(id);
                 //ChangeColor(SpriteColor);
-                print(LobbyNetwork.id);
                 one_id = true;
             }
 
