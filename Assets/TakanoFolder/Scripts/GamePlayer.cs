@@ -37,6 +37,7 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
 
     bool one = false;
     int id;
+    bool once = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +72,15 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             cam = mainCamObj.GetComponent<Camera>();
             one = true;
         }
-        if (Cursor.visible == true)
+        if (Cursor.visible == true && !Goal.flag&& !LimitScript.flag)
+        {
+            Cursor.visible = false;
+            once = false;
+        }else if ((Cursor.visible == false && Goal.flag && !once)|| (Cursor.visible == false && LimitScript.flag && !once))
+        {
+            Cursor.visible = true;
+            once = true;
+        }else if (Cursor.visible == true && !LobbyNetwork.isPlay)
         {
             Cursor.visible = false;
         }
