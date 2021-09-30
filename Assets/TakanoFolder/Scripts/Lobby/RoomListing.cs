@@ -52,7 +52,7 @@ public class RoomListing : MonoBehaviour
         Button button = GetComponent<Button>();
         //ルームに入る
         button.onClick.AddListener(() => lobbyCanvas.OnClickJoinRoom(RoomNameText.text));
-        MaxPlayer = 5;
+        MaxPlayer = 4;
         player = 1;
         RoomPlayerImage.fillAmount = player / MaxPlayer;
         RoomIsPlayText.text = "募集中";
