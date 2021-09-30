@@ -11,7 +11,7 @@ public class KaiScript : MonoBehaviour
 
     public static int rate;
 
-    public int M_rate = 0;
+    public static int M_rate = 0;
 
     public Text Ratetext;
 
@@ -32,6 +32,7 @@ public class KaiScript : MonoBehaviour
         if(tagObjects.Length <= 0)
         {
             Kai_UI.gameObject.SetActive(false);
+            Ratetext.color =new Color(0.0f, 0.0f, 0.0f, 1.0f);
         }
     }
 
