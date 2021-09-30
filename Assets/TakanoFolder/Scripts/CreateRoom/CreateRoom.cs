@@ -26,6 +26,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         //ルームネームが入力されているかどうか判定
         if (string.IsNullOrWhiteSpace(RoomName.text) && string.IsNullOrWhiteSpace(RoomName.text))
         {
+            PhotonNetwork.CreateRoom(Random.Range(0, 99) + "号室", roomOptions, TypedLobby.Default);
             print("ルームの作成に失敗");
         }
         else
