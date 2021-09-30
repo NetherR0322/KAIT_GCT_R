@@ -3,6 +3,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun.UtilityScripts;
 
 public class LobbyNetwork : MonoBehaviourPunCallbacks
@@ -27,12 +28,12 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     {
         if (isPlay==true)
         {
-            LobbyCanvas.SetActive(false);
+            //LobbyCanvas.SetActive(false);
             LobbyCamera.SetActive(false);
         }
         else if (isPlay==false)
         {
-            LobbyCanvas.SetActive(true);
+            //LobbyCanvas.SetActive(true);
             LobbyCamera.SetActive(true);
         }
     }
@@ -84,5 +85,11 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         Debug.Log("ON Player Numbering changed");
         Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
         id = player.GetPlayerNumber();
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        print("でれたよ");
     }
 }

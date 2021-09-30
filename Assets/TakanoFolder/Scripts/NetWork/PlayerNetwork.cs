@@ -159,11 +159,13 @@ public class PlayerNetwork : MonoBehaviour
         //int stage = CurrentRoomCanvas.num;
         if (stageNumber == 5)
         {
+            LobbyNetwork.isPlay = false;
             SceneManager.UnloadSceneAsync("Shopping streetStage");
             SceneManager.UnloadSceneAsync("GameOverScene");
         }
         else if(stageNumber == 6)
         {
+            LobbyNetwork.isPlay = false;
             SceneManager.UnloadSceneAsync("AquariumScene");
             SceneManager.UnloadSceneAsync("GameOverScene");
         }
@@ -175,11 +177,13 @@ public class PlayerNetwork : MonoBehaviour
         //int stage = CurrentRoomCanvas.num;
         if (stageNumber == 5)
         {
+            LobbyNetwork.isPlay = false;
             SceneManager.UnloadSceneAsync("Shopping streetStage");
             SceneManager.UnloadSceneAsync("ResultScene");
         }
         else if (stageNumber == 6)
         {
+            LobbyNetwork.isPlay = false;
             SceneManager.UnloadSceneAsync("AquariumScene");
             SceneManager.UnloadSceneAsync("ResultScene");
         }
@@ -202,5 +206,20 @@ public class PlayerNetwork : MonoBehaviour
     private void isPlay()
     {
         LobbyNetwork.isPlay = true;
+    }
+    [PunRPC]
+    private void Gotitle_Master()
+    {
+        /*LobbyNetwork.isPlay = false;
+        BGMPlayer.GetInstance().PlaySound(0);
+        //Cursor.visible = true;
+        GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();  //ルームを出る
+        PhotonNetwork.Disconnect();
+        Destroy(DDOobj);
+        SceneManager.LoadScene(0);//タイトルシーンに遷移*/
+        LobbyNetwork.isPlay = false;
+        PhotonNetwork.LeaveRoom();
     }
 }

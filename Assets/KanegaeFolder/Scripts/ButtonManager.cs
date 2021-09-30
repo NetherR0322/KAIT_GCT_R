@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -43,13 +44,25 @@ public class ButtonManager : MonoBehaviour
     public void GoTitle()
     {
         BGMPlayer.GetInstance().PlaySound(0);
-        Cursor.visible = true;
-        GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
-        PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LeaveLobby();  //ルームを出る
-        PhotonNetwork.Disconnect();
-        Destroy(DDOobj);
-        SceneManager.LoadScene(0);//タイトルシーンに遷移
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            LobbyNetwork.isPlay = false;
+            PhotonNetwork.LeaveRoom();
+        }
+        PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
+        PhotonView.RPC("Gotitle_Master", RpcTarget.All);
+    }
+    public void GoTitle2()
+    {
+        BGMPlayer.GetInstance().PlaySound(0);
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            LobbyNetwork.isPlay = false;
+            PhotonNetwork.LeaveRoom();
+        }
+        PhotonView.RPC("UnLoadStageScene2", RpcTarget.All);
+
+        PhotonView.RPC("Gotitle_Master", RpcTarget.All);
     }
     public void retrunLobby()
     {
@@ -72,7 +85,8 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
-        LobbyNetwork.isPlay = false;
+        //LobbyNetwork.isPlay = false;
+        PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonView.RPC("UnLoadStageScene", RpcTarget.All);
     }
     public void GoRoom2()
@@ -82,7 +96,8 @@ public class ButtonManager : MonoBehaviour
         {
             return;
         }
-        LobbyNetwork.isPlay = false;
+        //LobbyNetwork.isPlay = false;
+        PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonView.RPC("UnLoadStageScene2", RpcTarget.All);
     }
     public void GoGame()
