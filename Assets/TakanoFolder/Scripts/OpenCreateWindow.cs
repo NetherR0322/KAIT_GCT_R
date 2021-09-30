@@ -9,12 +9,16 @@ public class OpenCreateWindow : MonoBehaviour
     public GameObject CloseBotton;
     Image img;
     Button btn;
+    BoxCollider2D col;
+    ButtonEvent btnE;
     public GameObject refreshButton;
     public GameObject grayOut;
     private void Start()
     {
         img = CloseBotton.GetComponent<Image>();
         btn = CloseBotton.GetComponent<Button>();
+        col = CloseBotton.GetComponent<BoxCollider2D>();
+        //btnE = CloseBotton.GetComponent<ButtonEvent>();
     }
     public void On_click_OpenCWindow()
     {
@@ -23,6 +27,8 @@ public class OpenCreateWindow : MonoBehaviour
         returnBotton.SetActive(false);
         img.enabled = true;
         btn.enabled = true;
+        col.enabled = true;
+        //btnE.enabled = true;
         refreshButton.SetActive(false);
         grayOut.SetActive(true);
     }
@@ -33,6 +39,8 @@ public class OpenCreateWindow : MonoBehaviour
         returnBotton.SetActive(true);
         img.enabled = false;
         btn.enabled = false;
+        col.enabled = false;
+        //btnE.enabled = false;
         refreshButton.SetActive(true);
         grayOut.SetActive(false);
     }
