@@ -15,6 +15,8 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public GameObject returnButton;
     public GameObject LobbyCamera;
     public static bool isPlay=false;
+
+    public static bool inRoom = false;
     private void Start()
     {
         //サーバーに接続しているか確認する
@@ -32,15 +34,21 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         {
             //LobbyCanvas.SetActive(false);
             StartButton.SetActive(false);
-            returnButton.SetActive(false);
             LobbyCamera.SetActive(false);
         }
         else if (isPlay==false)
         {
             //LobbyCanvas.SetActive(true);
             StartButton.SetActive(true);
-            returnButton.SetActive(true);
             LobbyCamera.SetActive(true);
+        }
+        if (inRoom)
+        {
+            returnButton.SetActive(true);
+        }
+        else if (!inRoom)
+        {
+            returnButton.SetActive(false);
         }
     }
 
@@ -71,6 +79,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.Instantiate("GamePlayer", new Vector2(0f, 0f), Quaternion.identity, 0);
+        inRoom = true;
         //プレイヤーのidを取得
         //Photon.Realtime.Player player = PhotonNetwork.LocalPlayer;
         //id = player.ActorNumber;
@@ -96,6 +105,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        inRoom = false;
         print("でれたよ");
     }
 }

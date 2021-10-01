@@ -17,6 +17,7 @@ public class OpenPauseMenu : MonoBehaviour
     Image pause_img;
     Button pause_btn;
     BoxCollider2D pause_col;
+    bool one = false;
     private void Start()
     {
         img = CloseBotton.GetComponent<Image>();
@@ -28,6 +29,33 @@ public class OpenPauseMenu : MonoBehaviour
         pause_img = pauseBotton.GetComponent<Image>();
         pause_btn = pauseBotton.GetComponent<Button>();
         pause_col = pauseBotton.GetComponent<BoxCollider2D>();
+    }
+    private void Update()
+    {
+        if (LimitScript.flag&&!one)
+        {
+            pause_img.enabled = false;
+            pause_btn.enabled = false;
+            pause_col.enabled = false;
+            img.enabled = false;
+            btn.enabled = false;
+            col.enabled = false;
+            text.enabled = false;
+            PauseMenu.SetActive(false);
+            grayOut.SetActive(false);
+        }
+        if (Goal.flag&&!one)
+        {
+            pause_img.enabled = false;
+            pause_btn.enabled = false;
+            pause_col.enabled = false;
+            img.enabled = false;
+            btn.enabled = false;
+            col.enabled = false;
+            text.enabled = false;
+            PauseMenu.SetActive(false);
+            grayOut.SetActive(false);
+        }
     }
     public void On_click_OpenPmenu()
     {
