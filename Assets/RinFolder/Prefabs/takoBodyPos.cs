@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class takoBodyPos : MonoBehaviour
+public class takoBodyPos : MonoBehaviourPunCallbacks
 {
     bool canMove;
     public float distance = 12.0f;
     Rigidbody2D rb;
+
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,11 @@ public class takoBodyPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > 4.0f) {
+            timer -= 4.0f;
+            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, (Vector2)this.transform.position);
+        }
         GameObject[] IKs = GameObject.FindGameObjectsWithTag("IK");
         canMove = true;
         for (int i = 0; i < IKs.Length; i++)
@@ -43,5 +51,9 @@ public class takoBodyPos : MonoBehaviour
         float ans = Mathf.Pow(fPos.x - sPos.x, 2) + Mathf.Pow(fPos.y - sPos.y, 2);
         return ans;
     }
-
+    [PunRPC]
+    private void TransformSync(Vector2 pos)
+    {
+        this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
+    }
 }
