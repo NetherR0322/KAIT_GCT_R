@@ -19,7 +19,7 @@ public class Kyorihakaru : MonoBehaviour
     void Update()
     {
         dis = Vector3.Distance(tako.position, goal.position);
-        distance.text = "海まであと" + dis.ToString("f0") + "m";
+        distance.text = "海まで" + dis.ToString("f0") + "m";
 
         
     }
