@@ -15,24 +15,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2072112636848907784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2152873164909121043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34bc65e7bb48504c8dcc2fb21e79197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2198091312775509188
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -182,6 +170,18 @@ PolygonCollider2D:
       - {x: -0.64, y: 2.22}
       - {x: -0.64, y: 2.34}
       - {x: -0.65, y: 2.3799999}
+--- !u!114 &2072112636848907784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152873164909121043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34bc65e7bb48504c8dcc2fb21e79197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4472350068252749642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 2589692989987561799, guid: 60f3f4b8ad969a548bb791cb9e564f6d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.586263
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2589692989987561799, guid: 60f3f4b8ad969a548bb791cb9e564f6d,
         type: 3}
