@@ -9,6 +9,8 @@ public class ClockScript : MonoBehaviour
 
     public float lim_hari = 0.0f;
 
+    private float speed = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,22 @@ public class ClockScript : MonoBehaviour
 
         lim_hari += Time.deltaTime;
 
-        Clock_hari.transform.rotation = Quaternion.Euler(0, 0, lim_hari);
+        speed = LimitScript.M_limit / 360;
+
+        Debug.Log(speed);
+
+        Clock_hari.transform.rotation = Quaternion.Euler(0, 0, lim_hari/speed);
+    }
+
+    float Map(float val, float beforemin, float beforemax, float aftermin, float aftermax)
+    {
+        if (beforemax - beforemin != 0)
+        {
+            return (val - beforemin) * (aftermax - aftermin) / (beforemax - beforemin) + aftermin;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
