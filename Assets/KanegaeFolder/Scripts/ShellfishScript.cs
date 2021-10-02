@@ -11,10 +11,16 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
 {
     GameObject[] tagObjects;
 
+    private string Kai_Name;
+
+    [SerializeField]
+    public GameObject Kai_1;
+
+
     void Start()
     {
         KaiScript.rate = 0;
-
+        Kai_Name = this.gameObject.name;
     }
 
     // Update is called once per frame
@@ -28,12 +34,16 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
         Debug.Log("当たりました");
         if (collision.gameObject.tag == "tako")
         {
-            
-
-            
+           
             KanegaeGameManager.checkScore = true;
 
             Check("Kai");
+                        
+            
+            if(Kai_Name == this.gameObject.name)
+            {
+                Destroy(Kai_1);
+            }
 
             //KanegaeGameManager.score += 10;
             KaiScript.rate += 1;
