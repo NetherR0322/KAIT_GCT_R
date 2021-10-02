@@ -11,6 +11,11 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
 
     private float timer;
 
+    public float hitTrap = 0.0f;
+    public bool hitTrapF=false;
+
+    public GameObject amiGO;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,8 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
     void Update()
     {
         timer += Time.deltaTime;
+        hitTrap-= Time.deltaTime;
+        if (hitTrap < 0.0f) hitTrap = 0.0f;
         if (timer > 4.0f) {
             timer -= 4.0f;
             if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(TransformSync), RpcTarget.Others, (Vector2)this.transform.position);
@@ -33,7 +40,7 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
             if (dist > distance) canMove = false;
             Debug.Log("["+i+".dis]:"+dist);
         }
-        if (canMove)
+        if (canMove&&hitTrap<=0.0f)
         {
                 Vector2 hopePos=Vector3.Lerp(
                 Vector3.Lerp(Vector3.Lerp(IKs[0].transform.position, IKs[1].transform.position, 0.5f),
@@ -45,6 +52,13 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
             rb.velocity = Vector3.zero;
             rb.AddForce(new Vector3((hopePos.x - thisPos.x), (hopePos.y - thisPos.y)), ForceMode2D.Impulse);
         }
+
+        Debug.Log("HT:"+ hitTrap);
+        amiGO.SetActive(false);
+        if (hitTrap>0.0f) {
+            if(hitTrapF)GetComponent<PhotonView>().RPC(nameof(HitTimerSync), RpcTarget.All, (float)hitTrap);
+            amiGO.SetActive(true);
+        }
     }
     float Distance(Vector2 fPos, Vector2 sPos)
     {
@@ -55,5 +69,12 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
     private void TransformSync(Vector2 pos)
     {
         this.transform.position = pos;//カーソルの位置にこのIK(自分)を持っていく
+    }
+
+    [PunRPC]
+    private void HitTimerSync(float check)
+    {
+        hitTrap = check;
+        hitTrapF = false;
     }
 }
