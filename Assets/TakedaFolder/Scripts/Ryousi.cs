@@ -11,7 +11,7 @@ public class Ryousi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Ami.flag = false;
+        
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Ryousi : MonoBehaviour
     {
         shotIntarval += 1;
 
-        if (shotIntarval % 1260 == 0&&Ami.flag==false)
+        if (shotIntarval % 1260 == 0)
         {
             GameObject enemyShell = Instantiate(Amimi, transform.position, Quaternion.identity);
 

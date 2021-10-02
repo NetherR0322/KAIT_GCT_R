@@ -17,13 +17,13 @@ public class Ami : MonoBehaviour
     {
      
     }
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.name == "tako")
+        if (col.gameObject.tag == "tako")
         {
-            Destroy(this);
-           
-          
+            col.gameObject.GetComponent<takoBodyPos>().hitTrap = 4.0f;
+            col.gameObject.GetComponent<takoBodyPos>().hitTrapF = true;
+            Destroy(this.gameObject);
         }
     }
 }
