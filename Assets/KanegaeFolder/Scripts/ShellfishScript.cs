@@ -11,13 +11,6 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
 {
     GameObject[] tagObjects;
 
-    [SerializeField]
-    public GameObject Kai_1;
-    [SerializeField]
-    public GameObject Kai_2;
-    [SerializeField]
-    public GameObject Kai_3;
-
     void Start()
     {
         KaiScript.rate = 0;
@@ -71,12 +64,9 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
 
         foreach(GameObject Kai in tagObjects)
         {
-            if (Kai == Kai_1) { Destroy(Kai_1); Debug.Log(Kai); }
-            else if (Kai == Kai_2) { Destroy(Kai_2); Debug.Log(Kai); }
-            else if (Kai == Kai_3) { Destroy(Kai_3); Debug.Log(Kai); }
-
         }
 
+            
     }
 
 }
