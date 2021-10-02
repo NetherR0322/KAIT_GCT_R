@@ -29,21 +29,23 @@ public class KaiScript : MonoBehaviour
 
         Ratetext.text = rate + "/" + M_rate;
 
-        if(tagObjects.Length <= 0)
+        if (tagObjects.Length <= 0)
         {
             Kai_UI.gameObject.SetActive(false);
-            Ratetext.color =new Color(0.0f, 0.0f, 0.0f, 1.0f);
+            Ratetext.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
         }
     }
 
     void Check(string tagname)
     {
         tagObjects = GameObject.FindGameObjectsWithTag(tagname);
-        //Debug.Log(tagObjects.Length); //tagObjects.Lengthはオブジェクトの数
+
+        GameObject[] Kais = GameObject.FindGameObjectsWithTag(tagname);
+
         if (tagObjects.Length == 0)
         {
-           // Debug.Log(tagname + "タグがついたオブジェクトはありません");
+            // Debug.Log(tagname + "タグがついたオブジェクトはありません");
         }
-
+       
     }
 }
