@@ -21,7 +21,7 @@ public class Ami : MonoBehaviour
     {
         if (col.gameObject.tag == "tako")
         {
-            col.gameObject.GetComponent<takoBodyPos>().hitTrap = 8.0f;
+            col.gameObject.GetComponent<takoBodyPos>().hitTrap = 6.0f;
             col.gameObject.GetComponent<takoBodyPos>().hitTrapF = true;
             Destroy(this.gameObject);
         }
