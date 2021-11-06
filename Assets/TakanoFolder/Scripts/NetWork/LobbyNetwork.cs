@@ -72,7 +72,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.InRoom)
         {
             //LobbyCanvasを上に配置
-            MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
+            //MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
         }
     }
     //ルームに入室した時
