@@ -56,7 +56,7 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
         Debug.Log("HT:"+ hitTrap);
         amiGO.SetActive(false);
         if (hitTrap>0.0f) {
-            if(hitTrapF)GetComponent<PhotonView>().RPC(nameof(HitTimerSync), RpcTarget.All, (float)hitTrap);
+            if(hitTrapF&&PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(HitTimerSync), RpcTarget.All, (float)hitTrap);
             amiGO.SetActive(true);
         }
     }
@@ -76,5 +76,6 @@ public class takoBodyPos : MonoBehaviourPunCallbacks
     {
         hitTrap = check;
         hitTrapF = false;
+        amiGO.SetActive(false);
     }
 }
