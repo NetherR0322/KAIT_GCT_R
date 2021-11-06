@@ -47,12 +47,11 @@ public class ShellfishScript : MonoBehaviourPunCallbacks
 
             //KanegaeGameManager.score += 10;
             KaiScript.rate += 1;
-           
-            Debug.Log("Rate:" + KaiScript.rate);
-            Debug.Log("Score:" + KanegaeGameManager.score);
-            Debug.Log("trueにしました");
+            LimitScript.limit += 10;          
 
-            
+            //Debug.Log("Rate:" + KaiScript.rate);
+            //Debug.Log("Score:" + KanegaeGameManager.score);
+            //Debug.Log("trueにしました");           
 
             Destroy(this.gameObject);
             KanegaeGameManager.checkScore = false;
