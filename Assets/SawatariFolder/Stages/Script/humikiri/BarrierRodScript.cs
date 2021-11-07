@@ -9,6 +9,7 @@ public class BarrierRodScript : MonoBehaviour
     GameObject BarrierTrigger;
     //タイムリミット
     public float timeLimit = 30.0f;
+    private float rotateSize = 0.0f;
 
 
     public int state = 0;
@@ -22,14 +23,17 @@ public class BarrierRodScript : MonoBehaviour
 
         if (state == 0 && barrierTrigger.Hit == true)
         {
+            rotateSize = gameObject.transform.localEulerAngles.z;
             state = 1;
             barrierTrigger.Hit = false;
         }
         if (state == 1)
         {
-            transform.Rotate(new Vector3(0, 0, -0.3f));
+            transform.Rotate(new Vector3(0, 0, -0.4f));
+            rotateSize -= 0.4f;
+            Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.z);
         }
-        if (state == 1 && gameObject.transform.localEulerAngles.z < 304)
+        if (state == 1 && rotateSize < 304)
         {
             state = 2;
         }
@@ -45,13 +49,14 @@ public class BarrierRodScript : MonoBehaviour
         }
         if (state == 3)
         {
-            transform.Rotate(new Vector3(0, 0, 0.3f));
-
+            transform.Rotate(new Vector3(0, 0, 0.4f));
+            Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.z);
+            rotateSize += 0.4f;
         }
-        if (state == 3 && gameObject.transform.localEulerAngles.z > 359)
+        if (state == 3 && rotateSize > 359.1)
+        
         {
             state = 0;
-
         }
     }
 }
