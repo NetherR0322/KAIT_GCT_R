@@ -11,6 +11,7 @@ TagManager:
   - key
   - IK
   - Kai
+  - train
   layers:
   - Default
   - TransparentFX
