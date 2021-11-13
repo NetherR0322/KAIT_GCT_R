@@ -26,7 +26,7 @@ public class Goal : MonoBehaviour
         {
             GameObject tako = GameObject.Find("tako");
             //Cursor.visible = true;
-            SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
+            FadeManager.Instance.LoadLevel("ResultScene", 2f);
             flag = true;
             LimitScript.countCheck = false;
         }
