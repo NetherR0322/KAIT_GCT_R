@@ -5583,7 +5583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: {fileID: 686738111}
   stageName2: {fileID: 1279340408}
-  startButton: {fileID: 0}
 --- !u!1 &979628433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,7 +6657,7 @@ RectTransform:
   m_GameObject: {fileID: 1184323407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 371553872}
   m_RootOrder: 0
@@ -6688,17 +6687,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6723bb9524dc2f44abb867e77a7319ae, type: 3}
-    m_FontSize: 64
+    m_Font: {fileID: 12800000, guid: 67a1e9541ef1abc4db78fc402d7d6bde, type: 3}
+    m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 64
+    m_MinSize: 1
+    m_MaxSize: 128
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\u9078\u3073\u305F\u3044\u30E2\u30FC\u30C9\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
 --- !u!222 &1184323410
@@ -10545,7 +10544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1842199051
 RectTransform:
   m_ObjectHideFlags: 0
