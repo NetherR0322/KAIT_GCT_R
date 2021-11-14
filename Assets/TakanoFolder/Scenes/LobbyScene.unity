@@ -5583,6 +5583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: {fileID: 686738111}
   stageName2: {fileID: 1279340408}
+  startButton: {fileID: 0}
 --- !u!1 &979628433
 GameObject:
   m_ObjectHideFlags: 0
