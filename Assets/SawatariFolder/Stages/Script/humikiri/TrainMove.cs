@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Photon.Pun;
 
-public class TrainMove : MonoBehaviour
-{
+public class TrainMove : MonoBehaviourPunCallbacks {
     // Start is called before the first frame update
     GameObject barrierrod;
     BarrierRodScript barrierRod;
@@ -46,11 +46,15 @@ public class TrainMove : MonoBehaviour
         {
             if (flag == false)
             {
-                //Cursor.visible = true;
-                SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
-                flag = true;
-
+                if (PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
             }
         }
+    }
+
+    [PunRPC]
+    private void IsHit()
+    {
+        SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
+        flag = true;
     }
 }
