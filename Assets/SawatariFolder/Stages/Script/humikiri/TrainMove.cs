@@ -14,6 +14,7 @@ public class TrainMove : MonoBehaviour
     Transform myTransform;
     Vector3 defaultpos;
     public static bool flag = false;
+    public float speed =-1.0f;
     void Start()
     {
         myTransform = this.transform;
@@ -31,7 +32,7 @@ public class TrainMove : MonoBehaviour
         barrierRod = barrierrod.GetComponent<BarrierRodScript>();
         if (barrierRod.state == 0 || barrierRod.state == 1)
         {
-            this.gameObject.transform.Translate(-0.6f, 0, 0);
+            this.gameObject.transform.Translate(speed, 0, 0);
         }
         if (barrierRod.state == 2)
         {
