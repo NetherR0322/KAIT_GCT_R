@@ -15,6 +15,7 @@ public class CurrentRoomCanvas : MonoBehaviour
 
     //public Text stageName;
     public Text stageName2;
+    public GameObject startButton;
 
     //---ゲームプレイシーンに遷移するボタン---//
     private void Awake()
@@ -90,5 +91,9 @@ public class CurrentRoomCanvas : MonoBehaviour
             return;
         }
         stage.SetActive(false);
+    }
+    void ButtonOpen()
+    {
+        startButton.SetActive(true);
     }
 }
