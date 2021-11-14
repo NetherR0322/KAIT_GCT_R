@@ -17,6 +17,11 @@ public class OpenCreateWindow : MonoBehaviour
     ButtonEvent btnE;
     public GameObject refreshButton;
     public GameObject grayOut;
+
+    public Image BgImg, CloseImg, CrImage, SrImage, BaImage;
+    public Text text;
+    public Button CrButtom, SrButtom;
+    public BoxCollider2D CrCol, SrCol, CloseCol;
     private void Start()
     {
         img = CloseBotton.GetComponent<Image>();
@@ -56,5 +61,23 @@ public class OpenCreateWindow : MonoBehaviour
         //btnE.enabled = false;*/
         refreshButton.SetActive(true);
         grayOut.SetActive(false);
+    }
+    public void On_click_Select()
+    {
+        BGMPlayer.GetInstance().PlaySound(0);
+        //CreateRoomLobby.SetActive(false);
+        //SearchRoomLobby.SetActive(true);
+        //this.gameObject.SetActive(false);
+        BgImg.enabled = true;
+        CloseImg.enabled = true;
+        CrImage.enabled = true;
+        SrImage.enabled = true;
+        BaImage.enabled = true;
+        text.enabled = true;
+        CrButtom.enabled = true;
+        SrButtom.enabled = true;
+        CrCol.enabled = true;
+        SrCol.enabled = true;
+        CloseCol.enabled = true;
     }
 }
