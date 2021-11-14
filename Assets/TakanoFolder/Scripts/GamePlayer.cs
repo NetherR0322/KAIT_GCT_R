@@ -72,11 +72,11 @@ public class GamePlayer : MonoBehaviourPunCallbacks, IPunObservable
             cam = mainCamObj.GetComponent<Camera>();
             one = true;
         }
-        if (Cursor.visible == true && !Goal.flag&& !LimitScript.flag)
+        if (Cursor.visible == true && !Goal.flag&& !LimitScript.flag&&!TrainMove.flag)
         {
             Cursor.visible = false;
             once = false;
-        }else if ((Cursor.visible == false && Goal.flag && !once)|| (Cursor.visible == false && LimitScript.flag && !once))
+        }else if ((Cursor.visible == false && Goal.flag && !once)|| (Cursor.visible == false && LimitScript.flag && !once)||(Cursor.visible == false && TrainMove.flag && !once))
         {
             Cursor.visible = true;
             once = true;

@@ -25,7 +25,6 @@ public class Goal : MonoBehaviourPunCallbacks
     {
         if (col.gameObject.name == "tako"&&flag==false)
         {
-            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
         }
     }
 
