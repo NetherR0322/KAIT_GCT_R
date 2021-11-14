@@ -31,17 +31,12 @@ public class Goal : MonoBehaviourPunCallbacks
             //FadeManager.Instance.LoadLevel("ResultScene", 2f);
             flag = true;
             LimitScript.countCheck = false;
-            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
-            GameObject tako = GameObject.Find("tako");
-            //Cursor.visible = true;
-            FadeManager.Instance.LoadLevel("ResultScene", 2f);
-            flag = true;
-            LimitScript.countCheck = false;
+            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All,0);
         }
     }
 
     [PunRPC]
-    private void IsHit()
+    private void IsHit(int num)
     {
         GameObject tako = GameObject.Find("tako");
         //Cursor.visible = true;
