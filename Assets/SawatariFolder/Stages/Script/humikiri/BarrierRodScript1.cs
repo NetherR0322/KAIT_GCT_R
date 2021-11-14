@@ -4,7 +4,7 @@ using System.Collections;
 public class BarrierRodScript1 : MonoBehaviour
 {
     //カウントアップ
-    
+
     //タイムリミット
     private float rotateSize = 0.0f;
     private float openLimit = 359.1f;
@@ -15,32 +15,32 @@ public class BarrierRodScript1 : MonoBehaviour
     }
     void Update()
     {
-
-        if (state == 0 )
+        Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
+        if (state == 0)
         {
-            rotateSize = gameObject.transform.localEulerAngles.z;
-    
+            rotateSize = gameObject.transform.localEulerAngles.y;
+
         }
         if (state == 1)
         {
-            transform.Rotate(new Vector3(0, 0, 0.4f));
+            transform.Rotate(new Vector3(0, -0.4f, 0));
             rotateSize += 0.4f;
-            Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.z);
-        }
-        
-        if (state == 2)
-        {
-    
+            // Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
         }
 
         if (state == 2)
         {
-    
+
+        }
+
+        if (state == 2)
+        {
+
         }
         if (state == 3)
         {
-            transform.Rotate(new Vector3(0, 0, -0.4f));
-            Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.z);
+            transform.Rotate(new Vector3(0, 0.4f, 0));
+            // Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
             rotateSize -= 0.4f;
         }
     }
