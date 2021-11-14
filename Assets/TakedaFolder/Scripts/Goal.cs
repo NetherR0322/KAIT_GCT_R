@@ -25,6 +25,13 @@ public class Goal : MonoBehaviourPunCallbacks
     {
         if (col.gameObject.name == "tako"&&flag==false)
         {
+            GameObject tako = GameObject.Find("tako");
+            //Cursor.visible = true;
+            SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
+            //FadeManager.Instance.LoadLevel("ResultScene", 2f);
+            flag = true;
+            LimitScript.countCheck = false;
+            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
         }
     }
 
