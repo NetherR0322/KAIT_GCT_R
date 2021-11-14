@@ -6794,8 +6794,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1197982471}
-        m_MethodName: OnClick_LeaveLobby
+      - m_Target: {fileID: 1715920988}
+        m_MethodName: On_click_Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8469,6 +8469,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22339c21952504d46b599b3b2b59ec36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BgImg: {fileID: 746052945}
+  CloseImg: {fileID: 1510426953}
+  CrImage: {fileID: 1917165854}
+  SrImage: {fileID: 211521836}
+  BaImage: {fileID: 371553873}
+  text: {fileID: 1184323409}
+  CrButtom: {fileID: 1917165853}
+  SrButtom: {fileID: 211521835}
+  CrCol: {fileID: 1917165852}
+  SrCol: {fileID: 211521834}
+  CloseCol: {fileID: 1510426951}
 --- !u!1 &1493009892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10269,6 +10280,17 @@ MonoBehaviour:
   CloseBotton: {fileID: 1093622196}
   refreshButton: {fileID: 1197982466}
   grayOut: {fileID: 234579252}
+  BgImg: {fileID: 746052945}
+  CloseImg: {fileID: 1510426953}
+  CrImage: {fileID: 1917165854}
+  SrImage: {fileID: 211521836}
+  BaImage: {fileID: 371553873}
+  text: {fileID: 1184323409}
+  CrButtom: {fileID: 1917165853}
+  SrButtom: {fileID: 211521835}
+  CrCol: {fileID: 1917165852}
+  SrCol: {fileID: 211521834}
+  CloseCol: {fileID: 1510426951}
 --- !u!1 &1753477763
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class LobbySelect : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,10 @@ public class LobbySelect : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     GameObject PlayerNetWork;
     private PhotonView PhotonView;
+    public Image BgImg, CloseImg, CrImage, SrImage, BaImage;
+    public Text text;
+    public Button CrButtom, SrButtom;
+    public BoxCollider2D CrCol, SrCol,CloseCol;
     void Start()
     {
         PlayerNetWork = GameObject.Find("PlayerNetWork");
@@ -35,7 +40,18 @@ public class LobbySelect : MonoBehaviourPunCallbacks
         BGMPlayer.GetInstance().PlaySound(0);
         //CreateRoomLobby.SetActive(false);
         //SearchRoomLobby.SetActive(true);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        BgImg.enabled = false; 
+        CloseImg.enabled = false; 
+        CrImage.enabled = false; 
+        SrImage.enabled = false; 
+        BaImage.enabled = false;
+        text.enabled = false;
+        CrButtom.enabled = false; 
+        SrButtom.enabled = false;
+        CrCol.enabled = false; 
+        SrCol.enabled = false;
+        CloseCol.enabled = false;
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
