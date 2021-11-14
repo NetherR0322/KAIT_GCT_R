@@ -33,13 +33,20 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks
         if (isPlay==true)
         {
             //LobbyCanvas.SetActive(false);
-            StartButton.SetActive(false);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                StartButton.SetActive(false);
+            }
             LobbyCamera.SetActive(false);
         }
         else if (isPlay==false)
         {
             //LobbyCanvas.SetActive(true);
-            StartButton.SetActive(true);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                StartButton.SetActive(true);
+            }
+            //StartButton.SetActive(true);
             LobbyCamera.SetActive(true);
         }
         if (inRoom)
