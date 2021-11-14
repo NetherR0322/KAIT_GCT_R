@@ -31,7 +31,7 @@ public class BarrierRodScript : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, -0.4f));
             rotateSize -= 0.4f;
-            Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.z);
+            //Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.z);
         }
         if (state == 1 && rotateSize < 304)
         {
@@ -50,7 +50,7 @@ public class BarrierRodScript : MonoBehaviour
         if (state == 3)
         {
             transform.Rotate(new Vector3(0, 0, 0.4f));
-            Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.z);
+            //Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.z);
             rotateSize += 0.4f;
         }
         if (state == 3 && rotateSize > 359.1)
