@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 
-public class Goal : MonoBehaviour
+public class Goal : MonoBehaviourPunCallbacks
 {
     float time = 0;
 
@@ -24,11 +25,17 @@ public class Goal : MonoBehaviour
     {
         if (col.gameObject.name == "tako"&&flag==false)
         {
-            GameObject tako = GameObject.Find("tako");
-            //Cursor.visible = true;
-            FadeManager.Instance.LoadLevel("ResultScene", 2f);
-            flag = true;
-            LimitScript.countCheck = false;
+            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    private void IsHit()
+    {
+        GameObject tako = GameObject.Find("tako");
+        //Cursor.visible = true;
+        FadeManager.Instance.LoadLevel("ResultScene", 2f);
+        flag = true;
+        LimitScript.countCheck = false;
     }
 }
