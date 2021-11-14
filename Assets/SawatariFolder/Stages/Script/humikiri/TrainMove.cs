@@ -46,7 +46,10 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         {
             if (flag == false)
             {
+                Debug.Log("電車と衝突!!!");
                 if (PhotonNetwork.IsMasterClient)GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
+                SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
+                flag = true;
             }
         }
     }
@@ -54,6 +57,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
     [PunRPC]
     private void IsHit()
     {
+        Debug.Log("PUN!!!");
         SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
         flag = true;
     }
