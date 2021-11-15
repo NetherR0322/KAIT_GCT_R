@@ -18,10 +18,10 @@ public class OpenCreateWindow : MonoBehaviour
     public GameObject refreshButton;
     public GameObject grayOut;
 
-    public Image BgImg, CloseImg, CrImage, SrImage, BaImage;
+    public Image BgImg, CloseImg, CrImage, SrImage, BaImage, RefImage;
     public Text text;
-    public Button CrButtom, SrButtom;
-    public BoxCollider2D CrCol, SrCol, CloseCol;
+    public Button CrButtom, SrButtom,RefButtom;
+    public BoxCollider2D CrCol, SrCol, CloseCol,RefCol;
     private void Start()
     {
         img = CloseBotton.GetComponent<Image>();
@@ -79,5 +79,8 @@ public class OpenCreateWindow : MonoBehaviour
         CrCol.enabled = true;
         SrCol.enabled = true;
         CloseCol.enabled = true;
+        RefImage.enabled = false;
+        RefButtom.enabled = false;
+        RefCol.enabled = false;
     }
 }

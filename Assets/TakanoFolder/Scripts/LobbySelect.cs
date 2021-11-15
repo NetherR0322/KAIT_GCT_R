@@ -12,10 +12,10 @@ public class LobbySelect : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     GameObject PlayerNetWork;
     private PhotonView PhotonView;
-    public Image BgImg, CloseImg, CrImage, SrImage, BaImage;
+    public Image BgImg, CloseImg, CrImage, SrImage, BaImage,RefImage;
     public Text text;
-    public Button CrButtom, SrButtom;
-    public BoxCollider2D CrCol, SrCol,CloseCol;
+    public Button CrButtom, SrButtom,RefButtom;
+    public BoxCollider2D CrCol, SrCol,CloseCol,RefCol;
     void Start()
     {
         PlayerNetWork = GameObject.Find("PlayerNetWork");
@@ -34,6 +34,16 @@ public class LobbySelect : MonoBehaviourPunCallbacks
         //CreateRoomLobby.SetActive(true);
         //this.gameObject.SetActive(false);
         PhotonNetwork.JoinRandomRoom();
+        //CloseImg.enabled = false;
+        CrImage.enabled = false;
+        SrImage.enabled = false;
+        //BaImage.enabled = false;
+        //text.enabled = false;
+        CrButtom.enabled = false;
+        SrButtom.enabled = false;
+        CrCol.enabled = false;
+        SrCol.enabled = false;
+        //CloseCol.enabled = false;
     }
     public void On_click_SearchRoomLobby()
     {
@@ -52,6 +62,9 @@ public class LobbySelect : MonoBehaviourPunCallbacks
         CrCol.enabled = false; 
         SrCol.enabled = false;
         CloseCol.enabled = false;
+        RefImage.enabled = true;
+        RefButtom.enabled = true;
+        RefCol.enabled = true;
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
