@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
 {
@@ -85,7 +86,14 @@ public class PlayerLayoutGroup : MonoBehaviourPunCallbacks
     public void OnClick_LaveRoom()
     {
         BGMPlayer.GetInstance().PlaySound(0);
+        Cursor.visible = true;
+        GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();  //ルームを出る
+        PhotonNetwork.Disconnect();
+        Destroy(DDOobj);
+        SceneManager.LoadScene(0); //タイトルシーンに遷移
+        //PhotonNetwork.LeaveRoom();
     }
     /*public void OnClick_LaveRoom()
     {
