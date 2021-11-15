@@ -51,7 +51,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
             {
                 Debug.Log("電車と衝突!!!");
                 //SceneManager.LoadScene("GameOverScene");
-                GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All, true);
+                if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All, true);
                 //SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
                 flag = true;
                 goScene = true;
