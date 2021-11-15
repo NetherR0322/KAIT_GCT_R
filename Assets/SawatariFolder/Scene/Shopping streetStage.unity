@@ -1685,6 +1685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrier1
       objectReference: {fileID: 0}
+    - target: {fileID: 6237296794535784086, guid: 48c74238afa674d488133fd05c3d654c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6237296794535784074, guid: 48c74238afa674d488133fd05c3d654c, type: 3}
     - {fileID: 6237296794535784075, guid: 48c74238afa674d488133fd05c3d654c, type: 3}
@@ -18016,10 +18021,25 @@ PrefabInstance:
       propertyPath: closeLimit
       value: 359.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1219187014821926712, guid: 659a1fd496576624c808e549efa788b1,
+        type: 3}
+      propertyPath: rotateAngle
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219187014821926712, guid: 659a1fd496576624c808e549efa788b1,
+        type: 3}
+      propertyPath: trainCanRun
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
       propertyPath: m_Name
       value: BarrierRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1219187014821926718, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
@@ -18113,6 +18133,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 659a1fd496576624c808e549efa788b1, type: 3}
+--- !u!1 &687281987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 687281986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &687281988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687281987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 26
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!20 &693228233 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5893836073041905478, guid: de9e44fff0468ac4c9129505109af799,
@@ -19893,6 +19941,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1167285027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1789415955640181012, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169172748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1167285035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167285027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 27
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1169172748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20028,6 +20104,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: train
       objectReference: {fileID: 0}
+    - target: {fileID: 1789415955640181012, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789415955640181016, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
       propertyPath: m_Size.y
@@ -20112,8 +20193,13 @@ PrefabInstance:
     - target: {fileID: 1789415955640181023, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
       propertyPath: speed
-      value: -25
+      value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 1789415955640181023, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
+      propertyPath: barrierrod
+      value: 
+      objectReference: {fileID: 687281987}
     - target: {fileID: 1789415956022074476, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21333,6 +21419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrierTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 5369671235051538203, guid: 415db098364ec8c4190c438f7af88c0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5369671235051538206, guid: 415db098364ec8c4190c438f7af88c0e,
         type: 3}
       propertyPath: m_RootOrder
@@ -21859,6 +21950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 6237296794535784086, guid: 48c74238afa674d488133fd05c3d654c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c74238afa674d488133fd05c3d654c, type: 3}
 --- !u!1 &1389018861 stripped
@@ -22318,6 +22414,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrierRod1
       objectReference: {fileID: 0}
+    - target: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1219187014821926718, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
       propertyPath: m_SortingLayer
@@ -22620,7 +22721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1505118406
 SpriteRenderer:
   m_ObjectHideFlags: 0

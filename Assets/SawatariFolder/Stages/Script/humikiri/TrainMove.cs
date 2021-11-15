@@ -9,16 +9,17 @@ using Photon.Pun;
 
 public class TrainMove : MonoBehaviourPunCallbacks {
     // Start is called before the first frame update
-    GameObject barrierrod;
+    public GameObject barrierrod;
     BarrierRodScript barrierRod;
     Transform myTransform;
     Vector3 defaultpos;
     public static bool flag = false;
     public float speed =-25.0f;
+    public bool isRun=true;
     void Start()
     {
         myTransform = this.transform;
-        barrierrod = GameObject.Find("BarrierRod");
+        //barrierrod = GameObject.Find("BarrierRod");
         // 座標を取得
         defaultpos = myTransform.position;
         defaultpos.x += 0.01f;    // x座標へ0.01加算
@@ -30,11 +31,19 @@ public class TrainMove : MonoBehaviourPunCallbacks {
     void Update()
     {
         barrierRod = barrierrod.GetComponent<BarrierRodScript>();
-        if (barrierRod.state == 0 || barrierRod.state == 1)
+        if (barrierRod.trainTrigger)
+        {
+            //if (PhotonNetwork.IsMasterClient)
+            //{
+            GetComponent<PhotonView>().RPC(nameof(TrainRun), RpcTarget.All, barrierRod.trainCanRun);
+            barrierRod.trainTrigger = false;
+            //}
+        }
+        if (isRun)
         {
             this.gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
         }
-        if (barrierRod.state == 2)
+        if (!isRun)
         {
             myTransform.position = defaultpos;
         }
@@ -64,5 +73,13 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         //SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
         flag = true;
         SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
+    }
+
+    [PunRPC]
+    private void TrainRun(bool boo)
+    {
+        Debug.Log("TRAIN RUN:"+boo);
+        isRun = boo;
+        barrierRod.trainTrigger = false;
     }
 }
