@@ -19933,8 +19933,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1789415954728945726, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415954728945726, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789415954799746656, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -19969,8 +19974,13 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 848d0426806a27e47ac83933cbd988cd, type: 3}
     - target: {fileID: 1789415954799746663, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415954799746663, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789415955454341516, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -19989,8 +19999,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1789415955454341520, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415955454341520, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789415955454341523, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -20097,7 +20112,7 @@ PrefabInstance:
     - target: {fileID: 1789415955640181023, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
       propertyPath: speed
-      value: -1
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1789415956022074476, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -20116,8 +20131,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1789415956022074480, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415956022074480, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789415956022074483, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -20168,8 +20188,13 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 848d0426806a27e47ac83933cbd988cd, type: 3}
     - target: {fileID: 1789415956030311335, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415956030311335, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789415956467370620, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -20204,8 +20229,13 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 848d0426806a27e47ac83933cbd988cd, type: 3}
     - target: {fileID: 1789415956467370627, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
+      propertyPath: speed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789415956467370627, guid: 11ae80a0aef87e44393aa991dcf5c95b,
+        type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ae80a0aef87e44393aa991dcf5c95b, type: 3}
@@ -22630,7 +22660,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17412007d4aa39b47b65797d5ba5f988, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c47459268c9bc8c48ace6994e1e381ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
