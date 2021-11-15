@@ -74,8 +74,14 @@ public class ButtonManager : MonoBehaviour
         else
         {
             Cursor.visible = true;
+            //PhotonNetwork.LeaveRoom();
+            //SceneManager.LoadScene(2);
+            GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
             PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene(2);
+            PhotonNetwork.LeaveLobby();  //ルームを出る
+            PhotonNetwork.Disconnect();
+            Destroy(DDOobj);
+            SceneManager.LoadScene(0); //タイトルシーンに遷移
         }
     }
     public void GoRoom()
