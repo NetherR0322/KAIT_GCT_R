@@ -40,7 +40,8 @@ public class Goal : MonoBehaviourPunCallbacks
     {
         GameObject tako = GameObject.Find("tako");
         //Cursor.visible = true;
-        FadeManager.Instance.LoadLevel("ResultScene", 2f);
+        //FadeManager.Instance.LoadLevel("ResultScene", 2f);
+        SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
         flag = true;
         LimitScript.countCheck = false;
     }
