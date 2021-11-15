@@ -16,8 +16,12 @@ public class LobbySelect : MonoBehaviourPunCallbacks
     public Text text;
     public Button CrButtom, SrButtom,RefButtom;
     public BoxCollider2D CrCol, SrCol,CloseCol,RefCol;
+    float timing;
+    bool flag;
     void Start()
     {
+        timing = 0;
+        flag = false;
         PlayerNetWork = GameObject.Find("PlayerNetWork");
         PhotonView = PlayerNetWork.GetComponent<PhotonView>();
     }
@@ -25,25 +29,34 @@ public class LobbySelect : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
+        if (!flag)
+        {
+            timing += Time.deltaTime;
+            if (timing > 0.7f)
+            {
+                flag = true;
+            }
+        }
     }
     public void On_click_CreateRoomLobby()
     {
-        BGMPlayer.GetInstance().PlaySound(0);
-        //SearchRoomLobby.SetActive(false);
-        //CreateRoomLobby.SetActive(true);
-        //this.gameObject.SetActive(false);
-        PhotonNetwork.JoinRandomRoom();
-        //CloseImg.enabled = false;
-        CrImage.enabled = false;
-        SrImage.enabled = false;
-        //BaImage.enabled = false;
-        //text.enabled = false;
-        CrButtom.enabled = false;
-        SrButtom.enabled = false;
-        CrCol.enabled = false;
-        SrCol.enabled = false;
-        //CloseCol.enabled = false;
+        if (flag) {
+            BGMPlayer.GetInstance().PlaySound(0);
+            //SearchRoomLobby.SetActive(false);
+            //CreateRoomLobby.SetActive(true);
+            //this.gameObject.SetActive(false);
+            PhotonNetwork.JoinRandomRoom();
+            //CloseImg.enabled = false;
+            CrImage.enabled = false;
+            SrImage.enabled = false;
+            //BaImage.enabled = false;
+            //text.enabled = false;
+            CrButtom.enabled = false;
+            SrButtom.enabled = false;
+            CrCol.enabled = false;
+            SrCol.enabled = false;
+            //CloseCol.enabled = false;
+        }
     }
     public void On_click_SearchRoomLobby()
     {
