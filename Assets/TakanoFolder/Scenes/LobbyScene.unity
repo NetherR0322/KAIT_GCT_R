@@ -5384,7 +5384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934457255}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -5438,7 +5438,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934457255}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5499,7 +5499,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934457255}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -8473,12 +8473,15 @@ MonoBehaviour:
   CrImage: {fileID: 1917165854}
   SrImage: {fileID: 211521836}
   BaImage: {fileID: 371553873}
+  RefImage: {fileID: 934457258}
   text: {fileID: 1184323409}
   CrButtom: {fileID: 1917165853}
   SrButtom: {fileID: 211521835}
+  RefButtom: {fileID: 934457257}
   CrCol: {fileID: 1917165852}
   SrCol: {fileID: 211521834}
   CloseCol: {fileID: 1510426951}
+  RefCol: {fileID: 934457262}
 --- !u!1 &1493009892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10284,12 +10287,15 @@ MonoBehaviour:
   CrImage: {fileID: 1917165854}
   SrImage: {fileID: 211521836}
   BaImage: {fileID: 371553873}
+  RefImage: {fileID: 934457258}
   text: {fileID: 1184323409}
   CrButtom: {fileID: 1917165853}
   SrButtom: {fileID: 211521835}
+  RefButtom: {fileID: 934457257}
   CrCol: {fileID: 1917165852}
   SrCol: {fileID: 211521834}
   CloseCol: {fileID: 1510426951}
+  RefCol: {fileID: 934457262}
 --- !u!1 &1753477763
 GameObject:
   m_ObjectHideFlags: 0
