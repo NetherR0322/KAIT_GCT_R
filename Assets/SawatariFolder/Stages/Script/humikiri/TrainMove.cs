@@ -15,8 +15,6 @@ public class TrainMove : MonoBehaviourPunCallbacks {
     Vector3 defaultpos;
     public static bool flag = false;
     public float speed =-1.0f;
-
-    public bool goScene;
     void Start()
     {
         myTransform = this.transform;
@@ -40,9 +38,8 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         {
             myTransform.position = defaultpos;
         }
-        if (goScene) SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
     }
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
 
         if (col.gameObject.tag == "tako")
@@ -54,7 +51,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
                 if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
                 //SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
                 flag = true;
-                goScene = true;
+                SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
             }
         }
     }
@@ -66,6 +63,6 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         //SceneManager.LoadScene("GameOverScene");
         //SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
         flag = true;
-        goScene=true;
+        SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
     }
 }
