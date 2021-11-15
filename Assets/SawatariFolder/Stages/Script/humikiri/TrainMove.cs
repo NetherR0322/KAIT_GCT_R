@@ -14,7 +14,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
     Transform myTransform;
     Vector3 defaultpos;
     public static bool flag = false;
-    public float speed =-1.0f;
+    public float speed =-25.0f;
     void Start()
     {
         myTransform = this.transform;
@@ -32,7 +32,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         barrierRod = barrierrod.GetComponent<BarrierRodScript>();
         if (barrierRod.state == 0 || barrierRod.state == 1)
         {
-            this.gameObject.transform.Translate(speed, 0, 0);
+            this.gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
         }
         if (barrierRod.state == 2)
         {
