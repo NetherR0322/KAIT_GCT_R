@@ -27,16 +27,16 @@ public class Goal : MonoBehaviourPunCallbacks
         {
             GameObject tako = GameObject.Find("tako");
             //Cursor.visible = true;
-            SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
+            //SceneManager.LoadSceneAsync("ResultScene", LoadSceneMode.Additive);
             //FadeManager.Instance.LoadLevel("ResultScene", 2f);
             flag = true;
             LimitScript.countCheck = false;
-            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All,0);
+            if (PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(IsHit), RpcTarget.All);
         }
     }
 
     [PunRPC]
-    private void IsHit(int num)
+    private void IsHit()
     {
         GameObject tako = GameObject.Find("tako");
         //Cursor.visible = true;
