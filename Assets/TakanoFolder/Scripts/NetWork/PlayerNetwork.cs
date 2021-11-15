@@ -199,14 +199,8 @@ public class PlayerNetwork : MonoBehaviour
     {
         BGMPlayer.GetInstance().PlaySound(0);
         Cursor.visible = true;
-        //PhotonNetwork.LeaveRoom();
-        //SceneManager.LoadScene(2);
-        GameObject DDOobj = GameObject.FindGameObjectWithTag("DDO");
         PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LeaveLobby();  //ルームを出る
-        PhotonNetwork.Disconnect();
-        Destroy(DDOobj);
-        SceneManager.LoadScene(0); //タイトルシーンに遷移
+        SceneManager.LoadScene(2);
     }
     [PunRPC]
     private void isPlay()
