@@ -12,10 +12,10 @@ public class LobbySelect : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     GameObject PlayerNetWork;
     private PhotonView PhotonView;
-    public Image BgImg, CloseImg, CrImage, SrImage, BaImage,RefImage;
-    public Text text;
-    public Button CrButtom, SrButtom,RefButtom;
-    public BoxCollider2D CrCol, SrCol,CloseCol,RefCol;
+    public Image BgImg, CloseImg, CrImage, SrImage, BaImage,RefImage,LeaveImg;
+    public Text text,CloseText,LeaveText;
+    public Button CrButtom, SrButtom,RefButtom,CloseButtom,LeaveButtom;
+    public BoxCollider2D CrCol, SrCol,CloseCol,RefCol,LeaveCol;
     float timing;
     bool flag;
     void Start()
@@ -46,16 +46,22 @@ public class LobbySelect : MonoBehaviourPunCallbacks
             //CreateRoomLobby.SetActive(true);
             //this.gameObject.SetActive(false);
             PhotonNetwork.JoinRandomRoom();
-            //CloseImg.enabled = false;
+            CloseImg.enabled = false;
             CrImage.enabled = false;
             SrImage.enabled = false;
             //BaImage.enabled = false;
             //text.enabled = false;
+            CloseText.enabled = false;
             CrButtom.enabled = false;
             SrButtom.enabled = false;
+            CloseButtom.enabled = false;
             CrCol.enabled = false;
             SrCol.enabled = false;
-            //CloseCol.enabled = false;
+            CloseCol.enabled = false;
+            LeaveButtom.enabled = false;
+            LeaveCol.enabled = false;
+            LeaveText.enabled = false;
+            LeaveImg.enabled = false;
         }
     }
     public void On_click_SearchRoomLobby()
@@ -70,8 +76,10 @@ public class LobbySelect : MonoBehaviourPunCallbacks
         SrImage.enabled = false; 
         BaImage.enabled = false;
         text.enabled = false;
+        CloseText.enabled = false;
         CrButtom.enabled = false; 
         SrButtom.enabled = false;
+        CloseButtom.enabled = false;
         CrCol.enabled = false; 
         SrCol.enabled = false;
         CloseCol.enabled = false;

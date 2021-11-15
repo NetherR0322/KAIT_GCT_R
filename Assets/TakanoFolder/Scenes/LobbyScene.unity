@@ -8474,14 +8474,20 @@ MonoBehaviour:
   SrImage: {fileID: 211521836}
   BaImage: {fileID: 371553873}
   RefImage: {fileID: 934457258}
+  LeaveImg: {fileID: 1197982469}
   text: {fileID: 1184323409}
+  CloseText: {fileID: 1326911909}
+  LeaveText: {fileID: 11520024}
   CrButtom: {fileID: 1917165853}
   SrButtom: {fileID: 211521835}
   RefButtom: {fileID: 934457257}
+  CloseButtom: {fileID: 1510426952}
+  LeaveButtom: {fileID: 1197982468}
   CrCol: {fileID: 1917165852}
   SrCol: {fileID: 211521834}
   CloseCol: {fileID: 1510426951}
   RefCol: {fileID: 934457262}
+  LeaveCol: {fileID: 1197982473}
 --- !u!1 &1493009892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10289,9 +10295,11 @@ MonoBehaviour:
   BaImage: {fileID: 371553873}
   RefImage: {fileID: 934457258}
   text: {fileID: 1184323409}
+  CloseText: {fileID: 1326911909}
   CrButtom: {fileID: 1917165853}
   SrButtom: {fileID: 211521835}
   RefButtom: {fileID: 934457257}
+  CloseButtom: {fileID: 1510426952}
   CrCol: {fileID: 1917165852}
   SrCol: {fileID: 211521834}
   CloseCol: {fileID: 1510426951}
