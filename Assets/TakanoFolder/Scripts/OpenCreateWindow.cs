@@ -19,8 +19,8 @@ public class OpenCreateWindow : MonoBehaviour
     public GameObject grayOut;
 
     public Image BgImg, CloseImg, CrImage, SrImage, BaImage, RefImage;
-    public Text text;
-    public Button CrButtom, SrButtom,RefButtom;
+    public Text text,CloseText;
+    public Button CrButtom, SrButtom,RefButtom,CloseButtom;
     public BoxCollider2D CrCol, SrCol, CloseCol,RefCol;
     private void Start()
     {
@@ -74,8 +74,10 @@ public class OpenCreateWindow : MonoBehaviour
         SrImage.enabled = true;
         BaImage.enabled = true;
         text.enabled = true;
+        CloseText.enabled = true;
         CrButtom.enabled = true;
         SrButtom.enabled = true;
+        CloseButtom.enabled = true;
         CrCol.enabled = true;
         SrCol.enabled = true;
         CloseCol.enabled = true;
