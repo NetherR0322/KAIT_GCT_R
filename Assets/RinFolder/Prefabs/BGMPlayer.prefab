@@ -142,12 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd70b7088d240a549875483ed6407ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 00000000050000000600000008000000
+  sceneId: 0000000005000000060000000800000002000000
   bgm:
   - {fileID: 8300000, guid: 93bc9b539b8729440a9094d4c7c0df4a, type: 3}
   - {fileID: 8300000, guid: e47a041362d580643911a36aa09199ff, type: 3}
   - {fileID: 8300000, guid: e47a041362d580643911a36aa09199ff, type: 3}
   - {fileID: 8300000, guid: 17f177ecaa4c81c4fbefdd46c12b0859, type: 3}
+  - {fileID: 8300000, guid: 93bc9b539b8729440a9094d4c7c0df4a, type: 3}
   se:
   - {fileID: 8300000, guid: 8829943c1d536a94797a718622612c8c, type: 3}
   - {fileID: 8300000, guid: 792d0f0a1916eb541bde141f82057f1a, type: 3}
