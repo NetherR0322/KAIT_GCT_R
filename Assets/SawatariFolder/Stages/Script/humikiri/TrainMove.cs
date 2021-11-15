@@ -42,7 +42,7 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         }
         if (goScene) SceneManager.LoadSceneAsync("GameOverScene", LoadSceneMode.Additive);
     }
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
 
         if (col.gameObject.tag == "tako")
