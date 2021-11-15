@@ -44,8 +44,8 @@ public class BarrierRodScript : MonoBehaviour
         }
         if (state == 1)
         {
-            transform.Rotate(new Vector3(0, rotateAngle+Time.deltaTime, 0f));
-            rotateSize += rotateAngle + Time.deltaTime;
+            transform.Rotate(new Vector3(0, rotateAngle*Time.deltaTime, 0f));
+            rotateSize += rotateAngle * Time.deltaTime;
             //Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
         }
         if (state == 1 && rotateSize < openLimit)
@@ -70,9 +70,9 @@ public class BarrierRodScript : MonoBehaviour
         }
         if (state == 3)
         {
-            transform.Rotate(new Vector3(0, -(rotateAngle + Time.deltaTime), 0));
+            transform.Rotate(new Vector3(0, -(rotateAngle * Time.deltaTime), 0));
             //Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.y);
-            rotateSize -= rotateAngle + Time.deltaTime;
+            rotateSize -= rotateAngle * Time.deltaTime;
         }
         if (state == 3 && rotateSize > closeLimit)
         {

@@ -33,17 +33,37 @@ public class TrainMove : MonoBehaviourPunCallbacks {
         barrierRod = barrierrod.GetComponent<BarrierRodScript>();
         if (barrierRod.trainTrigger)
         {
-            //if (PhotonNetwork.IsMasterClient)
-            //{
-            GetComponent<PhotonView>().RPC(nameof(TrainRun), RpcTarget.All, barrierRod.trainCanRun);
-            barrierRod.trainTrigger = false;
-            //}
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GetComponent<PhotonView>().RPC(nameof(TrainRun), RpcTarget.All);
+                Debug.Log("TRAIN RUN");
+                isRun = true;
+            }
         }
+        if (!barrierRod.trainTrigger)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GetComponent<PhotonView>().RPC(nameof(TrainStop), RpcTarget.All);
+                Debug.Log("TRAIN STOP");
+                isRun = false;
+            }
+        }
+        /*
         if (isRun)
         {
             this.gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
         }
         if (!isRun)
+        {
+            myTransform.position = defaultpos;
+        }
+        */
+        if (barrierRod.state==0|| barrierRod.state==1)
+        {
+            this.gameObject.transform.Translate(speed * Time.deltaTime, 0, 0);
+        }
+        if (barrierRod.state == 2)
         {
             myTransform.position = defaultpos;
         }
@@ -78,8 +98,14 @@ public class TrainMove : MonoBehaviourPunCallbacks {
     [PunRPC]
     private void TrainRun(bool boo)
     {
-        Debug.Log("TRAIN RUN:"+boo);
-        isRun = boo;
-        barrierRod.trainTrigger = false;
+        Debug.Log("TRAIN RUN");
+        isRun = true;
+    }
+
+    [PunRPC]
+    private void TrainStop(bool boo)
+    {
+        Debug.Log("TRAIN STOP");
+        isRun = false;
     }
 }
