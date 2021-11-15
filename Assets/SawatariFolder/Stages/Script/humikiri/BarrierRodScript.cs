@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
 public class BarrierRodScript : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class BarrierRodScript : MonoBehaviour
     private float openLimit = 284.0f;
     private float closeLimit = 359.1f;
     public int state = 0;
+    public bool trainCanRun = true;
+    public bool trainTrigger = false;
+    public float rotateAngle;
+    private bool stateChanged;
     private void Start()
     {
         BarrierTrigger = GameObject.Find("BarrierTrigger");
@@ -22,25 +27,33 @@ public class BarrierRodScript : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("STATE:"+state);
         barrierTrigger = BarrierTrigger.GetComponent<BarrierTriggerScript>();
         barrierRod1 = barrierrod1.GetComponent<BarrierRodScript1>();
-        if (state == 0 && barrierTrigger.Hit == true)
+        if (state == 0&& barrierTrigger.Hit == true)
         {
+            trainCanRun = true;
+            trainTrigger = true;
+            Debug.Log("12345678");
             rotateSize = gameObject.transform.localEulerAngles.y;
             state = 1;
+            stateChanged = true;
             barrierTrigger.Hit = false;
             barrierRod1.state = 1;
             // Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
         }
         if (state == 1)
         {
-            transform.Rotate(new Vector3(0, -0.4f, 0f));
-            rotateSize -= 0.4f;
+            transform.Rotate(new Vector3(0, rotateAngle+Time.deltaTime, 0f));
+            rotateSize += rotateAngle + Time.deltaTime;
             //Debug.Log("現在の角度" + gameObject.transform.localEulerAngles.y);
         }
         if (state == 1 && rotateSize < openLimit)
         {
+            trainCanRun = false;
+            trainTrigger = true;
             state = 2;
+            stateChanged = true;
             barrierRod1.state = 2;
         }
         if (state == 2)
@@ -51,19 +64,29 @@ public class BarrierRodScript : MonoBehaviour
         if (state == 2 && countup >= timeLimit)
         {
             state = 3;
+            stateChanged = true;
             countup = 0.0f;
             barrierRod1.state = 3;
         }
         if (state == 3)
         {
-            transform.Rotate(new Vector3(0, 0.4f, 0));
+            transform.Rotate(new Vector3(0, -(rotateAngle + Time.deltaTime), 0));
             //Debug.Log("現在の角度"+gameObject.transform.localEulerAngles.y);
-            rotateSize += 0.4f;
+            rotateSize -= rotateAngle + Time.deltaTime;
         }
         if (state == 3 && rotateSize > closeLimit)
         {
             state = 0;
+            stateChanged = true;
             barrierRod1.state = 0;
         }
+        if(stateChanged&&PhotonNetwork.IsMasterClient) GetComponent<PhotonView>().RPC(nameof(StateChanger), RpcTarget.All,state);
+    }
+    [PunRPC]
+    private void StateChanger(int num)
+    {
+        Debug.Log("STATE CHANGED!!");
+        state = num;
+        barrierRod1.state = num;
     }
 }
