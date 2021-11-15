@@ -1688,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 6237296794535784086, guid: 48c74238afa674d488133fd05c3d654c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6237296794535784074, guid: 48c74238afa674d488133fd05c3d654c, type: 3}
@@ -18039,7 +18039,7 @@ PrefabInstance:
     - target: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219187014821926718, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
@@ -20107,7 +20107,7 @@ PrefabInstance:
     - target: {fileID: 1789415955640181012, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1789415955640181016, guid: 11ae80a0aef87e44393aa991dcf5c95b,
         type: 3}
@@ -21422,7 +21422,7 @@ PrefabInstance:
     - target: {fileID: 5369671235051538203, guid: 415db098364ec8c4190c438f7af88c0e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5369671235051538206, guid: 415db098364ec8c4190c438f7af88c0e,
         type: 3}
@@ -21953,7 +21953,7 @@ PrefabInstance:
     - target: {fileID: 6237296794535784086, guid: 48c74238afa674d488133fd05c3d654c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c74238afa674d488133fd05c3d654c, type: 3}
@@ -22417,7 +22417,7 @@ PrefabInstance:
     - target: {fileID: 1219187014821926715, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1219187014821926718, guid: 659a1fd496576624c808e549efa788b1,
         type: 3}
@@ -22721,7 +22721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1505118406
 SpriteRenderer:
   m_ObjectHideFlags: 0
